@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# Exclude source engine folders
+Disallow: /js/
+Disallow: /css/
+
+Sitemap: https://panteleos-nrg.gr/sitemap.xml
