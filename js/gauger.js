@@ -236,7 +236,7 @@ document.addEventListener('DOMContentLoaded', () => {
           <div style="color: #ffffff; font-size: 11px; text-align: right; line-height: 1.6;">
             Καραμουρτζούνη 1, Χαλκίδα, 34100<br>
             Τηλ: +30 2310 555 890<br>
-            <span style="color: #00e5ff; font-weight: 600;">info@panteleos-nrg.gr</span>
+            <span style="color: #00e5ff; font-weight: 600;">panteleos.nrg@gmail.com</span>
           </div>
         </div>
 
@@ -353,7 +353,7 @@ document.addEventListener('DOMContentLoaded', () => {
           <div style="color: #ffffff; font-size: 11px; text-align: right; line-height: 1.6;">
             Karamourtzouni 1, Chalkida, 34100<br>
             Tel: +30 2310 555 890<br>
-            <span style="color: #00e5ff; font-weight: 600;">info@panteleos-nrg.gr</span>
+            <span style="color: #00e5ff; font-weight: 600;">panteleos.nrg@gmail.com</span>
           </div>
         </div>
 
