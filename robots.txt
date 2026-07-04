@@ -5,4 +5,4 @@ Allow: /
 Disallow: /js/
 Disallow: /css/
 
-Sitemap: https://panteleos-nrg.gr/sitemap.xml
+Sitemap: https://panteleos-nrg.vercel.app/sitemap.xml
