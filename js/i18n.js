@@ -711,6 +711,9 @@ function setLanguage(lang) {
   if (window.updateTeamModalLanguage) {
     window.updateTeamModalLanguage(lang);
   }
+  if (window.updateTeamCardsLanguage) {
+    window.updateTeamCardsLanguage(lang);
+  }
   if (window.updateAccessibilityLanguage) {
     window.updateAccessibilityLanguage(lang);
   }

@@ -275,6 +275,51 @@ function initTeamModal() {
     renderModalContent(currentEngineer, lang);
   };
 
+  window.updateTeamCardsLanguage = (lang) => {
+    const isEl = lang === 'el';
+    document.querySelectorAll('.team-card').forEach(card => {
+      const engKey = card.getAttribute('data-engineer');
+      const data = TEAM_DATA[engKey];
+      if (!data) return;
+      const baseName = card.querySelector('.team-base h4');
+      const overlayName = card.querySelector('.team-overlay h4');
+      const regEl = card.querySelector('.team-overlay .reg');
+      const specListEl = card.querySelector('.spec-list');
+
+      if (baseName) baseName.textContent = isEl ? data.nameEl : data.nameEn;
+      if (overlayName) overlayName.textContent = isEl ? data.nameEl : data.nameEn;
+      if (regEl) regEl.textContent = isEl ? data.regEl : data.regEn;
+      if (specListEl) {
+        const specs = isEl ? data.specsEl : data.specsEn;
+        specListEl.innerHTML = specs.slice(0, 3).map(s => `<span>${s}</span>`).join('');
+      }
+    });
+
+    document.querySelectorAll('.p-card').forEach(card => {
+      const teamKey = card.getAttribute('data-team');
+      const data = TEAM_DATA[teamKey];
+      if (!data) return;
+      const pEl = card.querySelector('.p-info p');
+      if (pEl) {
+        const prefix = isEl ? "Υπεύθυνος Μηχανικός:" : "Lead Engineer:";
+        pEl.textContent = `${prefix} ${isEl ? data.nameEl : data.nameEn}`;
+      }
+    });
+
+    const metaEl = document.getElementById('m-meta');
+    if (metaEl && metaEl.textContent && (metaEl.textContent.startsWith('Υπεύθυνος Μηχανικός:') || metaEl.textContent.startsWith('Lead Engineer:'))) {
+      Object.values(TEAM_DATA).forEach(data => {
+        if (metaEl.textContent.includes(data.nameEn) || metaEl.textContent.includes(data.nameEl)) {
+          const prefix = isEl ? "Υπεύθυνος Μηχανικός:" : "Lead Engineer:";
+          metaEl.textContent = `${prefix} ${isEl ? data.nameEl : data.nameEn}`;
+        }
+      });
+    }
+  };
+
+  const initialLang = window.currentLang || localStorage.getItem('panteleos_lang') || 'el';
+  window.updateTeamCardsLanguage(initialLang);
+
   if (filterBtn) {
     filterBtn.addEventListener('click', () => {
       closeModal();
