@@ -34,7 +34,7 @@
       elaborateReply: "Ευχαρίστως! Ας εμβαθύνουμε περαιτέρω στο θέμα.",
       yesReply: "Τέλεια! Πώς μπορώ να σας βοηθήσω περαιτέρω;",
       noReply: "Κατανοητό. Υπάρχει κάτι άλλο που θα θέλατε να εξετάσουμε;",
-      frustrationReply: "Κατανοώ απόλυτα ότι η κατάσταση μπορεί να είναι απογοητευτική και ζητώ ειλικρινά συγγνώμη για οποιαδήποτε ταλαιπωρία. Η ικανοποίησή σας είναι η κορυφαία μας προτεραιότητα.\n\nΩς ψηφιακός βοηθός, οι δυνατότητές μου είναι περιορισμένες σε προκαθορισμένες τεχνικές πληροφορίες. Για να αντιμετωπίσουμε το αίτημά σας με την προσοχή που αξίζει, σας προτείνω να **επικοινωνήσετε απευθείας με την ανθρώπινη ομάδα μας**:\n\n📞 **Τηλέφωνο**: +30 2310 555 890\n📧 **Email**: panteleos.nrg@gmail.com\n\nΈνα μέλος της ομάδας μας θα χαρεί να σας εξυπηρετήσει προσωπικά.",
+      frustrationReply: "Κατανοώ απόλυτα ότι η κατάσταση μπορεί να είναι απογοητευτική και ζητώ ειλικρινά συγγνώμη για οποιαδήποτε ταλαιπωρία. Η ικανοποίησή σας είναι η κορυφαία μας προτεραιότητα.\n\nΩς ψηφιακός βοηθός, οι δυνατότητές μου είναι περιορισμένες σε προκαθορισμένες τεχνικές πληροφορίες. Για να αντιμετωπίσουμε το αίτημά σας με την προσοχή που αξίζει, σας προτείνω να **επικοινωνήσετε απευθείας με την ανθρώπινη ομάδα μας**:\n\n📞 **Τηλέφωνο**: +30 6976837114\n📧 **Email**: panteleos.nrg@gmail.com\n\nΈνα μέλος της ομάδας μας θα χαρεί να σας εξυπηρετήσει προσωπικά.",
       consultSuggest: "💡 Βλέπω ότι ενδιαφέρεστε αρκετά για αυτό το θέμα! Θέλετε να κλείσετε ένα **δωρεάν ραντεβού** τεχνικής αξιολόγησης με τον Dr. Παντελεό; Μπορείτε να χρησιμοποιήσετε τη φόρμα επικοινωνίας στο τέλος της σελίδας.",
       compareIntro: "Εξαιρετική ερώτηση! Ας δούμε τη σύγκριση:",
       portfolioIntro: "Βάσει του χαρτοφυλακίου μας, ορίστε τα σχετικά έργα:",
@@ -126,10 +126,10 @@
         },
         {
           id: "team",
-          chip: "👔 Η Ομάδα & ο Dr. Παντελεός",
+          chip: "👔 Η Ομάδα & ο Π. Παντελαίος",
           keywords: ["ομαδα", "παντελεος", "μηχανικοι", "αρχιτεκτονες", "βιογραφικο", "συμβουλιο", "εμπειρια", "διευθυντης"],
           question: "Ποιοι αποτελούν την ηγετική ομάδα και το συμβούλιο μηχανικών του γραφείου;",
-          answer: "Επικεφαλής του τεχνικού μας γραφείου είναι ο Managing Director **Dr. Αλέξανδρος Παντελεός**, Διδάκτωρ Πολιτικός Μηχανικός με εξειδίκευση στον αντισεισμικό σχεδιασμό και τα συστήματα BIM.\n\n👔 **Η Ηγετική μας Ομάδα (Council)**:\n- **Έλενα Βασιλείου**: Chief Architect & Sustainable Design Specialist.\n- **Μάρκος Στεφανίδης**: Head of Structural Engineering & Finite Element Systems.\n- **Δημήτρης Αλεξίου**: MEP & Energy Automation Director.\nΣυνδυάζουμε ακαδημαϊκή αριστεία με 25+ έτη εργοταξιακής εμπειρίας.",
+          answer: "Επικεφαλής του τεχνικού μας γραφείου είναι ο Ιδρυτής & Γενικός Διευθυντής **Παναγιώτης Μιχ. Παντελαίος**, Διπλ. Ηλεκτρολόγος Μηχανικός (BEng, MSc) με εξειδίκευση στις ενεργειακές υποδομές, τον αυτοματισμό και τα συστήματα BIM.\n\n👔 **Η Ηγετική μας Ομάδα (Council)**:\n- **Έλενα Βασιλείου**: Chief Architect & Sustainable Design Specialist.\n- **Μάρκος Στεφανίδης**: Head of Structural Engineering & Finite Element Systems.\n- **Δημήτρης Αλεξίου**: MEP & Energy Automation Director.\nΣυνδυάζουμε ακαδημαϊκή αριστεία με 25+ έτη εργοταξιακής εμπειρίας.",
           suggestedNext: ["turnkey", "contact"],
           actionBtn: { label: "👔 ΓΝΩΡΙΣΤΕ ΤΟ ΣΥΜΒΟΥΛΙΟ ΜΗΧΑΝΙΚΩΝ &rarr;", targetSection: "#team" }
         },
@@ -162,7 +162,7 @@
           chip: "📞 Ραντεβού & Απευθείας Επικοινωνία",
           keywords: ["τηλεφωνο", "τηλ", "ραντεβου", "επικοινωνια", "γραφειο", "χαλκιδα", "email", "info", "που ειστε"],
           question: "Πώς μπορώ να προγραμματίσω μία δια ζώσης ή διαδικτυακή τεχνική συνάντηση;",
-          answer: "Μπορείτε να επικοινωνήσετε μαζί μας άμεσα μέσω 3 καναλιών εξυπηρέτησης:\n\n📞 **Τηλεφωνικά**: Στο γραφείο μας στη Χαλκίδα (Καραμουρτζούνη 1) στο **+30 2310 555 890** (Δευτέρα – Παρασκευή, 09:00 – 18:00).\n📧 **Email**: Αποστείλετε τα αρχεία σας (DWG, PDF, τοπογραφικά) στο **panteleos.nrg@gmail.com** για δωρεάν προέλεγχο.\n📋 **Φόρμα Επικοινωνίας**: Συμπληρώστε τη φόρμα στο τέλος της σελίδας και ο Dr. Παντελεός θα επικοινωνήσει μαζί σας εντός 24 ωρών!",
+          answer: "Μπορείτε να επικοινωνήσετε μαζί μας άμεσα μέσω 3 καναλιών εξυπηρέτησης:\n\n📞 **Τηλεφωνικά**: Στο γραφείο μας στη Χαλκίδα (Καραμουρτζούνη 1) στο **+30 6976837114** (Δευτέρα – Παρασκευή, 09:00 – 18:00).\n📧 **Email**: Αποστείλετε τα αρχεία σας (DWG, PDF, τοπογραφικά) στο **panteleos.nrg@gmail.com** για δωρεάν προέλεγχο.\n📋 **Φόρμα Επικοινωνίας**: Συμπληρώστε τη φόρμα στο τέλος της σελίδας και ο κ. Παντελαίος θα επικοινωνήσει μαζί σας εντός 24 ωρών!",
           suggestedNext: ["cost", "team"],
           actionBtn: { label: "📋 ΜΕΤΑΒΑΣΗ ΣΤΗ ΦΟΡΜΑ ΕΠΙΚΟΙΝΩΝΙΑΣ &rarr;", targetSection: "#contact" }
         }
@@ -176,7 +176,7 @@
       inputPlaceholder: "Type a question or keyword (e.g. cost, permit, BIM, nZEB, renovation)...",
       sendBtn: "SEND →",
       welcome: "Hello! I am the advanced virtual engineering assistant for **PANTELEOS .NRG**, trained on Greek Building Regulations (NOK/TEE), KENAK energy codes, and ISO 19650 BIM standards.\n\n👉 **How may I assist you today?** Select one of our specialized architectural topics below or type your inquiry in plain natural language.",
-      fallback: "Thank you for your inquiry! Your question involves specialized engineering specifications that require customized analysis by our senior team.\n\n💡 **Recommended Action**: Select one of our technical categories below or proceed to our **Project Inquiry form** to speak directly with Dr. Panteleos.",
+      fallback: "Thank you for your inquiry! Your question involves specialized engineering specifications that require customized analysis by our senior team.\n\n💡 **Recommended Action**: Select one of our technical categories below or proceed to our **Project Inquiry form** to speak directly with Panagiotis Panteleos.",
       typing: "Searching technical specifications...",
       greetingsReply: "Greetings! Welcome to the digital engineering hub of **PANTELEOS .NRG**. I am ready to provide comprehensive data on architectural design, electronic permitting, seismic resilience, nZEB energy optimization, and turnkey project budgets. What topic shall we explore?",
       thanksReply: "You are very welcome! The **PANTELEOS .NRG** team remains at your disposal. Would you like to explore any other specifications?",
@@ -186,8 +186,8 @@
       elaborateReply: "Of course! Let me dive deeper into this topic.",
       yesReply: "Great! How can I help you further?",
       noReply: "Understood. Is there anything else you'd like to explore?",
-      frustrationReply: "I completely understand your frustration, and I sincerely apologize for any inconvenience. Your satisfaction is our highest priority.\n\nAs a digital assistant, my capabilities are limited to pre-defined technical information. To address your concern with the personal attention it deserves, I strongly recommend **reaching out directly to our human team**:\n\n📞 **Phone**: +30 2310 555 890\n📧 **Email**: panteleos.nrg@gmail.com\n\nA dedicated team member will be happy to assist you personally.",
-      consultSuggest: "💡 I see you're quite interested in this area! Would you like to schedule a **free consultation** with Dr. Panteleos? You can use the contact form at the bottom of the page.",
+      frustrationReply: "I completely understand your frustration, and I sincerely apologize for any inconvenience. Your satisfaction is our highest priority.\n\nAs a digital assistant, my capabilities are limited to pre-defined technical information. To address your concern with the personal attention it deserves, I strongly recommend **reaching out directly to our human team**:\n\n📞 **Phone**: +30 6976837114\n📧 **Email**: panteleos.nrg@gmail.com\n\nA dedicated team member will be happy to assist you personally.",
+      consultSuggest: "💡 I see you're quite interested in this area! Would you like to schedule a **free consultation** with Panagiotis M. Panteleos? You can use the contact form at the bottom of the page.",
       compareIntro: "Excellent question! Let's compare them:",
       portfolioIntro: "Based on our portfolio, here are the relevant projects:",
       copied: "Copied!",
@@ -278,10 +278,10 @@
         },
         {
           id: "team",
-          chip: "👔 Our Leadership & Dr. Panteleos",
+          chip: "👔 Our Leadership & P. Panteleos",
           keywords: ["team", "panteleos", "engineers", "architects", "council", "leadership", "who", "director"],
           question: "Who leads the engineering team and architectural council of the firm?",
-          answer: "Our technical office is led by Managing Director **Dr. Alexandros Panteleos**, Ph.D. Civil Engineer specializing in seismic design and advanced BIM methodologies.\n\n👔 **Our Leadership Council**:\n- **Elena Vasileiou**: Chief Architect & Sustainable Design Specialist.\n- **Markos Stefanidis**: Head of Structural Engineering & Finite Element Systems.\n- **Dimitris Alexiou**: MEP & Energy Automation Director.\nWe combine doctoral academic excellence with over 25 years of on-site construction mastery.",
+          answer: "Our technical office is led by Founder & Managing Director **Panagiotis M. Panteleos**, Electrical & Electronic Engineer (BEng, MSc) specializing in energy infrastructure, industrial automation, and advanced BIM methodologies.\n\n👔 **Our Leadership Council**:\n- **Elena Vasileiou**: Chief Architect & Sustainable Design Specialist.\n- **Markos Stefanidis**: Head of Structural Engineering & Finite Element Systems.\n- **Dimitris Alexiou**: MEP & Energy Automation Director.\nWe combine high academic excellence with over 25 years of on-site construction mastery.",
           suggestedNext: ["turnkey", "contact"],
           actionBtn: { label: "👔 MEET THE LEADERSHIP COUNCIL &rarr;", targetSection: "#team" }
         },
@@ -314,7 +314,7 @@
           chip: "📞 Appointments & Direct Contact",
           keywords: ["contact", "call", "phone", "email", "appointment", "meeting", "consultation", "office", "chalkida", "where", "reach"],
           question: "How can I schedule an in-person or virtual technical consultation?",
-          answer: "You can connect with our engineering leadership via 3 direct communication channels:\n\n📞 **Telephone**: Call our Chalkida office (Karamourtzouni 1) at **+30 2310 555 890** (Monday – Friday, 09:00 – 18:00 EET).\n📧 **Email**: Send your architectural brief or DWG/PDF drawings to **panteleos.nrg@gmail.com** for a complimentary feasibility review.\n📋 **Project Inquiry Form**: Complete the contact form at the bottom of this page and Dr. Panteleos will reach out within 24 hours!",
+          answer: "You can connect with our engineering leadership via 3 direct communication channels:\n\n📞 **Telephone**: Call our Chalkida office (Karamourtzouni 1) at **+30 6976837114** (Monday – Friday, 09:00 – 18:00 EET).\n📧 **Email**: Send your architectural brief or DWG/PDF drawings to **panteleos.nrg@gmail.com** for a complimentary feasibility review.\n📋 **Project Inquiry Form**: Complete the contact form at the bottom of this page and Panagiotis Panteleos will reach out within 24 hours!",
           suggestedNext: ["cost", "team"],
           actionBtn: { label: "📋 PROCEED TO CONTACT FORM &rarr;", targetSection: "#contact" }
         }

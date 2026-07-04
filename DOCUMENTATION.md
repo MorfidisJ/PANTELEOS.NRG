@@ -64,7 +64,7 @@ To add a new project card, duplicate an existing `<article class="p-card reveal"
 ```html
 <article class="p-card reveal" 
   data-cat="commercial bim" 
-  data-team="DR. ALEXANDROS PANTELEOS" 
+  data-team="PANAGIOTIS M. PANTELEOS" 
   data-area="12,500 m²" 
   data-dur="18 Months" 
   data-lod="LOD-400" 
@@ -78,7 +78,7 @@ To add a new project card, duplicate an existing `<article class="p-card reveal"
   <div class="p-info">
     <div class="tagrow"><span>PN-2026-0891</span><span>COMMERCIAL / BIM</span></div>
     <h4>Hellinikon Executive Tower</h4>
-    <p>Lead Engineer: Dr. Alexandros Panteleos</p>
+    <p>Lead Engineer: Panagiotis M. Panteleos</p>
   </div>
 </article>
 ```
@@ -87,7 +87,7 @@ To add a new project card, duplicate an existing `<article class="p-card reveal"
 | Attribute | Description | Example Values |
 | :--- | :--- | :--- |
 | `data-cat` | Space-separated filter categories. Controls filter buttons. | `commercial`, `industrial`, `residential`, `bim` |
-| `data-team` | Lead Engineer name (must match engineer card for cross-filtering). | `DR. ALEXANDROS PANTELEOS`, `ELENI STAVROU` |
+| `data-team` | Lead Engineer name (must match engineer card for cross-filtering). | `PANAGIOTIS M. PANTELEOS`, `ELENI STAVROU` |
 | `data-area` | Gross floor area displayed in specifications. | `6,400 m²`, `18,000 m²` |
 | `data-dur` | Execution or construction timeline. | `14 Months`, `24 Months` |
 | `data-lod` | Level of Development (BIM precision tier). | `LOD-350`, `LOD-400`, `LOD-500` |
@@ -142,7 +142,7 @@ Leadership council profiles are defined in `index.html` under `<section id="team
 
 1. **Changing Personnel Information**: Locate the engineer's `<article class="team-card">`. You can modify their name, initials portrait, and technical specialties directly in the HTML.
 2. **Updating Translatable Roles**: Update keys `team.role1` through `team.role6` in `js/i18n.js` to change their official titles in Greek and English.
-3. **Cross-Filtering Behavior**: Notice the attribute `data-engineer="DR. ALEXANDROS PANTELEOS"` on each team card. When a user clicks **"FILTER PROJECTS BY ENGINEER"**, `initTeamCrossFilter()` in `js/portfolio.js` reads this attribute, smoothly scrolls the viewport to the Case Studies section, activates the category filter, and highlights every project directed by that specific engineer while hiding unrelated projects.
+3. **Cross-Filtering Behavior**: Notice the attribute `data-engineer="PANAGIOTIS M. PANTELEOS"` on each team card. When a user clicks **"FILTER PROJECTS BY ENGINEER"**, `initTeamCrossFilter()` in `js/portfolio.js` reads this attribute, smoothly scrolls the viewport to the Case Studies section, activates the category filter, and highlights every project directed by that specific engineer while hiding unrelated projects.
 
 ---
 

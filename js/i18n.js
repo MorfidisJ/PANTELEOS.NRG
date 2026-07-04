@@ -131,7 +131,7 @@ const TRANSLATIONS = {
     "team.h2": "ΟΜΑΔΑ ΜΗΧΑΝΙΚΩΝ",
     "team.p": "Διεπιστημονική ομάδα εμπειρογνωμόνων στη στατική επάρκεια, τους Η/Μ αυτοματισμούς και τη μοντελοποίηση BIM.",
     "team.btn": "ΠΡΟΒΟΛΗ ΕΡΓΩΝ ΜΗΧΑΝΙΚΟΥ &rarr;",
-    "team.role1": "Γενικός Διευθυντής & Επικεφαλής Μηχανικός BIM",
+    "team.role1": "Ιδρυτής & Γενικός Διευθυντής",
     "team.role2": "Διευθυντής Η/Μ & Ενεργειακών Υποδομών",
     "team.role3": "Επικεφαλής Αρχιτέκτων & Ειδικός nZEB",
     "team.role4": "Επικεφαλής Στατικών Ενισχύσεων & Γεωτεχνικών",
@@ -197,7 +197,7 @@ const TRANSLATIONS = {
     "form.msg": "Προδιαγραφές Έργου & Χρονοδιάγραμμα *",
     "form.submit": "ΑΠΟΣΤΟΛΗ ΤΕΧΝΙΚΟΥ ΑΙΤΗΜΑΤΟΣ",
     "form.succ.h": "ΤΟ ΑΙΤΗΜΑ ΑΠΕΣΤΑΛΗ",
-    "form.succ.p": "Το τεχνικό σας αίτημα καταχωρήθηκε και απεστάλη στον Δρ. Αλέξανδρο Παντελεό. Θα λάβετε απάντηση μηχανικού εντός 24 ωρών.",
+    "form.succ.p": "Το τεχνικό σας αίτημα καταχωρήθηκε και απεστάλη στον Παναγιώτη Μιχ. Παντελαίο. Θα λάβετε απάντηση μηχανικού εντός 24 ωρών.",
 
     // Footer
     "footer.p": "Αρχιτεκτονικός και στατικός σχεδιασμός νέας γενιάς, μοντελοποίηση BIM και κατασκευαστική διαχείριση σε όλη την Ελλάδα.",
@@ -353,7 +353,7 @@ const TRANSLATIONS = {
     "team.h2": "ENGINEERING COUNCIL",
     "team.p": "Multidisciplinary experts directing structural integrity, MEP automation, and BIM digital twin standards.",
     "team.btn": "FILTER PROJECTS BY ENGINEER &rarr;",
-    "team.role1": "Managing Director & Chief Structural BIM Engineer",
+    "team.role1": "Founder & Managing Director",
     "team.role2": "Head of MEP & Energy Infrastructure",
     "team.role3": "Senior Lead Architect & nZEB Specialist",
     "team.role4": "Structural Retrofit & Geotechnical Lead",
@@ -419,7 +419,7 @@ const TRANSLATIONS = {
     "form.msg": "Project Specifications, Scope & Timeline *",
     "form.submit": "SUBMIT PROJECT BRIEF",
     "form.succ.h": "INQUIRY SUBMITTED",
-    "form.succ.p": "Your project brief has been received by Dr. Alexandros Panteleos. An engineering feasibility evaluation will be sent to you within 24 hours.",
+    "form.succ.p": "Your project brief has been received by Panagiotis M. Panteleos. An engineering feasibility evaluation will be sent to you within 24 hours.",
 
     // Footer
     "footer.p": "Next-generation architectural engineering, BIM digital twin modeling, and turnkey construction management across Greece.",

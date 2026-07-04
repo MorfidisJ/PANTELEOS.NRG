@@ -235,7 +235,7 @@ document.addEventListener('DOMContentLoaded', () => {
           </div>
           <div style="color: #ffffff; font-size: 11px; text-align: right; line-height: 1.6;">
             Καραμουρτζούνη 1, Χαλκίδα, 34100<br>
-            Τηλ: +30 2310 555 890<br>
+            Τηλ: +30 6976837114<br>
             <span style="color: #00e5ff; font-weight: 600;">panteleos.nrg@gmail.com</span>
           </div>
         </div>
@@ -333,9 +333,9 @@ document.addEventListener('DOMContentLoaded', () => {
         <div style="margin-top: 36px; padding-top: 20px; border-top: 2px solid #e2e8f0; display: flex; justify-content: space-between; align-items: flex-end;">
           <div style="font-size: 11.5px; color: #64748b;">
             <div style="font-weight: 700; color: #0a1428; text-transform: uppercase; letter-spacing: 0.5px;">ΕΓΚΡΙΣΗ ΑΠΟ ΤΗ ΔΙΕΥΘΥΝΣΗ ΜΕΛΕΤΩΝ:</div>
-            <div style="font-size: 15px; font-weight: 800; color: #0a1428; margin-top: 6px;">Δρ. Αλέξανδρος Παντελεός</div>
-            <div style="margin-top: 2px;">Δρ. Πολιτικός Μηχανικός ΕΜΠ // M.Sc. Αντισεισμικής Μηχανικής</div>
-            <div style="margin-top: 1px; color: #008cff; font-weight: 600;">Γενικός Διευθυντής, PANTELEOS .NRG</div>
+            <div style="font-size: 15px; font-weight: 800; color: #0a1428; margin-top: 6px;">Παναγιώτης Μιχ. Παντελαίος</div>
+            <div style="margin-top: 2px;">Διπλ. Ηλεκτρολόγος Μηχανικός // BEng, MSc</div>
+            <div style="margin-top: 1px; color: #008cff; font-weight: 600;">Ιδρυτής & Γενικός Διευθυντής, PANTELEOS .NRG</div>
           </div>
           <div style="background: #0a1428; color: #00e5ff; padding: 12px 20px; border-radius: 8px; font-size: 10.5px; font-weight: 700; letter-spacing: 1.5px; text-align: center; border: 1px solid #008cff; box-shadow: 0 4px 10px rgba(0,0,0,0.15);">
             ΠΙΣΤΟΠΟΙΗΜΕΝΗ ΜΕΛΕΤΗ<br><span style="color: #ffffff;">ISO 19650 COUNCIL</span>
@@ -352,7 +352,7 @@ document.addEventListener('DOMContentLoaded', () => {
           </div>
           <div style="color: #ffffff; font-size: 11px; text-align: right; line-height: 1.6;">
             Karamourtzouni 1, Chalkida, 34100<br>
-            Tel: +30 2310 555 890<br>
+            Tel: +30 6976837114<br>
             <span style="color: #00e5ff; font-weight: 600;">panteleos.nrg@gmail.com</span>
           </div>
         </div>
@@ -450,9 +450,9 @@ document.addEventListener('DOMContentLoaded', () => {
         <div style="margin-top: 36px; padding-top: 20px; border-top: 2px solid #e2e8f0; display: flex; justify-content: space-between; align-items: flex-end;">
           <div style="font-size: 11.5px; color: #64748b;">
             <div style="font-weight: 700; color: #0a1428; text-transform: uppercase; letter-spacing: 0.5px;">AUTHORIZED BY THE ENGINEERING COUNCIL:</div>
-            <div style="font-size: 15px; font-weight: 800; color: #0a1428; margin-top: 6px;">Dr. Alexandros Panteleos</div>
-            <div style="margin-top: 2px;">Ph.D. Civil Engineering, NTUA // M.Sc. Earthquake Eng.</div>
-            <div style="margin-top: 1px; color: #008cff; font-weight: 600;">Managing Director, PANTELEOS .NRG</div>
+            <div style="font-size: 15px; font-weight: 800; color: #0a1428; margin-top: 6px;">Panagiotis M. Panteleos</div>
+            <div style="margin-top: 2px;">BEng, MSc Electrical Engineering</div>
+            <div style="margin-top: 1px; color: #008cff; font-weight: 600;">Founder & Managing Director, PANTELEOS .NRG</div>
           </div>
           <div style="background: #0a1428; color: #00e5ff; padding: 12px 20px; border-radius: 8px; font-size: 10.5px; font-weight: 700; letter-spacing: 1.5px; text-align: center; border: 1px solid #008cff; box-shadow: 0 4px 10px rgba(0,0,0,0.15);">
             CERTIFIED STUDY<br><span style="color: #ffffff;">ISO 19650 COUNCIL</span>

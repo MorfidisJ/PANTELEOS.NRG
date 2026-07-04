@@ -97,20 +97,20 @@ function initTeamCrossFilter() {
 }
 
 const TEAM_DATA = {
-  "DR. ALEXANDROS PANTELEOS": {
-    initials: "AP",
-    nameEn: "Dr. Alexandros Panteleos",
-    nameEl: "Δρ. Αλέξανδρος Παντελεός",
-    roleEn: "Managing Director & Chief Structural BIM Engineer",
-    roleEl: "Managing Director & Chief Structural BIM Engineer",
-    regEn: "TEE REG: #48192 // MEng, PhD Civil Eng",
-    regEl: "ΑΡ. ΜΗΤΡΩΟΥ ΤΕΕ: #48192 // Διδάκτωρ ΕΜΠ",
-    bioEn: "Dr. Alexandros Panteleos is an elite Civil & Structural Engineer with over 20 years of leadership directing complex seismic, infrastructure, and turnkey developments across Greece and Europe. Holding a Ph.D. in Finite Element Modeling from NTUA and an M.Sc. in Earthquake Engineering, he pioneered the adoption of ISO 19650 BIM LOD-400 standards in Greek construction. As Managing Director of PANTELEOS .NRG, he personally oversees all high-demand structural calculations, base isolation foundations, and executive project budgets.",
-    bioEl: "Ο Δρ. Αλέξανδρος Παντελεός είναι κορυφαίος Πολιτικός Μηχανικός με περισσότερα από 20 έτη ηγετικής εμπειρίας στη διεύθυνση σύνθετων κτιριακών και ενεργειακών έργων σε Ελλάδα και Ευρώπη. Διδάκτωρ του ΕΜΠ στην Ανάλυση Πεπερασμένων Στοιχείων και κάτοχος M.Sc. στην Αντισεισμική Μηχανική, πρωτοπόρησε στην εφαρμογή των προτύπων BIM LOD-400 στον ελλαδικό χώρο. Ως Managing Director του PANTELEOS .NRG, επιβλέπει προσωπικά κάθε στατική μελέτη υψηλών απαιτήσεων, θεμελιώσεις σεισμικής μόνωσης και τον προϋπολογισμό των έργων Turnkey.",
+  "PANAGIOTIS M. PANTELEOS": {
+    initials: "PP",
+    nameEn: "Panagiotis M. Panteleos",
+    nameEl: "Παναγιώτης Μιχ. Παντελαίος",
+    roleEn: "Founder & Managing Director, Lead Electrical Engineer",
+    roleEl: "Ιδρυτής & Γενικός Διευθυντής, Διπλ. Ηλεκτρολόγος Μηχανικός",
+    regEn: "BEng, MSc Electrical Engineering",
+    regEl: "Διπλ. Ηλεκτρολόγος Μηχανικός // BEng, MSc",
+    bioEn: "Panagiotis Mich. Panteleos is the Founder and Managing Director of PANTELEOS .NRG, bringing extensive academic and practical expertise in electrical and electronic engineering. Holding a BEng in Electrical & Electronic Engineering and an MSc in Electrical & Electromagnetic Engineering, he directs advanced energy infrastructure, industrial automation, and turnkey developments across Greece. At PANTELEOS .NRG, he personally oversees electromechanical systems, bioclimatic energy upgrades, and executive project budgeting.",
+    bioEl: "Ο Παναγιώτης Μιχ. Παντελαίος είναι Ιδρυτής και Γενικός Διευθυντής του τεχνικού γραφείου PANTELEOS .NRG, με εξειδικευμένη ακαδημαϊκή και επαγγελματική εμπειρία στις ηλεκτρολογικές και ηλεκτρονικές μελέτες. Διπλωματούχος Ηλεκτρολόγος Μηχανικός, κάτοχος BEng στην Ηλεκτρολογική & Ηλεκτρονική Μηχανική και MSc στην Ηλεκτρολογική & Ηλεκτρομαγνητική Μηχανική, ηγείται των έργων ενεργειακών υποδομών, βιομηχανικού αυτοματισμού και Turnkey κατασκευών σε όλη την Ελλάδα. Επιβλέπει προσωπικά τις Η/Μ εγκαταστάσεις, τις βιοκλιματικές ενεργειακές αναβαθμίσεις και τον προϋπολογισμό των έργων του γραφείου.",
     email: "panteleos.nrg@gmail.com",
-    tel: "+30 2310 555 890 // Ext. 101",
-    specsEn: ["Seismic Design EAK/Eurocodes", "ISO 19650 BIM LOD-400", "Turnkey Design & Build Mgmt", "Base Isolation Foundation", "Algorithmic Cost Estimation"],
-    specsEl: ["Αντισεισμικός Σχεδιασμός ΕΑΚ/Ευρωκώδικες", "Πρότυπα ISO 19650 BIM LOD-400", "Διαχείριση Έργων Turnkey", "Θεμελιώσεις Σεισμικής Μόνωσης", "Αλγοριθμική Κοστολόγηση Έργων"]
+    tel: "+30 6976837114",
+    specsEn: ["Electrical & Electronic Engineering", "Electromagnetic Infrastructure", "ISO 19650 BIM Integration", "Turnkey Design & Build Mgmt", "Algorithmic Cost Estimation"],
+    specsEl: ["Ηλεκτρολογικές & Ηλεκτρονικές Μελέτες", "Ηλεκτρομαγνητικές Υποδομές", "Ενσωμάτωση Συστημάτων BIM", "Διαχείριση Έργων Turnkey", "Αλγοριθμική Κοστολόγηση Έργων"]
   },
   "DIMITRIS VAMVAKAS": {
     initials: "DV",
@@ -123,7 +123,7 @@ const TEAM_DATA = {
     bioEn: "Dimitris Vamvakas is an Electrical & Mechanical Engineer (M.Sc. EE) specializing in industrial automation, SCADA networks, and ultra-high-efficiency MEP systems. He leads the energy infrastructure division at PANTELEOS .NRG, designing geothermal heat pump arrays, VRV/VRF HVAC networks, and smart KNX building automation that achieve nZEB Class A+ energy performance.",
     bioEl: "Ο Δημήτρης Βαμβακάς είναι Διπλωματούχος Ηλεκτρολόγος Μηχανικός (M.Sc.) με εξειδίκευση στον βιομηχανικό αυτοματισμό, τα δίκτυα SCADA και τα συστήματα Η/Μ μέγιστης ενεργειακής απόδοσης. Ηγείται του τμήματος ενεργειακών υποδομών του PANTELEOS .NRG, σχεδιάζοντας γεωθερμικές αντλίες θερμότητας, κλιματισμό VRV/VRF και έξυπνους αυτοματισμούς KNX για κτίρια nZEB Κατηγορίας Α+.",
     email: "panteleos.nrg@gmail.com",
-    tel: "+30 2310 555 890 // Ext. 104",
+    tel: "+30 6976837114",
     specsEn: ["HVAC Automation & VRV/VRF", "High-Voltage SCADA Grids", "nZEB Energy Retrofits", "KNX Smart Building Control", "Geothermal Heat Exchange"],
     specsEl: ["Αυτοματισμοί Κλιματισμού VRV/VRF", "Δίκτυα Υψηλής Τάσης & SCADA", "Ενεργειακές Αναβαθμίσεις nZEB", "Έξυπνος Έλεγχος Κτιρίων KNX", "Γεωθερμικά Συστήματα"]
   },
@@ -138,7 +138,7 @@ const TEAM_DATA = {
     bioEn: "Eleni Stavrou is a Senior Lead Architect (M.Arch) renowned for merging bioclimatic Mediterranean architecture with cutting-edge parametric design. She leads the architectural council at PANTELEOS .NRG, directing luxury residential complexes, executive hospitality resorts, and complex urban permitting (e-Adeia) through the Council of Architecture (SA) and Archaeology.",
     bioEl: "Η Ελένη Σταύρου είναι Senior Architect (M.Arch) με πολυετείς διακρίσεις στον συνδυασμό της βιοκλιματικής μεσογειακής αρχιτεκτονικής με τον σύγχρονο παραμετρικό σχεδιασμό. Διευθύνει το αρχιτεκτονικό συμβούλιο του PANTELEOS .NRG, εκπονώντας μελέτες πολυτελών κατοικιών, ξενοδοχειακών συγκροτημάτων και χειρίζεται την πολεοδομική αδειοδότηση (e-Άδεια) σε Συμβούλια Αρχιτεκτονικής.",
     email: "panteleos.nrg@gmail.com",
-    tel: "+30 2310 555 890 // Ext. 102",
+    tel: "+30 6976837114",
     specsEn: ["Bioclimatic Architecture", "Luxury Residential Design", "Hospitality & Resort Masterplan", "e-Adeia Urban Permitting", "Parametric 3D Modeling"],
     specsEl: ["Βιοκλιματική Αρχιτεκτονική", "Σχεδιασμός Πολυτελών Κατοικιών", "Ξενοδοχειακά Συγκροτήματα", "Ηλεκτρονική Αδειοδότηση e-Άδεια", "Παραμετρικός 3D Σχεδιασμός"]
   },
@@ -153,7 +153,7 @@ const TEAM_DATA = {
     bioEn: "Nikos Kazantzis is a Senior Civil & Geotechnical Engineer (M.Eng) specializing in structural health monitoring, seismic rehabilitation, and deep foundation engineering. At PANTELEOS .NRG, he directs carbon-fiber reinforced polymer (CFRP) strengthening, jacket encapsulation, and high-capacity pile foundation designs for high-rise and industrial retrofits.",
     bioEl: "Ο Νίκος Καζαντζής είναι Πολιτικός & Γεωτεχνικός Μηχανικός (M.Eng) με εξειδίκευση στην αποτίμηση στατικής επάρκειας, τις αντισεισμικές ενισχύσεις και τις βαθιές θεμελιώσεις. Στο PANTELEOS .NRG κατευθύνει έργα ενίσχυσης φερουσών κατασκευών με ανθρακονήματα (CFRP), μανδύες οπλισμένου σκυροδέματος και μικροπασσάλους.",
     email: "panteleos.nrg@gmail.com",
-    tel: "+30 2310 555 890 // Ext. 105",
+    tel: "+30 6976837114",
     specsEn: ["Carbon Fiber CFRP Retrofit", "Deep Foundation & Piling", "Seismic Health Monitoring", "High-Rise Reinforcement", "Geotechnical Soil Mechanics"],
     specsEl: ["Ενισχύσεις με Ανθρακονήματα CFRP", "Βαθιές Θεμελιώσεις & Πάσσαλοι", "Έλεγχος Στατικής Επάρκειας", "Ενισχύσεις Υψηλών Κτιρίων", "Γεωτεχνική Εδαφομηχανική"]
   },
@@ -168,7 +168,7 @@ const TEAM_DATA = {
     bioEn: "Maria Papadopoulou is a dedicated BIM Coordination Manager (M.Sc. BIM & Digital Engineering) holding international certifications in Autodesk Revit and ISO 19650 protocols. She orchestrates multi-disciplinary clash detection, 4D construction timeline simulations, and 5D quantity extraction across all active PANTELEOS .NRG projects.",
     bioEl: "Η Μαρία Παπαδοπούλου είναι BIM Coordination Manager (M.Sc. BIM & Digital Engineering) με διεθνείς πιστοποιήσεις στα πρωτόκολλα ISO 19650 και το Autodesk Revit. Συντονίζει τον αυτοματοποιημένο έλεγχο συγκρούσεων (Clash Detection), τις 4D χρονικές προσομοιώσεις κατασκευής και την 5D προμέτρηση υλικών σε όλα τα ενεργά έργα μας.",
     email: "panteleos.nrg@gmail.com",
-    tel: "+30 2310 555 890 // Ext. 103",
+    tel: "+30 6976837114",
     specsEn: ["ISO 19650 BIM Protocols", "Automated Clash Detection", "4D Timeline Simulation", "5D Precision BOQ Extraction", "Revit & Navisworks Matrix"],
     specsEl: ["Πρωτόκολλα ISO 19650 BIM", "Αυτοματοποιημένος Έλεγχος Συγκρούσεων", "4D Χρονική Προσομοίωση Έργου", "5D Προμέτρηση Υλικών BOQ", "Συντονισμός Revit & Navisworks"]
   },
@@ -183,7 +183,7 @@ const TEAM_DATA = {
     bioEn: "Giorgos Makris is an experienced On-Site Construction Manager (B.Eng Civil) bringing over 15 years of field execution expertise. He enforces rigorous ISO 9001 quality supervision, safety compliance, subcontractor coordination, and real-time material testing on every PANTELEOS .NRG construction site across Greece.",
     bioEl: "Ο Γιώργος Μακρής είναι Εργοταξιάρχης & Διευθυντής Ποιοτικού Ελέγχου (B.Eng Civil) με 15+ έτη αδιάλειπτης εμπειρίας στην κατασκευαστική εκτέλεση. Επιβάλλει αυστηρό ποιοτικό έλεγχο κατά ISO 9001, μέτρα εργοταξιακής ασφάλειας, συντονισμό υπεργολάβων και εργαστηριακούς ελέγχους αντοχής υλικών σε κάθε εργοτάξιο του PANTELEOS .NRG.",
     email: "panteleos.nrg@gmail.com",
-    tel: "+30 2310 555 890 // Ext. 108",
+    tel: "+30 6976837114",
     specsEn: ["ISO 9001 Quality Control", "On-Site Contractor Mgmt", "Safety & OHS Compliance", "Concrete & Material Testing", "Turnkey Schedule Execution"],
     specsEl: ["Ποιοτικός Έλεγχος ISO 9001", "Διοίκηση Εργοταξίου & Υπεργολάβων", "Μέτρα Ασφάλειας & Υγιεινής OHS", "Εργαστηριακοί Έλεγχοι Σκυροδέματος", "Τήρηση Χρονοδιαγραμμάτων Turnkey"]
   }
