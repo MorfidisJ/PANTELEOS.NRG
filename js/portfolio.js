@@ -96,98 +96,8 @@ function initTeamCrossFilter() {
   });
 }
 
-const TEAM_DATA = {
-  "PANAGIOTIS M. PANTELEOS": {
-    initials: "PP",
-    nameEn: "Panagiotis M. Panteleos",
-    nameEl: "Παναγιώτης Μιχ. Παντελαίος",
-    roleEn: "Founder & Managing Director, Lead Electrical Engineer",
-    roleEl: "Ιδρυτής & Γενικός Διευθυντής, Διπλ. Ηλεκτρολόγος Μηχανικός",
-    regEn: "BEng, MSc Electrical Engineering",
-    regEl: "Διπλ. Ηλεκτρολόγος Μηχανικός // BEng, MSc",
-    bioEn: "Panagiotis Mich. Panteleos is the Founder and Managing Director of PANTELEOS .NRG, bringing extensive academic and practical expertise in electrical and electronic engineering. Holding a BEng in Electrical & Electronic Engineering and an MSc in Electrical & Electromagnetic Engineering, he directs advanced energy infrastructure, industrial automation, and turnkey developments across Greece. At PANTELEOS .NRG, he personally oversees electromechanical systems, bioclimatic energy upgrades, and executive project budgeting.",
-    bioEl: "Ο Παναγιώτης Μιχ. Παντελαίος είναι Ιδρυτής και Γενικός Διευθυντής του τεχνικού γραφείου PANTELEOS .NRG, με εξειδικευμένη ακαδημαϊκή και επαγγελματική εμπειρία στις ηλεκτρολογικές και ηλεκτρονικές μελέτες. Διπλωματούχος Ηλεκτρολόγος Μηχανικός, κάτοχος BEng στην Ηλεκτρολογική & Ηλεκτρονική Μηχανική και MSc στην Ηλεκτρολογική & Ηλεκτρομαγνητική Μηχανική, ηγείται των έργων ενεργειακών υποδομών, βιομηχανικού αυτοματισμού και Turnkey κατασκευών σε όλη την Ελλάδα. Επιβλέπει προσωπικά τις Η/Μ εγκαταστάσεις, τις βιοκλιματικές ενεργειακές αναβαθμίσεις και τον προϋπολογισμό των έργων του γραφείου.",
-    email: "panteleos.nrg@gmail.com",
-    tel: "+30 6976837114",
-    specsEn: ["Electrical & Electronic Engineering", "Electromagnetic Infrastructure", "ISO 19650 BIM Integration", "Turnkey Design & Build Mgmt", "Algorithmic Cost Estimation"],
-    specsEl: ["Ηλεκτρολογικές & Ηλεκτρονικές Μελέτες", "Ηλεκτρομαγνητικές Υποδομές", "Ενσωμάτωση Συστημάτων BIM", "Διαχείριση Έργων Turnkey", "Αλγοριθμική Κοστολόγηση Έργων"]
-  },
-  "DIMITRIS VAMVAKAS": {
-    initials: "DV",
-    nameEn: "Dimitris Vamvakas",
-    nameEl: "Δημήτρης Βαμβακάς",
-    roleEn: "Head of MEP & Energy Infrastructure",
-    roleEl: "Head of MEP & Energy Infrastructure",
-    regEn: "TEE REG: #51034 // MSc EE / Automation",
-    regEl: "ΑΡ. ΜΗΤΡΩΟΥ ΤΕΕ: #51034 // MSc Ηλεκτρολόγος Μηχ.",
-    bioEn: "Dimitris Vamvakas is an Electrical & Mechanical Engineer (M.Sc. EE) specializing in industrial automation, SCADA networks, and ultra-high-efficiency MEP systems. He leads the energy infrastructure division at PANTELEOS .NRG, designing geothermal heat pump arrays, VRV/VRF HVAC networks, and smart KNX building automation that achieve nZEB Class A+ energy performance.",
-    bioEl: "Ο Δημήτρης Βαμβακάς είναι Διπλωματούχος Ηλεκτρολόγος Μηχανικός (M.Sc.) με εξειδίκευση στον βιομηχανικό αυτοματισμό, τα δίκτυα SCADA και τα συστήματα Η/Μ μέγιστης ενεργειακής απόδοσης. Ηγείται του τμήματος ενεργειακών υποδομών του PANTELEOS .NRG, σχεδιάζοντας γεωθερμικές αντλίες θερμότητας, κλιματισμό VRV/VRF και έξυπνους αυτοματισμούς KNX για κτίρια nZEB Κατηγορίας Α+.",
-    email: "panteleos.nrg@gmail.com",
-    tel: "+30 6976837114",
-    specsEn: ["HVAC Automation & VRV/VRF", "High-Voltage SCADA Grids", "nZEB Energy Retrofits", "KNX Smart Building Control", "Geothermal Heat Exchange"],
-    specsEl: ["Αυτοματισμοί Κλιματισμού VRV/VRF", "Δίκτυα Υψηλής Τάσης & SCADA", "Ενεργειακές Αναβαθμίσεις nZEB", "Έξυπνος Έλεγχος Κτιρίων KNX", "Γεωθερμικά Συστήματα"]
-  },
-  "ELENI STAVROU": {
-    initials: "ES",
-    nameEn: "Eleni Stavrou",
-    nameEl: "Ελένη Σταύρου",
-    roleEn: "Senior Lead Architect & nZEB Specialist",
-    roleEl: "Senior Lead Architect & nZEB Specialist",
-    regEn: "TEE REG: #59211 // MArch Bioclimatic",
-    regEl: "ΑΡ. ΜΗΤΡΩΟΥ ΤΕΕ: #59211 // MArch Αρχιτέκτων",
-    bioEn: "Eleni Stavrou is a Senior Lead Architect (M.Arch) renowned for merging bioclimatic Mediterranean architecture with cutting-edge parametric design. She leads the architectural council at PANTELEOS .NRG, directing luxury residential complexes, executive hospitality resorts, and complex urban permitting (e-Adeia) through the Council of Architecture (SA) and Archaeology.",
-    bioEl: "Η Ελένη Σταύρου είναι Senior Architect (M.Arch) με πολυετείς διακρίσεις στον συνδυασμό της βιοκλιματικής μεσογειακής αρχιτεκτονικής με τον σύγχρονο παραμετρικό σχεδιασμό. Διευθύνει το αρχιτεκτονικό συμβούλιο του PANTELEOS .NRG, εκπονώντας μελέτες πολυτελών κατοικιών, ξενοδοχειακών συγκροτημάτων και χειρίζεται την πολεοδομική αδειοδότηση (e-Άδεια) σε Συμβούλια Αρχιτεκτονικής.",
-    email: "panteleos.nrg@gmail.com",
-    tel: "+30 6976837114",
-    specsEn: ["Bioclimatic Architecture", "Luxury Residential Design", "Hospitality & Resort Masterplan", "e-Adeia Urban Permitting", "Parametric 3D Modeling"],
-    specsEl: ["Βιοκλιματική Αρχιτεκτονική", "Σχεδιασμός Πολυτελών Κατοικιών", "Ξενοδοχειακά Συγκροτήματα", "Ηλεκτρονική Αδειοδότηση e-Άδεια", "Παραμετρικός 3D Σχεδιασμός"]
-  },
-  "NIKOS KAZANTZIS": {
-    initials: "NK",
-    nameEn: "Nikos Kazantzis",
-    nameEl: "Νίκος Καζαντζής",
-    roleEn: "Structural Retrofit & Geotechnical Lead",
-    roleEl: "Structural Retrofit & Geotechnical Lead",
-    regEn: "TEE REG: #44091 // MEng Civil / Geotech",
-    regEl: "ΑΡ. ΜΗΤΡΩΟΥ ΤΕΕ: #44091 // MEng Γεωτεχνικός",
-    bioEn: "Nikos Kazantzis is a Senior Civil & Geotechnical Engineer (M.Eng) specializing in structural health monitoring, seismic rehabilitation, and deep foundation engineering. At PANTELEOS .NRG, he directs carbon-fiber reinforced polymer (CFRP) strengthening, jacket encapsulation, and high-capacity pile foundation designs for high-rise and industrial retrofits.",
-    bioEl: "Ο Νίκος Καζαντζής είναι Πολιτικός & Γεωτεχνικός Μηχανικός (M.Eng) με εξειδίκευση στην αποτίμηση στατικής επάρκειας, τις αντισεισμικές ενισχύσεις και τις βαθιές θεμελιώσεις. Στο PANTELEOS .NRG κατευθύνει έργα ενίσχυσης φερουσών κατασκευών με ανθρακονήματα (CFRP), μανδύες οπλισμένου σκυροδέματος και μικροπασσάλους.",
-    email: "panteleos.nrg@gmail.com",
-    tel: "+30 6976837114",
-    specsEn: ["Carbon Fiber CFRP Retrofit", "Deep Foundation & Piling", "Seismic Health Monitoring", "High-Rise Reinforcement", "Geotechnical Soil Mechanics"],
-    specsEl: ["Ενισχύσεις με Ανθρακονήματα CFRP", "Βαθιές Θεμελιώσεις & Πάσσαλοι", "Έλεγχος Στατικής Επάρκειας", "Ενισχύσεις Υψηλών Κτιρίων", "Γεωτεχνική Εδαφομηχανική"]
-  },
-  "MARIA PAPADOPOULOU": {
-    initials: "MP",
-    nameEn: "Maria Papadopoulou",
-    nameEl: "Μαρία Παπαδοπούλου",
-    roleEn: "BIM Coordination Manager & Digital Twin Lead",
-    roleEl: "BIM Coordination Manager & Digital Twin Lead",
-    regEn: "TEE REG: #61208 // MSc BIM & Digital Twin",
-    regEl: "ΑΡ. ΜΗΤΡΩΟΥ ΤΕΕ: #61208 // MSc BIM & Digital Twin",
-    bioEn: "Maria Papadopoulou is a dedicated BIM Coordination Manager (M.Sc. BIM & Digital Engineering) holding international certifications in Autodesk Revit and ISO 19650 protocols. She orchestrates multi-disciplinary clash detection, 4D construction timeline simulations, and 5D quantity extraction across all active PANTELEOS .NRG projects.",
-    bioEl: "Η Μαρία Παπαδοπούλου είναι BIM Coordination Manager (M.Sc. BIM & Digital Engineering) με διεθνείς πιστοποιήσεις στα πρωτόκολλα ISO 19650 και το Autodesk Revit. Συντονίζει τον αυτοματοποιημένο έλεγχο συγκρούσεων (Clash Detection), τις 4D χρονικές προσομοιώσεις κατασκευής και την 5D προμέτρηση υλικών σε όλα τα ενεργά έργα μας.",
-    email: "panteleos.nrg@gmail.com",
-    tel: "+30 6976837114",
-    specsEn: ["ISO 19650 BIM Protocols", "Automated Clash Detection", "4D Timeline Simulation", "5D Precision BOQ Extraction", "Revit & Navisworks Matrix"],
-    specsEl: ["Πρωτόκολλα ISO 19650 BIM", "Αυτοματοποιημένος Έλεγχος Συγκρούσεων", "4D Χρονική Προσομοίωση Έργου", "5D Προμέτρηση Υλικών BOQ", "Συντονισμός Revit & Navisworks"]
-  },
-  "GIORGOS MAKRIS": {
-    initials: "GM",
-    nameEn: "Giorgos Makris",
-    nameEl: "Γιώργος Μακρής",
-    roleEn: "On-Site Construction Manager & QC Director",
-    roleEl: "On-Site Construction Manager & QC Director",
-    regEn: "TEE REG: #53409 // BEng Civil / Site Mgmt",
-    regEl: "ΑΡ. ΜΗΤΡΩΟΥ ΤΕΕ: #53409 // BEng Πολιτικός Μηχ.",
-    bioEn: "Giorgos Makris is an experienced On-Site Construction Manager (B.Eng Civil) bringing over 15 years of field execution expertise. He enforces rigorous ISO 9001 quality supervision, safety compliance, subcontractor coordination, and real-time material testing on every PANTELEOS .NRG construction site across Greece.",
-    bioEl: "Ο Γιώργος Μακρής είναι Εργοταξιάρχης & Διευθυντής Ποιοτικού Ελέγχου (B.Eng Civil) με 15+ έτη αδιάλειπτης εμπειρίας στην κατασκευαστική εκτέλεση. Επιβάλλει αυστηρό ποιοτικό έλεγχο κατά ISO 9001, μέτρα εργοταξιακής ασφάλειας, συντονισμό υπεργολάβων και εργαστηριακούς ελέγχους αντοχής υλικών σε κάθε εργοτάξιο του PANTELEOS .NRG.",
-    email: "panteleos.nrg@gmail.com",
-    tel: "+30 6976837114",
-    specsEn: ["ISO 9001 Quality Control", "On-Site Contractor Mgmt", "Safety & OHS Compliance", "Concrete & Material Testing", "Turnkey Schedule Execution"],
-    specsEl: ["Ποιοτικός Έλεγχος ISO 9001", "Διοίκηση Εργοταξίου & Υπεργολάβων", "Μέτρα Ασφάλειας & Υγιεινής OHS", "Εργαστηριακοί Έλεγχοι Σκυροδέματος", "Τήρηση Χρονοδιαγραμμάτων Turnkey"]
-  }
-};
+// TEAM_DATA is loaded from js/team-data.js
+
 
 function initTeamModal() {
   const modal = document.getElementById('team-modal-overlay');
@@ -233,7 +143,10 @@ function initTeamModal() {
     if (!data) return;
     const isEl = lang === 'el';
 
-    if (badgeEl) badgeEl.innerHTML = `<span>${data.initials}</span>`;
+    if (badgeEl) {
+      const portraitPath = data.photo || (data.id ? `assets/team/${data.id}/portrait.jpg` : '');
+      badgeEl.innerHTML = `${portraitPath ? `<img src="${portraitPath}" alt="${data.nameEn}" onerror="this.remove();">` : ''}<span>${data.initials}</span>`;
+    }
     if (regEl) regEl.textContent = isEl ? data.regEl : data.regEn;
     if (nameEl) nameEl.textContent = isEl ? data.nameEl : data.nameEn;
     if (roleEl) roleEl.textContent = isEl ? data.roleEl : data.roleEn;
@@ -386,20 +299,35 @@ function initPortfolioModal() {
       }));
     }
 
-    // Default: Rich 4-slide Hybrid BIM/Technical/Architectural Gallery
+    // Default: Rich Hybrid Image/BIM/Technical/Architectural Gallery
+    const aesImg = card.querySelector('.aesthetic img')?.getAttribute('src');
+    const techImg = card.querySelector('.technical img')?.getAttribute('src');
     const aesSvg = card.querySelector('.aesthetic svg')?.cloneNode(true);
     const techSvg = card.querySelector('.technical svg')?.cloneNode(true);
     const projTitle = card.querySelector('h4')?.textContent || 'Project';
     
     const slides = [];
-    if (aesSvg) {
+    if (aesImg) {
+      slides.push({
+        img: aesImg,
+        type: isEl ? '01 // ΦΩΤΟΓΡΑΦΙΑ ΕΡΓΟΥ' : '01 // PROJECT PHOTO',
+        caption: isEl ? `Πραγματική απεικόνιση έργου: ${projTitle}` : `Actual project photography: ${projTitle}`
+      });
+    } else if (aesSvg) {
       slides.push({
         svg: aesSvg,
         type: isEl ? '01 // ΑΡΧΙΤΕΚΤΟΝΙΚΗ ΑΠΕΙΚΟΝΙΣΗ' : '01 // AESTHETIC ARCHITECTURAL VIEW',
         caption: isEl ? `Εξωτερική αρχιτεκτονική απεικόνιση: ${projTitle}` : `External facade & landscaping rendering: ${projTitle}`
       });
     }
-    if (techSvg) {
+
+    if (techImg) {
+      slides.push({
+        img: techImg,
+        type: isEl ? '02 // ΤΕΧΝΙΚΗ ΑΠΕΙΚΟΝΙΣΗ' : '02 // TECHNICAL VIEW',
+        caption: isEl ? 'Τεχνικό σχέδιο & κατασκευαστική λεπτομέρεια.' : 'Technical engineering and construction view.'
+      });
+    } else if (techSvg) {
       slides.push({
         svg: techSvg,
         type: isEl ? '02 // ΤΕΧΝΙΚΟ ΣΧΕΔΙΟ LOD-400' : '02 // TECHNICAL LOD-400 WIREFRAME',
@@ -531,6 +459,25 @@ function initPortfolioModal() {
     };
   }
 
+  function probeProjectGalleryPhotos(projId, isEl) {
+    if (!projId) return;
+    for (let i = 1; i <= 8; i++) {
+      const candidateUrl = `assets/portfolio/${projId}/${i}.jpg`;
+      const img = new Image();
+      img.onload = () => {
+        if (!activeSlides.some(s => s.img === candidateUrl)) {
+          activeSlides.push({
+            img: candidateUrl,
+            type: isEl ? `ΦΩΤΟΓΡΑΦΙΑ ΕΡΓΟΥ // #${activeSlides.length + 1}` : `PROJECT GALLERY // #${activeSlides.length + 1}`,
+            caption: isEl ? `Αυτοματοποιημένη φόρτωση gallery (${projId} - 0${i})` : `Convention-discovered project gallery view (${projId} - 0${i})`
+          });
+          renderGallerySlide(currentSlideIdx);
+        }
+      };
+      img.src = candidateUrl;
+    }
+  }
+
   document.querySelectorAll('.p-card').forEach(card => {
     card.addEventListener('click', () => {
       const title = card.querySelector('h4')?.textContent || 'Project';
@@ -551,6 +498,10 @@ function initPortfolioModal() {
 
       activeSlides = getProjectGallerySlides(card);
       renderGallerySlide(0);
+
+      const projId = card.querySelector('.tagrow span:first-child')?.textContent?.trim() || tag;
+      const lang = localStorage.getItem('panteleos_lang') || 'el';
+      probeProjectGalleryPhotos(projId, lang === 'el');
 
       modal.classList.add('open');
       document.body.style.overflow = 'hidden';
@@ -585,20 +536,23 @@ function generatePortfolioArtwork() {
     const colors = ['#0A6C78', '#141414', '#26D7EB', '#4EE5F7'];
     const c1 = colors[idx % colors.length];
 
-    // Aesthetic SVG (clean architectural rendering)
-    aes.innerHTML = `
-      <svg viewBox="0 0 400 300" preserveAspectRatio="none">
-        <rect width="400" height="300" fill="#F8F9FA"/>
-        <path d="M 40,240 L 160,80 L 280,140 L 360,60 L 360,240 Z" fill="${c1}" opacity="0.12"/>
-        <path d="M 80,240 L 180,110 L 260,160 L 340,100 L 340,240 Z" fill="#141414" opacity="0.08"/>
-        <line x1="0" y1="240" x2="400" y2="240" stroke="#141414" stroke-width="2"/>
-        <circle cx="160" cy="80" r="4" fill="#26D7EB"/>
-        <circle cx="280" cy="140" r="4" fill="#26D7EB"/>
-      </svg>
-    `;
+    // Aesthetic SVG (only if no custom image provided)
+    if (!aes.querySelector('img')) {
+      aes.innerHTML = `
+        <svg viewBox="0 0 400 300" preserveAspectRatio="none">
+          <rect width="400" height="300" fill="#F8F9FA"/>
+          <path d="M 40,240 L 160,80 L 280,140 L 360,60 L 360,240 Z" fill="${c1}" opacity="0.12"/>
+          <path d="M 80,240 L 180,110 L 260,160 L 340,100 L 340,240 Z" fill="#141414" opacity="0.08"/>
+          <line x1="0" y1="240" x2="400" y2="240" stroke="#141414" stroke-width="2"/>
+          <circle cx="160" cy="80" r="4" fill="#26D7EB"/>
+          <circle cx="280" cy="140" r="4" fill="#26D7EB"/>
+        </svg>
+      `;
+    }
 
-    // Technical Blueprint Wireframe SVG
-    tech.innerHTML = `
+    // Technical Blueprint Wireframe SVG (only if no custom image provided)
+    if (!tech.querySelector('img')) {
+      tech.innerHTML = `
       <svg viewBox="0 0 400 300" preserveAspectRatio="none">
         <rect width="400" height="300" fill="#141414"/>
         <defs>
@@ -616,6 +570,7 @@ function generatePortfolioArtwork() {
         <text x="285" y="135" fill="#26D7EB" font-family="JetBrains Mono" font-size="9">LOD:400</text>
       </svg>
     `;
+    }
   });
 }
 

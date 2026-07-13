@@ -94,14 +94,11 @@ To add a new project card, duplicate an existing `<article class="p-card reveal"
 | `data-desc` | Detailed engineering description shown in modal dialog. | Text summary of works performed. |
 | `data-photos` | **(NEW)** Comma-separated paths to real photograph files. | `assets/photo1.jpg, assets/photo2.jpg` |
 
-#### 3. How the Multi-Photo Gallery Mode Works
-When a user clicks any project card, `initPortfolioModal()` in `js/portfolio.js` launches an interactive slideshow inside the modal dialog:
-- **With Real Photos (`data-photos`)**: If the `data-photos` attribute is present on the card, the gallery engine automatically parses the image URLs and builds a interactive carousel with previous/next arrows (`#gallery-prev` / `#gallery-next`), slide indicator dots (`#gallery-thumbs`), keyboard navigation (`ArrowLeft` / `ArrowRight`), and slide counter badges (`01 // 03`).
-- **Hybrid Default Mode (No Photos Required)**: If `data-photos` is omitted, the system automatically synthesizes a **4-Slide Hybrid Architecture & Engineering Gallery** consisting of:
-  1. *Slide 01*: The card's aesthetic architectural exterior rendering.
-  2. *Slide 02*: The card's laser-scanned LOD-400 technical blueprint wireframe.
-  3. *Slide 03*: An auto-generated 3D Finite Element Analysis (FEA) seismic mesh simulation displaying Eurocode 8 stress nodes and MPa measurements.
-  4. *Slide 04*: An on-site construction monitoring and IoT quality assurance telemetry blueprint.
+#### 3. Convention-over-Configuration Automatic Image & Gallery Discovery (`js/portfolio-data.js` & `js/team-data.js`)
+Instead of hardcoding image paths or arrays inside configuration objects, the system implements automatic folder probing:
+- **Card View Automatic Loading**: Placed photos are discovered automatically from `assets/portfolio/{id}/main.jpg` and `assets/portfolio/{id}/tech.jpg` (or `assets/team/{id}/portrait.jpg` for engineers).
+- **Automatic Modal Gallery Probing**: When opening any project modal, the engine automatically scans `assets/portfolio/{id}/1.jpg` through `8.jpg`. Any discovered photos are instantly appended to the interactive modal carousel alongside technical blueprints.
+- **Hybrid Default Mode (No Photos Required)**: If no image files exist, the system automatically synthesizes a **4-Slide Hybrid Architecture & Engineering Gallery** (Architectural exterior, LOD-400 technical wireframe, FEA seismic mesh, and On-site telemetry).
 
 ---
 

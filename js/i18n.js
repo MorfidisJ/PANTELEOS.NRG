@@ -705,6 +705,9 @@ function setLanguage(lang) {
   if (window.updateCareersLanguage) {
     window.updateCareersLanguage(lang);
   }
+  if (window.updatePortfolioLanguage) {
+    window.updatePortfolioLanguage(lang);
+  }
   if (window.replaceEmojisInDOM) {
     window.replaceEmojisInDOM();
   }
