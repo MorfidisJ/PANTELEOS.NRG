@@ -178,14 +178,10 @@
   <!-- Right-Edge Stream Scroll Indicator (Numbered Reference) -->
   <nav id="stream-indicator" aria-label="Section Navigation">
     <button data-target="home" data-label="01 // Home" data-w="1" class="active"></button>
-    <button data-target="teaser" data-label="02 // Quick Gauge" data-w="2"></button>
-    <button data-target="services" data-label="03 // Competencies" data-w="3"></button>
-    <button data-target="gauger" data-label="04 // Cost Wizard" data-w="4"></button>
-    <button data-target="portfolio" data-label="05 // Case Studies" data-w="5"></button>
-    <button data-target="team" data-label="06 // Leadership" data-w="6"></button>
-    <button data-target="portal" data-label="07 // Knowledge Base" data-w="7"></button>
-    <button data-target="careers" data-label="08 // Careers" data-w="8"></button>
-    <button data-target="contact" data-label="09 // Contact" data-w="1"></button>
+    <button data-target="portfolio" data-label="02 // Case Studies" data-w="2"></button>
+    <button data-target="team" data-label="03 // Leadership" data-w="3"></button>
+    <button data-target="portal" data-label="04 // Virtual Assistant" data-w="4"></button>
+    <button data-target="contact" data-label="05 // Contact" data-w="5"></button>
   </nav>
 
   <!-- Re-Imaged Floating Pill Navigation Bar (Clean & Uncrowded with Neon Accents) -->
@@ -193,12 +189,9 @@
     <div class="nav-inner">
       <a href="#home" class="logo">PANTELEOS<span class="nrg-badge">.NRG</span></a>
       <nav class="nav-links" id="nav-links">
-        <a href="#services">Services</a>
-        <a href="#gauger">Cost Wizard</a>
         <a href="#portfolio">Case Studies</a>
         <a href="#team">Council</a>
-        <a href="#portal">FAQ</a>
-        <a href="#careers">Careers</a>
+        <a href="#portal">Virtual Assistant</a>
       </nav>
       <div class="nav-cta">
         <div class="lang-switch" id="lang-switch" role="group" aria-label="Language Selector">
@@ -228,11 +221,11 @@
             Stripping away legacy construction clutter. We engineer high-spec turnkey developments, MEP infrastructure, and BIM LOD-400 digital twins across Greece.
           </p>
           <div class="hero-actions">
-            <a href="#gauger" class="btn primary">
-              <span>LAUNCH COST CALCULATOR</span>
+            <a href="#portfolio" class="btn primary">
+              <span>EXPLORE PROJECTS</span>
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
             </a>
-            <a href="#portfolio" class="btn ghost">EXPLORE PROJECTS</a>
+            <a href="#portal" class="btn ghost">VIRTUAL ASSISTANT</a>
           </div>
           <div class="hero-meta">
             <div><b>LOD-400</b><span>BIM Precision Tier</span></div>
@@ -254,232 +247,7 @@
   </section>
 
   <!-- ==========================================================================
-       SECTION 02: TEASER MINI-GAUGER
-       ========================================================================== -->
-  <section id="teaser">
-    <div class="wrap">
-      <div class="teaser-grid">
-        <div>
-          <h3>PRELIMINARY FEASIBILITY</h3>
-          <p>Adjust real-time variables below for an instant preliminary budgetary framework before deploying the full 4-step wizard.</p>
-        </div>
-        <div>
-          <div class="slider-row">
-            <div class="label-row">
-              <span>Gross Footprint Area</span>
-              <b id="t-area-val">450 m²</b>
-            </div>
-            <input type="range" id="teaser-area" min="80" max="2500" step="10" value="450">
-          </div>
-          <div class="slider-row" style="margin-top: 24px;">
-            <div class="label-row">
-              <span>Technical Complexity Tier</span>
-              <b id="t-comp-val">Advanced (BIM + MEP)</b>
-            </div>
-            <input type="range" id="teaser-complexity" min="1" max="3" step="1" value="2">
-          </div>
-          <div class="teaser-output">
-            <div class="est">
-              <b id="t-est-output">€697,500</b>
-              <span>Estimated Budgetary Envelope</span>
-            </div>
-            <a href="#gauger" class="btn primary">ADVANCED 4-STEP WIZARD &rarr;</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ==========================================================================
-       SECTION 03: SERVICES MATRIX
-       ========================================================================== -->
-  <section id="services">
-    <div class="wrap">
-      <div class="section-head reveal">
-        <h2>ENGINEERING MATRIX</h2>
-        <p>Architectural execution delivered through rigorous data-driven methodologies and multidisciplinary synchronization.</p>
-      </div>
-
-      <div class="services-grid reveal">
-        <!-- Service 1 -->
-        <div class="service-card" data-idx="01">
-          <span class="service-num">01 // STRUCTURAL ENGINEERING</span>
-          <h4>Turnkey Design & Build</h4>
-          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="#00F0FF" stroke-width="1.8"><path d="M3 21h18M3 10h18M5 6l7-3 7 3M4 10v11M20 10v11M8 14v3M12 14v3M16 14v3"/></svg>
-          <div class="service-more">
-            <ul>
-              <li>Full architectural & structural design</li>
-              <li>Permitting & urban planning compliance</li>
-              <li>On-site turnkey construction management</li>
-              <li>Quality assurance & material testing</li>
-            </ul>
-          </div>
-          <button class="service-toggle">
-            <span>VIEW SPECIFICATIONS</span>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
-          </button>
-        </div>
-
-        <!-- Service 2 -->
-        <div class="service-card" data-idx="02">
-          <span class="service-num">02 // BIM & DIGITAL TWIN</span>
-          <h4>LOD-400 3D Modeling</h4>
-          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="#00F0FF" stroke-width="1.8"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
-          <div class="service-more">
-            <ul>
-              <li>Clash detection across MEP & structural</li>
-              <li>ISO 19650 compliant BIM management</li>
-              <li>Virtual reality walk-through verification</li>
-              <li>As-built digital twin hand-over</li>
-            </ul>
-          </div>
-          <button class="service-toggle">
-            <span>VIEW SPECIFICATIONS</span>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
-          </button>
-        </div>
-
-        <!-- Service 3 -->
-        <div class="service-card" data-idx="03">
-          <span class="service-num">03 // MEP INFRASTRUCTURE</span>
-          <h4>Electromechanical Systems</h4>
-          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="#00F0FF" stroke-width="1.8"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
-          <div class="service-more">
-            <ul>
-              <li>HVAC high-efficiency system design</li>
-              <li>Industrial power distribution & substations</li>
-              <li>Smart building automation (KNX/BMS)</li>
-              <li>Hydraulic & fire protection engineering</li>
-            </ul>
-          </div>
-          <button class="service-toggle">
-            <span>VIEW SPECIFICATIONS</span>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
-          </button>
-        </div>
-
-        <!-- Service 4 -->
-        <div class="service-card" data-idx="04">
-          <span class="service-num">04 // SUSTAINABLE RETROFIT</span>
-          <h4>nZEB Sustainable Retrofit</h4>
-          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="#00F0FF" stroke-width="1.8"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
-          <div class="service-more">
-            <ul>
-              <li>Nearly Zero Energy Building certification</li>
-              <li>Photovoltaic & battery storage integration</li>
-              <li>Geothermal & heat pump engineering</li>
-              <li>ESG compliance & carbon footprint reduction</li>
-            </ul>
-          </div>
-          <button class="service-toggle">
-            <span>VIEW SPECIFICATIONS</span>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
-          </button>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ==========================================================================
-       SECTION 04: COST GAUGER WIZARD
-       ========================================================================== -->
-  <section id="gauger">
-    <div class="wrap">
-      <div class="section-head reveal">
-        <h2>4-STEP COST GAUGER</h2>
-        <p>Configure project parameters to generate an algorithmic preliminary budgetary envelope and timeline projection.</p>
-      </div>
-
-      <div class="gauger-panel reveal" id="gauger-wizard">
-        <!-- Wizard Step Progress -->
-        <div class="gauger-steps">
-          <div class="g-step active"><b>STEP 01</b><span>Sector Typology</span></div>
-          <div class="g-step"><b>STEP 02</b><span>Scope of Works</span></div>
-          <div class="g-step"><b>STEP 03</b><span>Scale & Tier</span></div>
-          <div class="g-step"><b>STEP 04</b><span>Cost Estimate</span></div>
-        </div>
-
-        <!-- Phase 1: Sector -->
-        <div class="g-phase active" data-phase="1">
-          <h3>01 // SELECT SECTOR TYPOLOGY</h3>
-          <div class="segment-toggle" id="g-sec-btns">
-            <button class="active" data-sec="Residential">Residential Luxury</button>
-            <button data-sec="Commercial">Commercial & Retail</button>
-            <button data-sec="Industrial">Industrial & Logistics</button>
-          </div>
-        </div>
-
-        <!-- Phase 2: Scope -->
-        <div class="g-phase" data-phase="2">
-          <h3>02 // SELECT SCOPE OF WORKS</h3>
-          <div class="chip-grid" id="g-scope-chips">
-            <button class="chip active" data-scope="Turnkey Design & Build">Turnkey Design & Build</button>
-            <button class="chip" data-scope="Structural Engineering Only">Structural Engineering Only</button>
-            <button class="chip" data-scope="MEP + Energy Upgrade">MEP + Energy Upgrade</button>
-            <button class="chip" data-scope="BIM & Digital Twin">BIM & Digital Twin</button>
-          </div>
-        </div>
-
-        <!-- Phase 3: Sliders -->
-        <div class="g-phase" data-phase="3">
-          <h3>03 // SCALE & SPECIFICATION TIER</h3>
-          <div class="g-slider-block">
-            <div class="label-row">
-              <span>Gross Building Area</span>
-              <b id="g-area-val">450 m²</b>
-            </div>
-            <input type="range" id="g-area-input" min="50" max="5000" step="25" value="450">
-          </div>
-          <div class="g-slider-block">
-            <div class="label-row">
-              <span>Specification & Material Quality Tier</span>
-              <b id="g-spec-val">High-Performance BIM + MEP</b>
-            </div>
-            <input type="range" id="g-spec-input" min="1" max="3" step="1" value="2">
-          </div>
-        </div>
-
-        <!-- Phase 4: Output -->
-        <div class="g-phase" data-phase="4">
-          <h3>04 // COST ESTIMATION SUMMARY</h3>
-          <div class="output-block">
-            <div class="output-cell">
-              <span>Projected Financial Envelope</span>
-              <b id="g-est-total">€821,250</b>
-              <div class="output-bars" id="g-bars">
-                <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
-              </div>
-            </div>
-            <div class="output-cell">
-              <span>Projected Execution Duration</span>
-              <b id="g-est-time">18–22 WEEKS</b>
-              <p class="output-note" id="g-est-note"></p>
-            </div>
-          </div>
-          <div class="proposal-download-box" style="margin-top: 28px; padding: 26px; background: rgba(10, 20, 38, 0.7); border: 1px solid rgba(0, 140, 255, 0.35); border-radius: 16px; text-align: center; backdrop-filter: blur(12px); box-shadow: 0 12px 35px rgba(0,0,0,0.5); position: relative; overflow: hidden;">
-            <div style="position: absolute; top: 0; left: 0; width: 100%; height: 3px; background: linear-gradient(90deg, transparent, var(--accent), transparent);"></div>
-            <h4 style="font-size: 15px; font-weight: 700; letter-spacing: 2px; color: var(--accent); margin-bottom: 10px; text-transform: uppercase;"><svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" x2="8" y1="13" y2="13"/><line x1="16" x2="8" y1="17" y2="17"/><polyline points="10 9 9 9 8 9"/></svg> OFFICIAL ENGINEERING PROPOSAL</h4>
-            <p style="font-size: 13.5px; color: rgba(255,255,255,0.85); max-width: 620px; margin: 0 auto 20px; line-height: 1.6;">Download a formal Preliminary Project Brief & Budgetary Framework formatted for bank financing, tender preparation, or architectural evaluation.</p>
-            <button class="btn primary" id="g-download-btn" style="padding: 16px 36px; font-size: 13px; font-weight: 700; letter-spacing: 1.5px; border-radius: 30px; box-shadow: 0 0 25px rgba(0, 140, 255, 0.45); display: inline-flex; align-items: center; justify-content: center; gap: 10px; cursor: pointer; transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);">
-              <span><svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/></svg> DOWNLOAD PROPOSAL (.PDF)</span>
-            </button>
-          </div>
-        </div>
-
-        <!-- Wizard Navigation -->
-        <div class="gauger-nav">
-          <button class="btn" id="g-prev-btn" style="visibility: hidden;">&larr; PREVIOUS STEP</button>
-          <div>
-            <button class="btn" id="g-restart-btn" style="margin-right: 12px;">RESET WIZARD</button>
-            <button class="btn primary" id="g-next-btn">NEXT STEP &rarr;</button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ==========================================================================
-       SECTION 05: PORTFOLIO & CASE STUDIES
+       SECTION 02: PORTFOLIO & CASE STUDIES
        ========================================================================== -->
   <section id="portfolio">
     <div class="wrap">
@@ -721,7 +489,7 @@
   </div>
 
   <!-- ==========================================================================
-       SECTION 06: TEAM & LEADERSHIP
+       SECTION 03: TEAM & LEADERSHIP
        ========================================================================== -->
   <section id="team">
     <div class="wrap">
@@ -855,7 +623,7 @@
   </section>
 
   <!-- ==========================================================================
-       SECTION 07: PORTAL / TRACKER & FAQ
+       SECTION 04: PORTAL / TRACKER & FAQ
        ========================================================================== -->
   <section id="portal">
     <div class="wrap">
@@ -902,60 +670,7 @@
   </section>
 
   <!-- ==========================================================================
-       SECTION 08: CAREERS & TALENT PIPELINE
-       ========================================================================== -->
-  <section id="careers">
-    <div class="wrap">
-      <div class="careers-grid reveal">
-        <div>
-          <h2 style="font-family: var(--font-display); font-size: clamp(36px, 5vw, 56px); font-weight: 800; line-height: 1; margin-top: 14px;">JOIN THE COUNCIL</h2>
-          <p style="color: var(--charcoal-75); margin-top: 18px; font-size: 17px;">We recruit elite civil engineers, BIM managers, and MEP architects obsessed with precision and zero-defect execution. Select your core competencies below:</p>
-
-          <div class="competency-grid" id="comp-grid">
-            <button class="comp-chip active">BIM LOD-400 / Revit</button>
-            <button class="comp-chip">Seismic Analysis (ETABS / SAP2000)</button>
-            <button class="comp-chip">MEP HVAC Automation</button>
-            <button class="comp-chip">nZEB Energy Simulation</button>
-            <button class="comp-chip">On-Site Site Supervision</button>
-            <button class="comp-chip">Greek e-Adeia Permitting</button>
-            <button class="comp-chip">KNX Smart BMS</button>
-          </div>
-
-          <div class="comp-count" id="comp-count">
-            SELECTED COMPETENCIES: <b id="comp-count-val">1</b> // PROFILE MATCH ELIGIBLE
-          </div>
-        </div>
-
-        <div>
-          <h3 style="font-family: var(--font-display); font-size: 32px; font-weight: 800; margin-top: 14px;">SUBMIT APPLICATION</h3>
-          <p style="color: var(--charcoal-75); margin-top: 10px; font-size: 16px;">Drop your portfolio or technical resume directly into our secure engineering review pipeline for evaluation by the Managing Director.</p>
-
-          <div class="cv-vault" id="cv-vault">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M17 8l-5-5-5 5M12 3v12"/></svg>
-            <p>DRAG & DROP YOUR TECHNICAL CV / PORTFOLIO HERE<br>OR <span class="browse">BROWSE LOCAL FILES</span></p>
-            <span style="font-family: var(--font-mono); font-size: 11px; color: var(--charcoal-50); display: block; margin-top: 10px;">ACCEPTED FORMATS: PDF, DWG, REVIT, ZIP (MAX 25MB)</span>
-            <input type="file" id="cv-file-input" accept=".pdf,.doc,.docx,.zip,.dwg,.rvt">
-            
-            <div class="cv-filename" id="cv-filename">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
-              <span id="cv-filename-text">resume.pdf // SECURED</span>
-            </div>
-          </div>
-
-          <div style="margin-top: 20px;">
-            <button id="career-submit-btn" class="btn primary" style="width: 100%; display: flex; align-items: center; justify-content: center; gap: 10px; font-size: 14px; padding: 16px; opacity: 0.45; cursor: not-allowed; transition: all 0.35s var(--spring); border-radius: 12px;" disabled>
-              <span id="career-submit-text">SUBMIT COUNCIL APPLICATION</span>
-              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-            </button>
-            <div id="career-status-msg" style="margin-top: 14px; font-family: var(--font-mono); font-size: 12.5px; display: none; padding: 14px; border-radius: 10px; line-height: 1.5;"></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ==========================================================================
-       SECTION 09: CONTACT & INQUIRY
+       SECTION 05: CONTACT & INQUIRY
        ========================================================================== -->
   <section id="contact">
     <div class="wrap">
@@ -1089,18 +804,18 @@
             <span id="footer-col1-title">MAIN NAVIGATION</span>
             <ul>
               <li><a href="#home" id="footer-col1-l1">01 // Overview</a></li>
-              <li><a href="#services" id="footer-col1-l2">02 // Engineering Services</a></li>
-              <li><a href="#gauger" id="footer-col1-l3">03 // Cost Calculator</a></li>
-              <li><a href="#portfolio" id="footer-col1-l4">04 // Case Studies</a></li>
+              <li><a href="#portfolio" id="footer-col1-l2">02 // Case Studies</a></li>
+              <li><a href="#team" id="footer-col1-l3">03 // Leadership Council</a></li>
+              <li><a href="#portal" id="footer-col1-l4">04 // Virtual Assistant</a></li>
             </ul>
           </div>
           <div class="footer-col">
             <span id="footer-col2-title">INFORMATION</span>
             <ul>
-              <li><a href="#team" id="footer-col2-l1">05 // Leadership Council</a></li>
-              <li><a href="#portal" id="footer-col2-l2">06 // Virtual Assistant</a></li>
-              <li><a href="#careers" id="footer-col2-l3">07 // Careers & Opportunities</a></li>
-              <li><a href="#contact" id="footer-col2-l4">08 // Contact Us</a></li>
+              <li><a href="#team" id="footer-col2-l1">Leadership Council</a></li>
+              <li><a href="#portal" id="footer-col2-l2">Virtual Assistant</a></li>
+              <li><a href="#contact" id="footer-col2-l3">Contact Us</a></li>
+              <li><a href="#portfolio" id="footer-col2-l4">Portfolio Projects</a></li>
             </ul>
           </div>
           <div class="footer-col">
@@ -1129,23 +844,23 @@
   <nav class="mobile-app-dock" aria-label="Mobile App Navigation">
     <a href="#home" class="dock-item active" title="Αρχική">
       <svg class="ui-icon" viewBox="0 0 24 24"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-      <span>ΑΡΧΙΚΗ</span>
+      <span>Αρχική</span>
     </a>
-    <a href="#services" class="dock-item" title="Υπηρεσίες">
-      <svg class="ui-icon" viewBox="0 0 24 24"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/><line x1="16" x2="8" y1="13" y2="13"/><line x1="16" x2="8" y1="17" y2="17"/><line x1="10" x2="8" y1="9" y2="9"/></svg>
-      <span>ΥΠΗΡΕΣΙΕΣ</span>
+    <a href="#portfolio" class="dock-item" title="Έργα">
+      <svg class="ui-icon" viewBox="0 0 24 24"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-0.5-0.05M6 4h14M6 20h14"/></svg>
+      <span>Έργα</span>
     </a>
-    <a href="#gauger" class="dock-item" title="Κόστος">
-      <svg class="ui-icon" viewBox="0 0 24 24"><line x1="18" x2="18" y1="20" y2="10"/><line x1="12" x2="12" y1="20" y2="4"/><line x1="6" x2="6" y1="20" y2="14"/></svg>
-      <span>ΚΟΣΤΟΣ</span>
+    <a href="#team" class="dock-item" title="Συνεργάτες">
+      <svg class="ui-icon" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+      <span>Συνεργάτες</span>
     </a>
-    <a href="#portal" class="dock-item" title="Σύμβουλος">
+    <a href="#portal" class="dock-item" title="Ψηφιακός Σύμβουλος">
       <svg class="ui-icon" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-      <span>ΣΥΜΒΟΥΛΟΣ</span>
+      <span>Ψηφιακός Σύμβουλος</span>
     </a>
     <a href="#contact" class="dock-item" title="Επικοινωνία">
       <svg class="ui-icon" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-      <span>ΕΠΙΚΟΙΝΩΝΙΑ</span>
+      <span>Επικοινωνία</span>
     </a>
   </nav>
 
@@ -1155,10 +870,8 @@
   <script src="js/i18n.js"></script>
   <script src="js/app.js"></script>
   <script src="js/hero.js"></script>
-  <script src="js/gauger.js"></script>
   <script src="js/portfolio.js"></script>
   <script src="js/chatbot.js"></script>
-  <script src="js/careers.js"></script>
   <script src="js/accessibility.js"></script>
 </body>
 </html>

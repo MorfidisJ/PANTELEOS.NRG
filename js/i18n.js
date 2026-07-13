@@ -15,23 +15,26 @@ const TRANSLATIONS = {
     "nav.careers": "Καριέρα",
     "nav.transmit": "ΕΠΙΚΟΙΝΩΝΙΑ",
 
+    // Mobile Dock
+    "dock.home": "Αρχική",
+    "dock.works": "Έργα",
+    "dock.council": "Συνεργάτες",
+    "dock.portal": "Ψηφιακός Σύμβουλος",
+    "dock.contact": "Επικοινωνία",
+
     // Stream Indicator
     "stream.home": "01 // Αρχική",
-    "stream.teaser": "02 // Εκτίμηση",
-    "stream.services": "03 // Υπηρεσίες",
-    "stream.gauger": "04 // Υπολογισμός",
-    "stream.portfolio": "05 // Έργα",
-    "stream.team": "06 // Διοίκηση",
-    "stream.portal": "07 // Συχνές Ερωτήσεις",
-    "stream.careers": "08 // Καριέρα",
-    "stream.contact": "09 // Επικοινωνία",
+    "stream.portfolio": "02 // Έργα",
+    "stream.team": "03 // Διοίκηση",
+    "stream.portal": "04 // Ψηφιακός Σύμβουλος",
+    "stream.contact": "05 // Επικοινωνία",
 
     // Hero Section
     "hero.eyebrow": "ΑΡΧΙΤΕΚΤΟΝΙΚΗ & ΤΕΧΝΙΚΗ ΜΕΛΕΤΗ ΥΨΗΛΩΝ ΠΡΟΔΙΑΓΡΑΦΩΝ",
     "hero.h1": "ΑΚΡΙΒΕΙΑ<br><em>ΚΑΤΑΣΚΕΥΗΣ</em><br>& ΜΕΛΕΤΗΣ",
     "hero.lede": "Απαλλαγμένοι από τις παραδοσιακές συμβάσεις του κλάδου. Μελετούμε και κατασκευάζουμε έργα υψηλών προδιαγραφών, Η/Μ υποδομές και ψηφιακά μοντέλα BIM LOD-400 σε όλη την Ελλάδα.",
-    "hero.btn1": "ΥΠΟΛΟΓΙΣΜΟΣ ΚΟΣΤΟΥΣ",
-    "hero.btn2": "ΠΡΟΒΟΛΗ ΕΡΓΩΝ",
+    "hero.btn1": "ΠΡΟΒΟΛΗ ΕΡΓΩΝ",
+    "hero.btn2": "ΨΗΦΙΑΚΟΣ ΣΥΜΒΟΥΛΟΣ",
     "hero.meta1": "Επίπεδο Ακρίβειας BIM",
     "hero.meta2": "Εκτελεσμένος Προϋπολογισμός",
     "hero.meta3": "Πιστοποιημένη Διαδικασία",
@@ -217,14 +220,7 @@ const TRANSLATIONS = {
     "footer.l3_3": "Κανονισμοί ΤΕΕ & Πολεοδομίας",
     "footer.l3_4": "Πολιτική Απορρήτου & Δεδομένων",
     "footer.rights": "&copy; 2026 ΠΑΝΤΕΛΕΟΣ .NRG ΤΕΧΝΙΚΟ ΓΡΑΦΕΙΟ. ΜΕ ΕΠΙΦΥΛΑΞΗ ΠΑΝΤΟΣ ΔΙΚΑΙΩΜΑΤΟΣ.",
-    "footer.tag": "ΣΧΕΔΙΑΣΜΕΝΟ ΜΕ ΥΨΗΛΕΣ ΑΡΧΙΤΕΚΤΟΝΙΚΕΣ ΠΡΟΔΙΑΓΡΑΦΕΣ",
-
-    // Mobile App Dock
-    "dock.home": "ΑΡΧΙΚΗ",
-    "dock.services": "ΥΠΗΡΕΣΙΕΣ",
-    "dock.cost": "ΚΟΣΤΟΣ",
-    "dock.advisor": "ΣΥΜΒΟΥΛΟΣ",
-    "dock.contact": "ΕΠΙΚΟΙΝΩΝΙΑ"
+    "footer.tag": "ΣΧΕΔΙΑΣΜΕΝΟ ΜΕ ΥΨΗΛΕΣ ΑΡΧΙΤΕΚΤΟΝΙΚΕΣ ΠΡΟΔΙΑΓΡΑΦΕΣ"
   },
 
   en: {
@@ -233,27 +229,30 @@ const TRANSLATIONS = {
     "nav.wizard": "Cost Wizard",
     "nav.works": "Case Studies",
     "nav.council": "Council",
-    "nav.portal": "FAQ",
+    "nav.portal": "Virtual Assistant",
     "nav.careers": "Careers",
     "nav.transmit": "CONTACT",
 
+    // Mobile Dock
+    "dock.home": "Overview",
+    "dock.works": "Case Studies",
+    "dock.council": "Council",
+    "dock.portal": "Virtual Assistant",
+    "dock.contact": "Contact",
+
     // Stream Indicator
     "stream.home": "01 // Home",
-    "stream.teaser": "02 // Quick Gauge",
-    "stream.services": "03 // Competencies",
-    "stream.gauger": "04 // Cost Wizard",
-    "stream.portfolio": "05 // Case Studies",
-    "stream.team": "06 // Leadership",
-    "stream.portal": "07 // Knowledge Base",
-    "stream.careers": "08 // Careers",
-    "stream.contact": "09 // Contact",
+    "stream.portfolio": "02 // Case Studies",
+    "stream.team": "03 // Leadership",
+    "stream.portal": "04 // Virtual Assistant",
+    "stream.contact": "05 // Contact",
 
     // Hero Section
     "hero.eyebrow": "HIGH-PERFORMANCE ARCHITECTURAL ENGINEERING",
     "hero.h1": "PRECISION<br><em>CONSTRUCTION</em><br>& ENGINEERING",
     "hero.lede": "Stripping away legacy construction clutter. We engineer high-spec turnkey developments, MEP infrastructure, and BIM LOD-400 digital twins across Greece.",
-    "hero.btn1": "LAUNCH COST CALCULATOR",
-    "hero.btn2": "EXPLORE PROJECTS",
+    "hero.btn1": "EXPLORE PROJECTS",
+    "hero.btn2": "VIRTUAL ASSISTANT",
     "hero.meta1": "BIM Precision Tier",
     "hero.meta2": "Executed Value",
     "hero.meta3": "Certified Workflow",
@@ -439,36 +438,29 @@ const TRANSLATIONS = {
     "footer.l3_3": "TEE Greek Engineering Reg",
     "footer.l3_4": "Privacy & Data Policy",
     "footer.rights": "&copy; 2026 PANTELEOS .NRG TECHNICAL OFFICE. ALL RIGHTS RESERVED.",
-    "footer.tag": "DESIGNED WITH HIGH-PERFORMANCE ARCHITECTURAL STANDARDS",
-
-    // Mobile App Dock
-    "dock.home": "HOME",
-    "dock.services": "SERVICES",
-    "dock.cost": "COST",
-    "dock.advisor": "ADVISOR",
-    "dock.contact": "CONTACT"
+    "footer.tag": "DESIGNED WITH HIGH-PERFORMANCE ARCHITECTURAL STANDARDS"
   }
 };
 
 const DOM_MAPPINGS = [
   // Navigation links
-  { selector: '#nav-links a:nth-child(1)', key: 'nav.services' },
-  { selector: '#nav-links a:nth-child(2)', key: 'nav.wizard' },
-  { selector: '#nav-links a:nth-child(3)', key: 'nav.works' },
-  { selector: '#nav-links a:nth-child(4)', key: 'nav.council' },
-  { selector: '#nav-links a:nth-child(5)', key: 'nav.portal' },
-  { selector: '#nav-links a:nth-child(6)', key: 'nav.careers' },
+  { selector: '#nav-links a:nth-child(1)', key: 'nav.works' },
+  { selector: '#nav-links a:nth-child(2)', key: 'nav.council' },
+  { selector: '#nav-links a:nth-child(3)', key: 'nav.portal' },
   { selector: '.nav-cta .nav-btn span', key: 'nav.transmit' },
+
+  // Mobile App Dock
+  { selector: '.mobile-app-dock a:nth-child(1) span', key: 'dock.home' },
+  { selector: '.mobile-app-dock a:nth-child(2) span', key: 'dock.works' },
+  { selector: '.mobile-app-dock a:nth-child(3) span', key: 'dock.council' },
+  { selector: '.mobile-app-dock a:nth-child(4) span', key: 'dock.portal' },
+  { selector: '.mobile-app-dock a:nth-child(5) span', key: 'dock.contact' },
 
   // Stream Indicator buttons
   { selector: '#stream-indicator button[data-target="home"]', labelKey: 'stream.home' },
-  { selector: '#stream-indicator button[data-target="teaser"]', labelKey: 'stream.teaser' },
-  { selector: '#stream-indicator button[data-target="services"]', labelKey: 'stream.services' },
-  { selector: '#stream-indicator button[data-target="gauger"]', labelKey: 'stream.gauger' },
   { selector: '#stream-indicator button[data-target="portfolio"]', labelKey: 'stream.portfolio' },
   { selector: '#stream-indicator button[data-target="team"]', labelKey: 'stream.team' },
   { selector: '#stream-indicator button[data-target="portal"]', labelKey: 'stream.portal' },
-  { selector: '#stream-indicator button[data-target="careers"]', labelKey: 'stream.careers' },
   { selector: '#stream-indicator button[data-target="contact"]', labelKey: 'stream.contact' },
 
   // Hero Section
@@ -640,14 +632,7 @@ const DOM_MAPPINGS = [
   { selector: '#footer-col3-l3', key: 'footer.l3_3' },
   { selector: '#footer-col3-l4', key: 'footer.l3_4' },
   { selector: '#footer-copyright', key: 'footer.rights' },
-  { selector: '#footer-tagline', key: 'footer.tag' },
-
-  // Mobile App Dock
-  { selector: '.mobile-app-dock a:nth-child(1) span', key: 'dock.home' },
-  { selector: '.mobile-app-dock a:nth-child(2) span', key: 'dock.services' },
-  { selector: '.mobile-app-dock a:nth-child(3) span', key: 'dock.cost' },
-  { selector: '.mobile-app-dock a:nth-child(4) span', key: 'dock.advisor' },
-  { selector: '.mobile-app-dock a:nth-child(5) span', key: 'dock.contact' }
+  { selector: '#footer-tagline', key: 'footer.tag' }
 ];
 
 let currentLang = 'el'; // Greek default per user request
