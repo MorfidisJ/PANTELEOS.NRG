@@ -139,6 +139,47 @@
   }
   </script>
 
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is the advantage of LOD-400 BIM over traditional 2D CAD?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "LOD-400 (Level of Development 400) models contain exact geometric and engineering fabrication data for every beam, duct, and pipe. By running automated clash detection before construction begins, we eliminate on-site modification errors, reducing budget overruns by up to 18%."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do you handle Greek building code (KENAK / EAK / EKOS) permitting?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Our in-house engineering team manages the complete e-Adeia electronic permitting procedure through the Technical Chamber of Greece (TEE). We guarantee full compliance with KENAK energy regulations and Greek seismic codes (EAK/EKOS) prior to breaking ground."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is included in a Turnkey Design & Build contract?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "We assume sole responsibility for the entire project lifecycle: from initial architectural concept, topographic surveys, and structural/MEP engineering, through procurement, on-site contractor management, and final occupancy permitting with ISO 9001 quality assurance."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How does nZEB certification impact property valuation and ROI?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Nearly Zero Energy Buildings (nZEB) reduce annual operational utility expenditure by 70–85%. In the Greek commercial and luxury residential markets, nZEB certified properties command a 22–30% premium in asset valuation and qualify for specialized green financing frameworks."
+        }
+      }
+    ]
+  }
+  </script>
+
   <!-- Google Fonts: Outfit, Plus Jakarta Sans, JetBrains Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -218,7 +259,7 @@
         <div class="hero-copy">
           <h1>PRECISION<br><em>CONSTRUCTION</em><br>& ENGINEERING</h1>
           <p class="lede">
-            Stripping away legacy construction clutter. We engineer high-spec turnkey developments, MEP infrastructure, and BIM LOD-400 digital twins across Greece.
+            LOD-400 Digital Twins for Turnkey Greek Infrastructure. We engineer next-generation architectural developments, MEP matrix networks, and bioclimatic nZEB buildings across Greece.
           </p>
           <div class="hero-actions">
             <a href="#portfolio" class="btn primary">
@@ -261,7 +302,7 @@
         <div class="stat-card-hero">
           <div class="stat-eyebrow">ΠΙΣΤΟΠΟΙΗΜΕΝΟ ΙΣΤΟΡΙΚΟ ΕΡΓΩΝ</div>
           <div class="stat-number-box">
-            <span class="stat-num" data-target="334">0</span>
+            <span class="stat-num" data-stat-key="completedProjects" data-target="334">0</span>
             <span class="stat-frac" title="Fractional Execution Indicator">
               <i>2</i>
               <i>3</i>
@@ -274,21 +315,21 @@
         <div class="stat-grid-side">
           <div class="stat-card-mini">
             <div class="mini-left">
-              <span class="stat-num" data-target="1250000">0</span>
+              <span class="stat-num" data-stat-key="totalAreaSqM" data-target="1250000">0</span>
               <span class="stat-unit">m²</span>
             </div>
             <div class="stat-label">ΣΥΝΟΛΙΚΟ ΕΜΒΑΔΟΝ ΜΕΛΕΤΩΝ</div>
           </div>
           <div class="stat-card-mini">
             <div class="mini-left">
-              <span class="stat-num" data-target="100">0</span>
+              <span class="stat-num" data-stat-key="complianceRate" data-target="100">0</span>
               <span class="stat-unit">%</span>
             </div>
             <div class="stat-label">ΣΥΜΜΟΡΦΩΣΗ ISO 19650 & EUROCODE</div>
           </div>
           <div class="stat-card-mini">
             <div class="mini-left">
-              <span class="stat-num" data-target="28">0</span>
+              <span class="stat-num" data-stat-key="activeSites" data-target="28">0</span>
               <span class="stat-unit">+</span>
             </div>
             <div class="stat-label">ΕΝ ΕΞΕΛΙΞΕΙ ΕΡΓΟΤΑΞΙΑ</div>
@@ -312,8 +353,9 @@
 
       <div class="portfolio-grid reveal" id="portfolio-grid">
         <!-- Project 1 -->
-        <article class="p-card" data-cat="commercial bim" data-team="PANAGIOTIS M. PANTELEOS" data-area="6,400 m²" data-dur="24 Months" data-lod="LOD-400" data-desc="Complete architectural engineering and BIM coordination for a 6,400m² bio-cluster laboratory and executive office complex at Thessaloniki Port. Integrated advanced HVAC clean-room ventilation and seismic base-isolation foundations.">
+        <article class="p-card" tabindex="0" role="button" data-cat="commercial bim" data-team="PANAGIOTIS M. PANTELEOS" data-area="6,400 m²" data-dur="24 Months" data-lod="LOD-400" data-desc="Complete architectural engineering and BIM coordination for a 6,400m² bio-cluster laboratory and executive office complex at Thessaloniki Port. Integrated advanced HVAC clean-room ventilation and seismic base-isolation foundations.">
           <div class="p-visual">
+            <div class="tech-hint-badge"><span>LOD-400 CAD</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
             <div class="aesthetic"></div>
             <div class="technical"></div>
           </div>
@@ -325,8 +367,9 @@
         </article>
 
         <!-- Project 2 -->
-        <article class="p-card" data-cat="industrial" data-team="DIMITRIS VAMVAKAS" data-area="12,500 m²" data-dur="16 Months" data-lod="LOD-350" data-desc="High-voltage substation and automated industrial distribution facility. Designed heavy reinforced concrete foundation slabs for 80-ton transformers and complete SCADA electrical automation networks.">
+        <article class="p-card" tabindex="0" role="button" data-cat="industrial" data-team="DIMITRIS VAMVAKAS" data-area="12,500 m²" data-dur="16 Months" data-lod="LOD-350" data-desc="High-voltage substation and automated industrial distribution facility. Designed heavy reinforced concrete foundation slabs for 80-ton transformers and complete SCADA electrical automation networks.">
           <div class="p-visual">
+            <div class="tech-hint-badge"><span>LOD-400 CAD</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
             <div class="aesthetic"></div>
             <div class="technical"></div>
           </div>
@@ -338,8 +381,9 @@
         </article>
 
         <!-- Project 3 -->
-        <article class="p-card" data-cat="residential" data-team="ELENI STAVROU" data-area="1,850 m²" data-dur="18 Months" data-lod="LOD-300" data-desc="Ultra-luxury nZEB residential resort complex built into a mountainous slope. Features cantilevered post-tensioned concrete swimming pools, geothermal heating, and automatedKNX environmental control.">
+        <article class="p-card" tabindex="0" role="button" data-cat="residential" data-team="ELENI STAVROU" data-area="1,850 m²" data-dur="18 Months" data-lod="LOD-300" data-desc="Ultra-luxury nZEB residential resort complex built into a mountainous slope. Features cantilevered post-tensioned concrete swimming pools, geothermal heating, and automatedKNX environmental control.">
           <div class="p-visual">
+            <div class="tech-hint-badge"><span>LOD-400 CAD</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
             <div class="aesthetic"></div>
             <div class="technical"></div>
           </div>
@@ -351,8 +395,9 @@
         </article>
 
         <!-- Project 4 -->
-        <article class="p-card" data-cat="commercial" data-team="NIKOS KAZANTZIS" data-area="8,200 m²" data-dur="22 Months" data-lod="LOD-400" data-desc="Turnkey structural retrofit and energy upgrade of a 1970s commercial high-rise. Executed carbon-fiber structural reinforcement and installed high-performance triple-glazed smart facade systems.">
+        <article class="p-card" tabindex="0" role="button" data-cat="commercial" data-team="NIKOS KAZANTZIS" data-area="8,200 m²" data-dur="22 Months" data-lod="LOD-400" data-desc="Turnkey structural retrofit and energy upgrade of a 1970s commercial high-rise. Executed carbon-fiber structural reinforcement and installed high-performance triple-glazed smart facade systems.">
           <div class="p-visual">
+            <div class="tech-hint-badge"><span>LOD-400 CAD</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
             <div class="aesthetic"></div>
             <div class="technical"></div>
           </div>
@@ -364,8 +409,9 @@
         </article>
 
         <!-- Project 5 -->
-        <article class="p-card" data-cat="bim industrial" data-team="PANAGIOTIS M. PANTELEOS" data-area="18,000 m²" data-dur="14 Months" data-lod="LOD-500" data-desc="LOD-500 digital twin asset model for an automated pharmaceutical logistics distribution center. Complete MEP interference clash elimination prior to ground-breaking, saving 14% in construction waste.">
+        <article class="p-card" tabindex="0" role="button" data-cat="bim industrial" data-team="PANAGIOTIS M. PANTELEOS" data-area="18,000 m²" data-dur="14 Months" data-lod="LOD-500" data-desc="LOD-500 digital twin asset model for an automated pharmaceutical logistics distribution center. Complete MEP interference clash elimination prior to ground-breaking, saving 14% in construction waste.">
           <div class="p-visual">
+            <div class="tech-hint-badge"><span>LOD-400 CAD</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
             <div class="aesthetic"></div>
             <div class="technical"></div>
           </div>
@@ -377,7 +423,7 @@
         </article>
 
         <!-- Project 6 -->
-        <article class="p-card" data-cat="residential bim" data-team="ELENI STAVROU" data-area="950 m²" data-dur="12 Months" data-lod="LOD-350" data-desc="Minimalist monolithic concrete villa overlooking the Aegean sea. Engineered custom frameless glass curtain walls and hidden zero-energy solar roof tiles.">
+        <article class="p-card" tabindex="0" role="button" data-cat="residential bim" data-team="ELENI STAVROU" data-area="950 m²" data-dur="12 Months" data-lod="LOD-350" data-desc="Minimalist monolithic concrete villa overlooking the Aegean sea. Engineered custom frameless glass curtain walls and hidden zero-energy solar roof tiles.">
           <div class="p-visual">
             <div class="aesthetic"></div>
             <div class="technical"></div>
@@ -500,7 +546,7 @@
 
       <div class="team-grid reveal" id="team-grid">
         <!-- Engineer 1 -->
-        <article class="team-card" data-engineer="PANAGIOTIS M. PANTELEOS">
+        <article class="team-card" tabindex="0" role="button" data-engineer="PANAGIOTIS M. PANTELEOS">
           <div class="team-portrait"><span>PP</span></div>
           <div class="team-base">
             <h4>Panagiotis M. Panteleos</h4>
@@ -520,7 +566,7 @@
         </article>
 
         <!-- Engineer 2 -->
-        <article class="team-card" data-engineer="DIMITRIS VAMVAKAS">
+        <article class="team-card" tabindex="0" role="button" data-engineer="DIMITRIS VAMVAKAS">
           <div class="team-portrait"><span>DV</span></div>
           <div class="team-base">
             <h4>Dimitris Vamvakas</h4>
@@ -540,7 +586,7 @@
         </article>
 
         <!-- Engineer 3 -->
-        <article class="team-card" data-engineer="ELENI STAVROU">
+        <article class="team-card" tabindex="0" role="button" data-engineer="ELENI STAVROU">
           <div class="team-portrait"><span>ES</span></div>
           <div class="team-base">
             <h4>Eleni Stavrou</h4>
@@ -560,7 +606,7 @@
         </article>
 
         <!-- Engineer 4 -->
-        <article class="team-card" data-engineer="NIKOS KAZANTZIS">
+        <article class="team-card" tabindex="0" role="button" data-engineer="NIKOS KAZANTZIS">
           <div class="team-portrait"><span>NK</span></div>
           <div class="team-base">
             <h4>Nikos Kazantzis</h4>
@@ -580,7 +626,7 @@
         </article>
 
         <!-- Engineer 5 -->
-        <article class="team-card" data-engineer="MARIA PAPADOPOULOU">
+        <article class="team-card" tabindex="0" role="button" data-engineer="MARIA PAPADOPOULOU">
           <div class="team-portrait"><span>MP</span></div>
           <div class="team-base">
             <h4>Maria Papadopoulou</h4>
@@ -600,7 +646,7 @@
         </article>
 
         <!-- Engineer 6 -->
-        <article class="team-card" data-engineer="GIORGOS MAKRIS">
+        <article class="team-card" tabindex="0" role="button" data-engineer="GIORGOS MAKRIS">
           <div class="team-portrait"><span>GM</span></div>
           <div class="team-base">
             <h4>Giorgos Makris</h4>
@@ -767,7 +813,7 @@
           <div class="form-success" id="contact-success">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14M22 4L12 14.01l-3-3"/></svg>
             <h4>INQUIRY SUBMITTED</h4>
-            <p>Your project brief has been received by Panagiotis M. Panteleos. An engineering feasibility evaluation will be sent to you within 24 hours.</p>
+            <p>Your project brief has been received by Panagiotis M. Panteleos. An engineering feasibility evaluation will be sent to you within 4 business hours.</p>
           </div>
         </div>
       </div>
@@ -862,6 +908,10 @@
       <svg class="ui-icon" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
       <span>Επικοινωνία</span>
     </a>
+    <button class="dock-item lang-switch-btn" id="mobile-dock-lang" title="Switch Language" aria-label="Switch Language" style="background: none; border: none; cursor: pointer; color: inherit; padding: 0;">
+      <svg class="ui-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+      <span id="mobile-dock-lang-txt">ΕΛ</span>
+    </button>
   </nav>
 
   <!-- Modular JavaScript Files -->

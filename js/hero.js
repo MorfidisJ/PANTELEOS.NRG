@@ -21,11 +21,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
   let mouse = { x: -1000, y: -1000, targetX: -1000, targetY: -1000 };
   let gridNodes = [];
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 
   function resize() {
     width = canvas.width = window.innerWidth;
     height = canvas.height = window.innerHeight;
     initGrid();
+    if (prefersReducedMotion.matches || document.hidden) {
+      draw();
+    }
   }
 
   function initGrid() {
@@ -169,12 +173,53 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  let isPaused = false;
+
   function animate() {
+    if (isPaused || prefersReducedMotion.matches) return;
     update();
     draw();
     animId = requestAnimationFrame(animate);
   }
 
+  function startAnimation() {
+    if (prefersReducedMotion.matches) {
+      draw();
+      return;
+    }
+    if (!animId && !isPaused && !document.hidden) {
+      animate();
+    }
+  }
+
+  function stopAnimation() {
+    if (animId) {
+      cancelAnimationFrame(animId);
+      animId = null;
+    }
+  }
+
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) {
+      isPaused = true;
+      stopAnimation();
+    } else {
+      isPaused = false;
+      startAnimation();
+    }
+  });
+
+  if (typeof prefersReducedMotion.addEventListener === 'function') {
+    prefersReducedMotion.addEventListener('change', () => {
+      if (prefersReducedMotion.matches) {
+        stopAnimation();
+        draw();
+      } else {
+        startAnimation();
+      }
+    });
+  }
+
   resize();
-  animate();
+  startAnimation();
 });

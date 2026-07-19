@@ -18,6 +18,7 @@
 const PORTFOLIO_PROJECTS = [
   {
     id: "PN-2024-1187",
+    isMock: true,
     cat: "commercial bim",
     tagEn: "COMMERCIAL / BIM",
     tagEl: "ΕΜΠΟΡΙΚΟ / BIM",
@@ -36,6 +37,7 @@ const PORTFOLIO_PROJECTS = [
   },
   {
     id: "PN-2024-0932",
+    isMock: true,
     cat: "industrial",
     tagEn: "INDUSTRIAL / MEP",
     tagEl: "ΒΙΟΜΗΧΑΝΙΚΟ / ΗΜ",
@@ -54,6 +56,7 @@ const PORTFOLIO_PROJECTS = [
   },
   {
     id: "PN-2025-0104",
+    isMock: true,
     cat: "residential",
     tagEn: "RESIDENTIAL / nZEB",
     tagEl: "ΚΑΤΟΙΚΙΑ / nZEB",
@@ -72,6 +75,7 @@ const PORTFOLIO_PROJECTS = [
   },
   {
     id: "PN-2023-0811",
+    isMock: true,
     cat: "commercial",
     tagEn: "COMMERCIAL / RETROFIT",
     tagEl: "ΕΜΠΟΡΙΚΟ / ΑΝΑΒΑΘΜΙΣΗ",
@@ -90,6 +94,7 @@ const PORTFOLIO_PROJECTS = [
   },
   {
     id: "PN-2024-0455",
+    isMock: true,
     cat: "bim industrial",
     tagEn: "BIM / DIGITAL TWIN",
     tagEl: "BIM / DIGITAL TWIN",
@@ -108,6 +113,7 @@ const PORTFOLIO_PROJECTS = [
   },
   {
     id: "PN-2024-0780",
+    isMock: true,
     cat: "residential bim",
     tagEn: "RESIDENTIAL / BIM",
     tagEl: "ΚΑΤΟΙΚΙΑ / BIM",
@@ -129,9 +135,80 @@ const PORTFOLIO_PROJECTS = [
 window.PORTFOLIO_PROJECTS = PORTFOLIO_PROJECTS;
 
 /**
+ * Helper: Returns active portfolio projects.
+ * If at least one real project (where isMock is false or undefined) exists in PORTFOLIO_PROJECTS,
+ * all mock/showcase projects (isMock: true) are automatically removed from display and statistics!
+ */
+function getActivePortfolioProjects() {
+  const hasRealProjects = Array.isArray(PORTFOLIO_PROJECTS) && PORTFOLIO_PROJECTS.some(proj => !proj.isMock);
+  return hasRealProjects ? PORTFOLIO_PROJECTS.filter(proj => !proj.isMock) : (PORTFOLIO_PROJECTS || []);
+}
+window.getActivePortfolioProjects = getActivePortfolioProjects;
+
+/**
+ * Global Portfolio Statistics & Historical Track Record
+ * Drives the #portfolio-counter-banner statistics on the home page.
+ * Automatically combines historical baseline record with PORTFOLIO_PROJECTS case studies.
+ */
+const PORTFOLIO_STATS = {
+  baselineProjects: 328,       // Pre-featured historical baseline projects
+  baselineAreaSqM: 1202100,    // Pre-featured historical baseline area (m²)
+  complianceRate: 100,         // % ISO 19650 & Eurocode compliance
+  activeSites: 28,             // Active construction sites
+  fraction: [2, 3],            // Fractional execution indicator
+
+  // Computed metrics drawing directly from active portfolio projects
+  get completedProjects() {
+    return this.baselineProjects + getActivePortfolioProjects().length;
+  },
+  get totalAreaSqM() {
+    const active = getActivePortfolioProjects();
+    const featuredArea = active.reduce((sum, p) => {
+      const num = parseInt((p.area || '0').replace(/[^0-9]/g, ''), 10) || 0;
+      return sum + num;
+    }, 0);
+    return this.baselineAreaSqM + featuredArea;
+  }
+};
+
+window.PORTFOLIO_STATS = PORTFOLIO_STATS;
+
+/**
+ * Updates the #portfolio-counter-banner DOM targets and labels dynamically from PORTFOLIO_STATS
+ */
+function updatePortfolioStatsBanner(lang) {
+  const banner = document.getElementById('portfolio-counter-banner');
+  if (!banner) return;
+
+  const stats = window.PORTFOLIO_STATS || {};
+  const currentLang = lang || localStorage.getItem('panteleos_lang') || 'el';
+  const locale = currentLang === 'el' ? 'el-GR' : 'en-US';
+
+  banner.querySelectorAll('.stat-num[data-stat-key]').forEach(el => {
+    const key = el.getAttribute('data-stat-key');
+    if (key && stats[key] !== undefined) {
+      const val = stats[key];
+      el.setAttribute('data-target', val);
+      if (el.textContent && el.textContent.trim() !== '0') {
+        el.textContent = val.toLocaleString(locale);
+      }
+    }
+  });
+
+  const fracEl = banner.querySelector('.stat-frac');
+  if (fracEl && Array.isArray(stats.fraction) && stats.fraction.length === 2) {
+    fracEl.innerHTML = `<i>${stats.fraction[0]}</i><i>${stats.fraction[1]}</i>`;
+  }
+}
+
+window.updatePortfolioStatsBanner = updatePortfolioStatsBanner;
+
+/**
  * Renders portfolio cards dynamically into #portfolio-grid
  */
 function renderPortfolioProjects(lang) {
+  updatePortfolioStatsBanner(lang);
+
   const grid = document.getElementById('portfolio-grid');
   if (!grid) return;
 
@@ -142,7 +219,8 @@ function renderPortfolioProjects(lang) {
   const activeChip = document.querySelector('.filter-chip.active');
   const activeFilter = activeChip ? activeChip.getAttribute('data-filter') : 'all';
 
-  grid.innerHTML = PORTFOLIO_PROJECTS.map(proj => {
+  const activeProjects = getActivePortfolioProjects();
+  grid.innerHTML = activeProjects.map(proj => {
     const tag = isEl ? proj.tagEl : proj.tagEn;
     const title = isEl ? proj.titleEl : proj.titleEn;
     const lead = isEl ? proj.leadEl : proj.leadEn;
@@ -155,7 +233,7 @@ function renderPortfolioProjects(lang) {
     const photosAttr = Array.isArray(proj.photos) ? ` data-photos="${proj.photos.join(',')}"` : (proj.photos ? ` data-photos="${proj.photos}"` : '');
 
     return `
-      <article class="p-card${hiddenClass}" 
+      <article class="p-card${hiddenClass}" tabindex="0" role="button" 
                data-cat="${proj.cat}" 
                data-team="${proj.team}" 
                data-area="${proj.area}" 
@@ -163,13 +241,14 @@ function renderPortfolioProjects(lang) {
                data-lod="${proj.lod}" 
                data-desc="${desc}"${photosAttr}>
         <div class="p-visual">
+          <div class="tech-hint-badge"><span>LOD-400 CAD</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
           <div class="aesthetic">
             <img src="${primaryImg}" alt="${title}" loading="lazy" 
-                 onerror="this.remove(); if(window.generatePortfolioArtwork) window.generatePortfolioArtwork();">
+                 onerror="this.onerror=null; this.remove(); if(typeof window.generatePortfolioArtwork === 'function') window.generatePortfolioArtwork();">
           </div>
           <div class="technical">
             <img src="${techImg}" alt="${title} Technical" loading="lazy" 
-                 onerror="this.remove(); if(window.generatePortfolioArtwork) window.generatePortfolioArtwork();">
+                 onerror="this.onerror=null; this.remove(); if(typeof window.generatePortfolioArtwork === 'function') window.generatePortfolioArtwork();">
           </div>
         </div>
         <div class="p-info">
@@ -181,7 +260,7 @@ function renderPortfolioProjects(lang) {
     `;
   }).join('');
 
-  // Re-generate SVG artwork for the rendered cards
+  // Re-generate SVG artwork for the rendered cards defensively
   if (typeof window.generatePortfolioArtwork === 'function') {
     window.generatePortfolioArtwork();
   }

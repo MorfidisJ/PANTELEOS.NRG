@@ -32,7 +32,7 @@ const TRANSLATIONS = {
     // Hero Section
     "hero.eyebrow": "ΑΡΧΙΤΕΚΤΟΝΙΚΗ & ΤΕΧΝΙΚΗ ΜΕΛΕΤΗ ΥΨΗΛΩΝ ΠΡΟΔΙΑΓΡΑΦΩΝ",
     "hero.h1": "ΑΚΡΙΒΕΙΑ<br><em>ΚΑΤΑΣΚΕΥΗΣ</em><br>& ΜΕΛΕΤΗΣ",
-    "hero.lede": "Απαλλαγμένοι από τις παραδοσιακές συμβάσεις του κλάδου. Μελετούμε και κατασκευάζουμε έργα υψηλών προδιαγραφών, Η/Μ υποδομές και ψηφιακά μοντέλα BIM LOD-400 σε όλη την Ελλάδα.",
+    "hero.lede": "Ψηφιακά Δίδυμα LOD-400 για Projects & Υποδομές με το Κλειδί στο Χέρι. Μελετούμε και κατασκευάζουμε έργα υψηλών αρχιτεκτονικών προδιαγραφών, Η/Μ δίκτυα και βιοκλιματικά κτίρια nZEB σε όλη την Ελλάδα.",
     "hero.btn1": "ΠΡΟΒΟΛΗ ΕΡΓΩΝ",
     "hero.btn2": "ΨΗΦΙΑΚΟΣ ΣΥΜΒΟΥΛΟΣ",
     "hero.meta1": "Επίπεδο Ακρίβειας BIM",
@@ -200,7 +200,7 @@ const TRANSLATIONS = {
     "form.msg": "Προδιαγραφές Έργου & Χρονοδιάγραμμα *",
     "form.submit": "ΑΠΟΣΤΟΛΗ ΤΕΧΝΙΚΟΥ ΑΙΤΗΜΑΤΟΣ",
     "form.succ.h": "ΤΟ ΑΙΤΗΜΑ ΑΠΕΣΤΑΛΗ",
-    "form.succ.p": "Το τεχνικό σας αίτημα καταχωρήθηκε και απεστάλη στον Παναγιώτη Μιχ. Παντελαίο. Θα λάβετε απάντηση μηχανικού εντός 24 ωρών.",
+    "form.succ.p": "Το τεχνικό σας αίτημα καταχωρήθηκε και απεστάλη στον Παναγιώτη Μιχ. Παντελαίο. Θα λάβετε απάντηση μηχανικού εντός 4 εργάσιμων ωρών.",
 
     // Footer
     "footer.p": "Αρχιτεκτονικός και στατικός σχεδιασμός νέας γενιάς, μοντελοποίηση BIM και κατασκευαστική διαχείριση σε όλη την Ελλάδα.",
@@ -250,7 +250,7 @@ const TRANSLATIONS = {
     // Hero Section
     "hero.eyebrow": "HIGH-PERFORMANCE ARCHITECTURAL ENGINEERING",
     "hero.h1": "PRECISION<br><em>CONSTRUCTION</em><br>& ENGINEERING",
-    "hero.lede": "Stripping away legacy construction clutter. We engineer high-spec turnkey developments, MEP infrastructure, and BIM LOD-400 digital twins across Greece.",
+    "hero.lede": "LOD-400 Digital Twins for Turnkey Greek Infrastructure. We engineer next-generation architectural developments, MEP matrix networks, and bioclimatic nZEB buildings across Greece.",
     "hero.btn1": "EXPLORE PROJECTS",
     "hero.btn2": "VIRTUAL ASSISTANT",
     "hero.meta1": "BIM Precision Tier",
@@ -418,7 +418,7 @@ const TRANSLATIONS = {
     "form.msg": "Project Specifications, Scope & Timeline *",
     "form.submit": "SUBMIT PROJECT BRIEF",
     "form.succ.h": "INQUIRY SUBMITTED",
-    "form.succ.p": "Your project brief has been received by Panagiotis M. Panteleos. An engineering feasibility evaluation will be sent to you within 24 hours.",
+    "form.succ.p": "Your project brief has been received by Panagiotis M. Panteleos. An engineering feasibility evaluation will be sent to you within 4 business hours.",
 
     // Footer
     "footer.p": "Next-generation architectural engineering, BIM digital twin modeling, and turnkey construction management across Greece.",
@@ -711,7 +711,20 @@ function setLanguage(lang) {
   if (window.replaceEmojisInDOM) {
     window.replaceEmojisInDOM();
   }
+
+  const mobileDockTxt = document.getElementById('mobile-dock-lang-txt');
+  if (mobileDockTxt) {
+    mobileDockTxt.textContent = lang === 'el' ? 'ΕΛ' : 'EN';
+  }
 }
+
+function toggleLang() {
+  const nextLang = currentLang === 'el' ? 'en' : 'el';
+  setLanguage(nextLang);
+}
+
+window.setLanguage = setLanguage;
+window.toggleLang = toggleLang;
 
 document.addEventListener('DOMContentLoaded', () => {
   // Check if language was previously selected by user, otherwise default to Greek ('el') per user request
@@ -727,6 +740,11 @@ document.addEventListener('DOMContentLoaded', () => {
         setLanguage(targetLang);
       }
     });
+  }
+
+  const mobileDockBtn = document.getElementById('mobile-dock-lang');
+  if (mobileDockBtn) {
+    mobileDockBtn.addEventListener('click', toggleLang);
   }
 
   // Initialize default language

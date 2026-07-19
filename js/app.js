@@ -214,7 +214,8 @@ function initTeaserSliders() {
     if (compVal) compVal.textContent = cLabel;
 
     const total = a * mult;
-    output.textContent = `€${total.toLocaleString()}`;
+    const locale = window.currentLang === 'el' ? 'el-GR' : 'en-US';
+    output.textContent = `€${total.toLocaleString(locale)}`;
   }
 
   areaSlider.addEventListener('input', calc);
@@ -254,11 +255,77 @@ function initContactForm() {
     });
   }
 
+  const showFieldError = (inputEl, msgText) => {
+    if (!inputEl) return;
+    inputEl.style.borderColor = '#FF3B30';
+    const field = inputEl.closest('.form-field');
+    if (field && !field.querySelector('.error-hint')) {
+      const hint = document.createElement('span');
+      hint.className = 'error-hint';
+      hint.style.color = '#FF3B30';
+      hint.style.fontSize = '12px';
+      hint.style.marginTop = '4px';
+      hint.style.display = 'block';
+      hint.textContent = msgText;
+      field.appendChild(hint);
+    }
+    inputEl.focus();
+  };
+
+  if (form) {
+    form.querySelectorAll('input, textarea, select').forEach(el => {
+      el.addEventListener('input', () => {
+        el.style.borderColor = '';
+        const field = el.closest('.form-field');
+        const hint = field?.querySelector('.error-hint');
+        if (hint) hint.remove();
+      });
+    });
+  }
+
   if (form && successBox) {
     form.addEventListener('submit', (e) => {
       e.preventDefault();
+      
+      form.querySelectorAll('.error-hint').forEach(el => el.remove());
+      form.querySelectorAll('input, textarea').forEach(el => el.style.borderColor = '');
+
+      const activeLang = window.currentLang || localStorage.getItem('panteleos_lang') || 'el';
+      const isEl = activeLang === 'el';
+
+      // Validate Email
+      const emailEl = document.getElementById('c-email');
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (emailEl && !emailRegex.test(emailEl.value.trim())) {
+        showFieldError(emailEl, isEl ? 'Μη έγκυρη μορφή διεύθυνσης email.' : 'Invalid corporate email address format.');
+        return;
+      }
+
+      // Validate Phone if provided
+      const telEl = document.getElementById('c-tel');
+      if (telEl && telEl.value.trim() !== '') {
+        const phoneClean = telEl.value.trim().replace(/[-()\s]/g, '');
+        const phoneRegex = /^(\+3069\d{8}|003069\d{8}|69\d{8}|\+?\d{8,15})$/;
+        if (!phoneRegex.test(phoneClean)) {
+          showFieldError(telEl, isEl ? 'Παρακαλώ εισάγετε έγκυρο τηλέφωνο (π.χ. +30 69xxxxxxxx).' : 'Please enter a valid telephone number (e.g. +30 69xxxxxxxx or 10-digit number).');
+          return;
+        }
+      }
+
+      // Validate Contractor / TEE license if role is contractor and field is filled
+      if (roleSelect && roleSelect.value === 'contractor') {
+        const contEl = document.getElementById('cont-license');
+        if (contEl && contEl.value.trim() !== '') {
+          const teeRegex = /^[0-9A-Za-z\s-]{4,15}$/;
+          if (!teeRegex.test(contEl.value.trim())) {
+            showFieldError(contEl, isEl ? 'Μη έγκυρος αριθμός μητρώου ΤΕΕ/Εταιρείας.' : 'Invalid TEE or company registration number format.');
+            return;
+          }
+        }
+      }
+
       const submitBtn = form.querySelector('button[type="submit"]');
-      if (submitBtn) submitBtn.textContent = 'SUBMITTING INQUIRY...';
+      if (submitBtn) submitBtn.textContent = isEl ? 'ΑΠΟΣΤΟΛΗ...' : 'SUBMITTING INQUIRY...';
       
       setTimeout(() => {
         form.style.display = 'none';
@@ -267,3 +334,30 @@ function initContactForm() {
     });
   }
 }
+
+/* --- Accessibility Focus Trap Utility --- */
+function trapFocus(modal) {
+  if (!modal) return () => {};
+  const focusable = modal.querySelectorAll(
+    'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+  );
+  if (focusable.length === 0) return () => {};
+  const first = focusable[0];
+  const last = focusable[focusable.length - 1];
+
+  function handleTab(e) {
+    if (e.key !== 'Tab') return;
+    if (e.shiftKey && document.activeElement === first) {
+      e.preventDefault();
+      last.focus();
+    } else if (!e.shiftKey && document.activeElement === last) {
+      e.preventDefault();
+      first.focus();
+    }
+  }
+
+  modal.addEventListener('keydown', handleTab);
+  first?.focus();
+  return () => modal.removeEventListener('keydown', handleTab);
+}
+window.trapFocus = trapFocus;

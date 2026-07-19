@@ -44,6 +44,7 @@ const TEAM_MEMBERS = [
   {
     key: "DIMITRIS VAMVAKAS",
     id: "vamvakas",
+    isMock: true,
     initials: "DV",
     nameEn: "Dimitris Vamvakas",
     nameEl: "Δημήτρης Βαμβακάς",
@@ -65,6 +66,7 @@ const TEAM_MEMBERS = [
   {
     key: "ELENI STAVROU",
     id: "stavrou",
+    isMock: true,
     initials: "ES",
     nameEn: "Eleni Stavrou",
     nameEl: "Ελένη Σταύρου",
@@ -86,6 +88,7 @@ const TEAM_MEMBERS = [
   {
     key: "NIKOS KAZANTZIS",
     id: "kazantzis",
+    isMock: true,
     initials: "NK",
     nameEn: "Nikos Kazantzis",
     nameEl: "Νίκος Καζαντζής",
@@ -107,6 +110,7 @@ const TEAM_MEMBERS = [
   {
     key: "MARIA PAPADOPOULOU",
     id: "papadopoulou",
+    isMock: true,
     initials: "MP",
     nameEn: "Maria Papadopoulou",
     nameEl: "Μαρία Παπαδοπούλου",
@@ -128,6 +132,7 @@ const TEAM_MEMBERS = [
   {
     key: "GIORGOS MAKRIS",
     id: "makris",
+    isMock: true,
     initials: "GM",
     nameEn: "Giorgos Makris",
     nameEl: "Γιώργος Μακρής",
@@ -157,6 +162,17 @@ window.TEAM_MEMBERS = TEAM_MEMBERS;
 window.TEAM_DATA = TEAM_DATA;
 
 /**
+ * Helper: Returns active team members.
+ * If the user adds real team members beyond the founder (or if there is > 1 real member),
+ * all mock co-engineers (isMock: true) automatically vanish!
+ */
+function getActiveTeamMembers() {
+  const realMembers = Array.isArray(TEAM_MEMBERS) ? TEAM_MEMBERS.filter(m => !m.isMock) : [];
+  return realMembers.length > 1 ? realMembers : (TEAM_MEMBERS || []);
+}
+window.getActiveTeamMembers = getActiveTeamMembers;
+
+/**
  * Renders team member cards dynamically into #team-grid
  */
 function renderTeamMembers(lang) {
@@ -168,7 +184,8 @@ function renderTeamMembers(lang) {
 
   const filterBtnLabel = isEl ? "ΠΡΟΒΟΛΗ ΕΡΓΩΝ ΜΗΧΑΝΙΚΟΥ &rarr;" : "FILTER PROJECTS BY ENGINEER &rarr;";
 
-  grid.innerHTML = TEAM_MEMBERS.map(member => {
+  const activeMembers = getActiveTeamMembers();
+  grid.innerHTML = activeMembers.map(member => {
     const name = isEl ? member.nameEl : member.nameEn;
     const shortRole = isEl ? member.shortRoleEl : member.shortRoleEn;
     const reg = isEl ? member.regEl : member.regEn;
@@ -180,7 +197,7 @@ function renderTeamMembers(lang) {
     const specsHtml = cardSpecs.map(s => `<span>${s}</span>`).join('');
 
     return `
-      <article class="team-card" data-engineer="${member.key}">
+      <article class="team-card" tabindex="0" role="button" data-engineer="${member.key}">
         <div class="team-portrait">
           <img src="${autoPhotoUrl}" alt="${name}" class="team-img" loading="lazy"
                onerror="this.remove();">

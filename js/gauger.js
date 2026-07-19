@@ -149,7 +149,8 @@ document.addEventListener('DOMContentLoaded', () => {
         current = target;
         clearInterval(timer);
       }
-      el.textContent = `${prefix}${current.toLocaleString()}`;
+      const locale = window.currentLang === 'el' ? 'el-GR' : 'en-US';
+      el.textContent = `${prefix}${current.toLocaleString(locale)}`;
     }, 25);
   }
 
@@ -266,7 +267,7 @@ document.addEventListener('DOMContentLoaded', () => {
           </tr>
           <tr style="border-bottom: 1px solid #f1f5f9; background: #f8fafc;">
             <td style="padding: 10px 12px; color: #64748b;">Συνολικό Μικτό Εμβαδόν (GBA)</td>
-            <td style="padding: 10px 12px; color: #0a1428; font-weight: 700;">${area.toLocaleString()} m²</td>
+            <td style="padding: 10px 12px; color: #0a1428; font-weight: 700;">${area.toLocaleString('el-GR')} m²</td>
           </tr>
           <tr style="border-bottom: 1px solid #f1f5f9;">
             <td style="padding: 10px 12px; color: #64748b;">Επίπεδο Προδιαγραφών & Ποιότητας</td>
@@ -283,8 +284,8 @@ document.addEventListener('DOMContentLoaded', () => {
         <div style="background: #eff6ff; border: 1px solid #bfdbfe; border-left: 5px solid #008cff; border-radius: 8px; padding: 22px; display: flex; justify-content: space-between; align-items: center; margin-top: 14px;">
           <div>
             <div style="font-size: 12px; color: #2563eb; font-weight: 700; letter-spacing: 0.5px;">ΕΚΤΙΜΩΜΕΝΟ ΟΙΚΟΝΟΜΙΚΟ ΑΝΤΙΚΕΙΜΕΝΟ (ΠΛΕΟΝ ΦΠΑ)</div>
-            <div style="font-size: 34px; color: #0a1428; font-weight: 800; margin-top: 4px;">€${totalEst.toLocaleString()}</div>
-            <div style="font-size: 12.5px; color: #475569; margin-top: 4px;">Εκτιμώμενο Μοναδιαίο Κόστος: <span style="color: #0a1428; font-weight: 700;">€${unitRate.toLocaleString()} / m²</span></div>
+            <div style="font-size: 34px; color: #0a1428; font-weight: 800; margin-top: 4px;">€${totalEst.toLocaleString('el-GR')}</div>
+            <div style="font-size: 12.5px; color: #475569; margin-top: 4px;">Εκτιμώμενο Μοναδιαίο Κόστος: <span style="color: #0a1428; font-weight: 700;">€${unitRate.toLocaleString('el-GR')} / m²</span></div>
           </div>
           <div style="background: #ffffff; padding: 14px 18px; border-radius: 8px; border: 1px solid #dbeafe; text-align: center; min-width: 170px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);">
             <div style="font-size: 10.5px; color: #64748b; font-weight: 600;">ΑΚΡΙΒΕΙΑ ΕΚΤΙΜΗΣΗΣ</div>
@@ -383,7 +384,7 @@ document.addEventListener('DOMContentLoaded', () => {
           </tr>
           <tr style="border-bottom: 1px solid #f1f5f9; background: #f8fafc;">
             <td style="padding: 10px 12px; color: #64748b;">Gross Building Area (GBA)</td>
-            <td style="padding: 10px 12px; color: #0a1428; font-weight: 700;">${area.toLocaleString()} m²</td>
+            <td style="padding: 10px 12px; color: #0a1428; font-weight: 700;">${area.toLocaleString('en-US')} m²</td>
           </tr>
           <tr style="border-bottom: 1px solid #f1f5f9;">
             <td style="padding: 10px 12px; color: #64748b;">Specification & Quality Tier</td>
@@ -400,8 +401,8 @@ document.addEventListener('DOMContentLoaded', () => {
         <div style="background: #eff6ff; border: 1px solid #bfdbfe; border-left: 5px solid #008cff; border-radius: 8px; padding: 22px; display: flex; justify-content: space-between; align-items: center; margin-top: 14px;">
           <div>
             <div style="font-size: 12px; color: #2563eb; font-weight: 700; letter-spacing: 0.5px;">PROJECTED FINANCIAL ENVELOPE (EXCL. VAT)</div>
-            <div style="font-size: 34px; color: #0a1428; font-weight: 800; margin-top: 4px;">€${totalEst.toLocaleString()}</div>
-            <div style="font-size: 12.5px; color: #475569; margin-top: 4px;">Estimated Unit Cost: <span style="color: #0a1428; font-weight: 700;">€${unitRate.toLocaleString()} / m²</span></div>
+            <div style="font-size: 34px; color: #0a1428; font-weight: 800; margin-top: 4px;">€${totalEst.toLocaleString('en-US')}</div>
+            <div style="font-size: 12.5px; color: #475569; margin-top: 4px;">Estimated Unit Cost: <span style="color: #0a1428; font-weight: 700;">€${unitRate.toLocaleString('en-US')} / m²</span></div>
           </div>
           <div style="background: #ffffff; padding: 14px 18px; border-radius: 8px; border: 1px solid #dbeafe; text-align: center; min-width: 170px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);">
             <div style="font-size: 10.5px; color: #64748b; font-weight: 600;">BUDGET CONFIDENCE</div>

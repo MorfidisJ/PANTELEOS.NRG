@@ -45,9 +45,9 @@ function initPortfolioFilters() {
 
       const filter = chip.getAttribute('data-filter');
       cards.forEach(card => {
-        const cat = card.getAttribute('data-cat') || '';
+        const catTokens = (card.getAttribute('data-cat') || '').split(/\s+/);
         const team = card.getAttribute('data-team') || '';
-        if (filter === 'all' || cat.includes(filter) || team.includes(filter)) {
+        if (filter === 'all' || catTokens.includes(filter) || team.includes(filter)) {
           card.classList.remove('hidden');
         } else {
           card.classList.add('hidden');
@@ -124,19 +124,26 @@ function initTeamModal() {
   const contactText = document.getElementById('tm-contact-text');
 
   let currentEngineer = '';
+  let cleanupFocus = null;
+  let lastFocusedElement = null;
 
   const closeModal = () => {
     modal.classList.remove('open');
     document.body.style.overflow = '';
+    if (cleanupFocus) { cleanupFocus(); cleanupFocus = null; }
+    if (lastFocusedElement) { lastFocusedElement.focus(); lastFocusedElement = null; }
   };
 
-  if (closeBtn) closeBtn.addEventListener('click', closeModal);
-  modal.addEventListener('click', (e) => {
-    if (e.target === modal) closeModal();
-  });
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && modal.classList.contains('open')) closeModal();
-  });
+  if (!modal.dataset.listenersAttached) {
+    modal.dataset.listenersAttached = 'true';
+    if (closeBtn) closeBtn.addEventListener('click', closeModal);
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) closeModal();
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && modal.classList.contains('open')) closeModal();
+    });
+  }
 
   const renderModalContent = (engKey, lang) => {
     const data = TEAM_DATA[engKey];
@@ -167,19 +174,32 @@ function initTeamModal() {
     }
   };
 
+  const openCardModal = (card) => {
+    const engKey = card.getAttribute('data-engineer');
+    if (!TEAM_DATA[engKey]) return;
+
+    lastFocusedElement = document.activeElement;
+    currentEngineer = engKey;
+    const activeLang = window.currentLang || localStorage.getItem('panteleos_lang') || 'el';
+    renderModalContent(engKey, activeLang);
+
+    modal.classList.add('open');
+    document.body.style.overflow = 'hidden';
+    if (window.trapFocus) cleanupFocus = window.trapFocus(modal.querySelector('.modal-box') || modal);
+  };
+
   teamCards.forEach(card => {
+    if (card.dataset.hasModalListener) return;
+    card.dataset.hasModalListener = 'true';
     card.addEventListener('click', (e) => {
       if (e.target.closest('.cta') || e.target.closest('button')) return;
-
-      const engKey = card.getAttribute('data-engineer');
-      if (!TEAM_DATA[engKey]) return;
-
-      currentEngineer = engKey;
-      const activeLang = window.currentLang || localStorage.getItem('panteleos_lang') || 'el';
-      renderModalContent(engKey, activeLang);
-
-      modal.classList.add('open');
-      document.body.style.overflow = 'hidden';
+      openCardModal(card);
+    });
+    card.addEventListener('keydown', (e) => {
+      if ((e.key === 'Enter' || e.key === ' ') && !e.target.closest('.cta') && !e.target.closest('button')) {
+        e.preventDefault();
+        openCardModal(card);
+      }
     });
   });
 
@@ -284,6 +304,8 @@ function initPortfolioModal() {
 
   let currentSlideIdx = 0;
   let activeSlides = [];
+  let cleanupFocus = null;
+  let lastFocusedElement = null;
 
   function getProjectGallerySlides(card) {
     const lang = localStorage.getItem('panteleos_lang') || 'el';
@@ -393,6 +415,87 @@ function initPortfolioModal() {
     return slides;
   }
 
+  function initGalleryStageZoom(stage, targetEl) {
+    if (!stage || !targetEl) return;
+    
+    let scale = 1;
+    let translateX = 0;
+    let translateY = 0;
+    let isDragging = false;
+    let startX = 0;
+    let startY = 0;
+
+    const updateTransform = (animate = true) => {
+      targetEl.style.transition = animate ? 'transform 0.15s ease-out' : 'none';
+      targetEl.style.transform = `translate(${translateX}px, ${translateY}px) scale(${scale})`;
+      stage.style.cursor = scale > 1 ? (isDragging ? 'grabbing' : 'grab') : 'default';
+    };
+
+    if (stage._zoomCleanup) stage._zoomCleanup();
+
+    const onWheel = (e) => {
+      e.preventDefault();
+      const zoomFactor = e.deltaY < 0 ? 1.25 : 0.8;
+      const newScale = Math.min(Math.max(1, scale * zoomFactor), 3);
+      if (newScale === 1) {
+        scale = 1;
+        translateX = 0;
+        translateY = 0;
+      } else {
+        scale = newScale;
+      }
+      updateTransform(true);
+    };
+
+    const onMouseDown = (e) => {
+      if (scale <= 1) return;
+      isDragging = true;
+      startX = e.clientX - translateX;
+      startY = e.clientY - translateY;
+      updateTransform(false);
+    };
+
+    const onMouseMove = (e) => {
+      if (!isDragging || scale <= 1) return;
+      translateX = e.clientX - startX;
+      translateY = e.clientY - startY;
+      updateTransform(false);
+    };
+
+    const onMouseUp = () => {
+      if (isDragging) {
+        isDragging = false;
+        updateTransform(true);
+      }
+    };
+
+    const onDoubleClick = (e) => {
+      e.preventDefault();
+      if (scale > 1) {
+        scale = 1;
+        translateX = 0;
+        translateY = 0;
+      } else {
+        scale = 2.2;
+      }
+      updateTransform(true);
+    };
+
+    stage.addEventListener('wheel', onWheel, { passive: false });
+    stage.addEventListener('mousedown', onMouseDown);
+    window.addEventListener('mousemove', onMouseMove);
+    window.addEventListener('mouseup', onMouseUp);
+    stage.addEventListener('dblclick', onDoubleClick);
+
+    stage._zoomCleanup = () => {
+      stage.removeEventListener('wheel', onWheel);
+      stage.removeEventListener('mousedown', onMouseDown);
+      window.removeEventListener('mousemove', onMouseMove);
+      window.removeEventListener('mouseup', onMouseUp);
+      stage.removeEventListener('dblclick', onDoubleClick);
+    };
+  }
+
   function renderGallerySlide(idx) {
     if (!activeSlides || activeSlides.length === 0) return;
     currentSlideIdx = (idx + activeSlides.length) % activeSlides.length;
@@ -405,17 +508,23 @@ function initPortfolioModal() {
     const thumbsContainer = document.getElementById('gallery-thumbs');
 
     if (stage) {
+      if (stage._zoomCleanup) { stage._zoomCleanup(); stage._zoomCleanup = null; }
       stage.style.opacity = '0';
       setTimeout(() => {
         stage.innerHTML = '';
+        let targetEl = null;
         if (slide.img) {
           const imgEl = document.createElement('img');
           imgEl.src = slide.img;
           imgEl.alt = slide.caption || 'Project Photo';
           stage.appendChild(imgEl);
+          targetEl = imgEl;
         } else if (slide.svg) {
-          stage.appendChild(slide.svg.cloneNode(true));
+          const svgClone = slide.svg.cloneNode(true);
+          stage.appendChild(svgClone);
+          targetEl = svgClone;
         }
+        if (targetEl) initGalleryStageZoom(stage, targetEl);
         stage.style.opacity = '1';
       }, 150);
     }
@@ -478,108 +587,134 @@ function initPortfolioModal() {
     }
   }
 
+  const openPortfolioModal = (card) => {
+    lastFocusedElement = document.activeElement;
+    const title = card.querySelector('h4')?.textContent || 'Project';
+    const tag = card.querySelector('.tagrow span')?.textContent || 'PROJECT';
+    const meta = card.querySelector('p')?.textContent || 'Thessaloniki';
+    const desc = card.getAttribute('data-desc') || 'Comprehensive turnkey architectural engineering and BIM digital twin deployment.';
+    const area = card.getAttribute('data-area') || '4,200 m²';
+    const dur = card.getAttribute('data-dur') || '18 Months';
+    const lod = card.getAttribute('data-lod') || 'LOD-400';
+
+    if (titleEl) titleEl.textContent = title;
+    if (tagEl) tagEl.textContent = tag;
+    if (metaEl) metaEl.textContent = meta;
+    if (descEl) descEl.textContent = desc;
+    if (areaEl) areaEl.textContent = area;
+    if (durEl) durEl.textContent = dur;
+    if (lodEl) lodEl.textContent = lod;
+
+    activeSlides = getProjectGallerySlides(card);
+    renderGallerySlide(0);
+
+    const projId = card.querySelector('.tagrow span:first-child')?.textContent?.trim() || tag;
+    const lang = localStorage.getItem('panteleos_lang') || 'el';
+    probeProjectGalleryPhotos(projId, lang === 'el');
+
+    modal.classList.add('open');
+    document.body.style.overflow = 'hidden';
+    if (window.trapFocus) cleanupFocus = window.trapFocus(modal.querySelector('.modal-box') || modal);
+  };
+
   document.querySelectorAll('.p-card').forEach(card => {
-    card.addEventListener('click', () => {
-      const title = card.querySelector('h4')?.textContent || 'Project';
-      const tag = card.querySelector('.tagrow span')?.textContent || 'PROJECT';
-      const meta = card.querySelector('p')?.textContent || 'Thessaloniki';
-      const desc = card.getAttribute('data-desc') || 'Comprehensive turnkey architectural engineering and BIM digital twin deployment.';
-      const area = card.getAttribute('data-area') || '4,200 m²';
-      const dur = card.getAttribute('data-dur') || '18 Months';
-      const lod = card.getAttribute('data-lod') || 'LOD-400';
-
-      if (titleEl) titleEl.textContent = title;
-      if (tagEl) tagEl.textContent = tag;
-      if (metaEl) metaEl.textContent = meta;
-      if (descEl) descEl.textContent = desc;
-      if (areaEl) areaEl.textContent = area;
-      if (durEl) durEl.textContent = dur;
-      if (lodEl) lodEl.textContent = lod;
-
-      activeSlides = getProjectGallerySlides(card);
-      renderGallerySlide(0);
-
-      const projId = card.querySelector('.tagrow span:first-child')?.textContent?.trim() || tag;
-      const lang = localStorage.getItem('panteleos_lang') || 'el';
-      probeProjectGalleryPhotos(projId, lang === 'el');
-
-      modal.classList.add('open');
-      document.body.style.overflow = 'hidden';
+    if (card.dataset.hasModalListener) return;
+    card.dataset.hasModalListener = 'true';
+    card.addEventListener('click', () => openPortfolioModal(card));
+    card.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        openPortfolioModal(card);
+      }
     });
   });
 
   function closeModal() {
     modal.classList.remove('open');
     document.body.style.overflow = '';
+    const stage = document.getElementById('gallery-stage');
+    if (stage && stage._zoomCleanup) { stage._zoomCleanup(); stage._zoomCleanup = null; }
+    if (cleanupFocus) { cleanupFocus(); cleanupFocus = null; }
+    if (lastFocusedElement) { lastFocusedElement.focus(); lastFocusedElement = null; }
   }
 
-  if (closeBtn) closeBtn.addEventListener('click', closeModal);
-  modal.addEventListener('click', (e) => {
-    if (e.target === modal) closeModal();
-  });
-  window.addEventListener('keydown', (e) => {
-    if (!modal.classList.contains('open')) return;
-    if (e.key === 'Escape') closeModal();
-    if (e.key === 'ArrowLeft') renderGallerySlide(currentSlideIdx - 1);
-    if (e.key === 'ArrowRight') renderGallerySlide(currentSlideIdx + 1);
-  });
+  if (!modal.dataset.listenersAttached) {
+    modal.dataset.listenersAttached = 'true';
+    if (closeBtn) closeBtn.addEventListener('click', closeModal);
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) closeModal();
+    });
+    window.addEventListener('keydown', (e) => {
+      if (!modal.classList.contains('open')) return;
+      if (e.key === 'Escape') closeModal();
+      if (e.key === 'ArrowLeft') renderGallerySlide(currentSlideIdx - 1);
+      if (e.key === 'ArrowRight') renderGallerySlide(currentSlideIdx + 1);
+    });
+  }
 }
 
 /* --- Generate Custom SVG Architectural Artwork for Cards --- */
+let artworkTimeout = null;
 function generatePortfolioArtwork() {
-  const visuals = document.querySelectorAll('.p-visual');
-  visuals.forEach((vis, idx) => {
-    const aes = vis.querySelector('.aesthetic');
-    const tech = vis.querySelector('.technical');
-    if (!aes || !tech) return;
+  if (artworkTimeout) cancelAnimationFrame(artworkTimeout);
+  artworkTimeout = requestAnimationFrame(() => {
+    artworkTimeout = null;
+    const visuals = document.querySelectorAll('.p-visual');
+    visuals.forEach((vis, idx) => {
+      const aes = vis.querySelector('.aesthetic');
+      const tech = vis.querySelector('.technical');
+      if (!aes || !tech) return;
 
-    const colors = ['#0A6C78', '#141414', '#26D7EB', '#4EE5F7'];
-    const c1 = colors[idx % colors.length];
+      const colors = ['#0A6C78', '#141414', '#26D7EB', '#4EE5F7'];
+      const c1 = colors[idx % colors.length];
 
-    // Aesthetic SVG (only if no custom image provided)
-    if (!aes.querySelector('img')) {
-      aes.innerHTML = `
+      // Aesthetic SVG (only if no custom image or existing SVG provided)
+      if (!aes.querySelector('img') && !aes.querySelector('svg')) {
+        aes.innerHTML = `
+          <svg viewBox="0 0 400 300" preserveAspectRatio="none">
+            <rect width="400" height="300" fill="#F8F9FA"/>
+            <path d="M 40,240 L 160,80 L 280,140 L 360,60 L 360,240 Z" fill="${c1}" opacity="0.12"/>
+            <path d="M 80,240 L 180,110 L 260,160 L 340,100 L 340,240 Z" fill="#141414" opacity="0.08"/>
+            <line x1="0" y1="240" x2="400" y2="240" stroke="#141414" stroke-width="2"/>
+            <circle cx="160" cy="80" r="4" fill="#26D7EB"/>
+            <circle cx="280" cy="140" r="4" fill="#26D7EB"/>
+          </svg>
+        `;
+      }
+
+      // Technical Blueprint Wireframe SVG (only if no custom image or existing SVG provided)
+      if (!tech.querySelector('img') && !tech.querySelector('svg')) {
+        tech.innerHTML = `
         <svg viewBox="0 0 400 300" preserveAspectRatio="none">
-          <rect width="400" height="300" fill="#F8F9FA"/>
-          <path d="M 40,240 L 160,80 L 280,140 L 360,60 L 360,240 Z" fill="${c1}" opacity="0.12"/>
-          <path d="M 80,240 L 180,110 L 260,160 L 340,100 L 340,240 Z" fill="#141414" opacity="0.08"/>
-          <line x1="0" y1="240" x2="400" y2="240" stroke="#141414" stroke-width="2"/>
-          <circle cx="160" cy="80" r="4" fill="#26D7EB"/>
-          <circle cx="280" cy="140" r="4" fill="#26D7EB"/>
+          <rect width="400" height="300" fill="#141414"/>
+          <defs>
+            <pattern id="grid-${idx}" width="20" height="20" patternUnits="userSpaceOnUse">
+              <path d="M 20 0 L 0 0 0 20" fill="none" stroke="rgba(38, 215, 235, 0.15)" stroke-width="0.5"/>
+            </pattern>
+          </defs>
+          <rect width="400" height="300" fill="url(#grid-${idx})"/>
+          <path d="M 40,240 L 160,80 L 280,140 L 360,60" fill="none" stroke="#26D7EB" stroke-width="1.5" stroke-dasharray="4,2"/>
+          <path d="M 80,240 L 180,110 L 260,160 L 340,100" fill="none" stroke="#4EE5F7" stroke-width="1"/>
+          <line x1="0" y1="240" x2="400" y2="240" stroke="#26D7EB" stroke-width="2"/>
+          <circle cx="160" cy="80" r="5" fill="none" stroke="#26D7EB" stroke-width="2"/>
+          <circle cx="280" cy="140" r="5" fill="none" stroke="#26D7EB" stroke-width="2"/>
+          <text x="165" y="75" fill="#26D7EB" font-family="JetBrains Mono" font-size="9">ELV:+42.5m</text>
+          <text x="285" y="135" fill="#26D7EB" font-family="JetBrains Mono" font-size="9">LOD:400</text>
         </svg>
       `;
-    }
-
-    // Technical Blueprint Wireframe SVG (only if no custom image provided)
-    if (!tech.querySelector('img')) {
-      tech.innerHTML = `
-      <svg viewBox="0 0 400 300" preserveAspectRatio="none">
-        <rect width="400" height="300" fill="#141414"/>
-        <defs>
-          <pattern id="grid-${idx}" width="20" height="20" patternUnits="userSpaceOnUse">
-            <path d="M 20 0 L 0 0 0 20" fill="none" stroke="rgba(38, 215, 235, 0.15)" stroke-width="0.5"/>
-          </pattern>
-        </defs>
-        <rect width="400" height="300" fill="url(#grid-${idx})"/>
-        <path d="M 40,240 L 160,80 L 280,140 L 360,60" fill="none" stroke="#26D7EB" stroke-width="1.5" stroke-dasharray="4,2"/>
-        <path d="M 80,240 L 180,110 L 260,160 L 340,100" fill="none" stroke="#4EE5F7" stroke-width="1"/>
-        <line x1="0" y1="240" x2="400" y2="240" stroke="#26D7EB" stroke-width="2"/>
-        <circle cx="160" cy="80" r="5" fill="none" stroke="#26D7EB" stroke-width="2"/>
-        <circle cx="280" cy="140" r="5" fill="none" stroke="#26D7EB" stroke-width="2"/>
-        <text x="165" y="75" fill="#26D7EB" font-family="JetBrains Mono" font-size="9">ELV:+42.5m</text>
-        <text x="285" y="135" fill="#26D7EB" font-family="JetBrains Mono" font-size="9">LOD:400</text>
-      </svg>
-    `;
-    }
+      }
+    });
   });
 }
+window.generatePortfolioArtwork = generatePortfolioArtwork;
 
 /* --- Animated Counting Stats Banner --- */
 function initPortfolioStats() {
   const banner = document.getElementById('portfolio-counter-banner');
   if (!banner) return;
 
-  const numEls = banner.querySelectorAll('.stat-num[data-target]');
+  const stats = window.PORTFOLIO_STATS || {};
+  const numEls = banner.querySelectorAll('.stat-num[data-target], .stat-num[data-stat-key]');
   let animated = false;
 
   const observer = new IntersectionObserver((entries) => {
@@ -587,7 +722,10 @@ function initPortfolioStats() {
       if (entry.isIntersecting && !animated) {
         animated = true;
         numEls.forEach(el => {
-          const target = parseInt(el.getAttribute('data-target'), 10);
+          const key = el.getAttribute('data-stat-key');
+          const target = (key && stats[key] !== undefined)
+            ? stats[key]
+            : parseInt(el.getAttribute('data-target'), 10) || 0;
           animateCounter(el, target);
         });
       }
@@ -606,13 +744,14 @@ function initPortfolioStats() {
       
       const easeProgress = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress);
       const currentVal = Math.round(easeProgress * target);
+      const locale = window.currentLang === 'el' ? 'el-GR' : 'en-US';
       
-      el.textContent = currentVal.toLocaleString('en-US');
+      el.textContent = currentVal.toLocaleString(locale);
       
       if (progress < 1) {
         requestAnimationFrame(update);
       } else {
-        el.textContent = target.toLocaleString('en-US');
+        el.textContent = target.toLocaleString(locale);
       }
     }
     

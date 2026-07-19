@@ -1,6 +1,6 @@
 # 🏛️ PANTELEOS.NRG TECHNICAL OFFICE — SYSTEM & MAINTENANCE DOCUMENTATION
 
-> **Version**: 2.0.0 (High-Performance Architecture & Turnkey Engineering Engine)  
+> **Version**: 3.0.0 (High-Performance Architecture, Modular Data Stores & Turnkey Engineering Engine)  
 > **Target Audience**: Website Administrators, Frontend Developers, Content Managers, and Engineering Staff.
 
 ---
@@ -10,7 +10,7 @@
 The **PANTELEOS.NRG Technical Office** website is built as an ultra-high-performance, modern single-page web application (SPA) designed to showcase turnkey architectural engineering, BIM digital twin modeling (ISO 19650), and structural execution across Greece.
 
 ### ⚡ Core Technology Stack
-- **Core Markup**: Pure HTML5 (`index.html`) utilizing semantic tags, WAI-ARIA accessibility attributes, and schema-compliant structured metadata.
+- **Core Markup**: Pure HTML5 (`index.html`) utilizing semantic tags, WAI-ARIA accessibility attributes, and rich JSON-LD structured metadata (`ArchitecturalFirm` and `FAQPage` schemas).
 - **Styling Engine**: Vanilla CSS3 (`css/style.css`) powered by centralized CSS Custom Properties (Design Tokens) for instant theming, responsive grid layouts, glassmorphism (`backdrop-filter`), and GPU-accelerated micro-animations. **No external heavy frameworks (like Tailwind or Bootstrap) are required**, guaranteeing sub-second load times.
 - **Logic & Interactivity**: Vanilla JavaScript (ES6+ modular script architecture) distributed across purpose-specific modules. **No npm build steps, Webpack, or bundlers are required** to deploy or edit the site; editing any `.js` or `.html` file updates the live site instantly.
 
@@ -24,10 +24,12 @@ c:\Users\user\Pictures\maro\
 │   └── style.css          # Master stylesheet: CSS variables, dark/neon theme tokens, grids, modal & gallery styling
 ├── js/
 │   ├── i18n.js            # Real-time bilingual translation engine (Greek ΕΛ <-> English EN) & DOM mappings
+│   ├── portfolio-data.js  # Modular Case Studies data store (`PORTFOLIO_PROJECTS`), stats (`PORTFOLIO_STATS`), & auto mock removal
+│   ├── team-data.js       # Engineering team directory store (`TEAM_MEMBERS`) & auto mock removal mechanism
 │   ├── app.js             # Core navigation, scroll spy, reveal-on-scroll animations, and form submission handlers
 │   ├── hero.js            # Hero section animations, typography rotator, and interactive background canvas
 │   ├── gauger.js          # 4-Step Cost Calculator wizard, Greek estimation formulas, and PDF proposal exporter
-│   ├── portfolio.js       # Case studies filter, Aesthetic vs. LOD-400 Technical view toggle, gallery modal, & stats
+│   ├── portfolio.js       # Case studies filter, exact token matching, view toggle, gallery modal, & stats animation
 │   ├── chatbot.js         # Virtual Engineering Assistant ("NRG-AI") interactive FAQ & portal query engine
 │   └── careers.js         # Career recruitment opportunities and applicant submission handler
 └── assets/                # Visual media, social share previews (og-image.png), and site icon (favicon.png)
@@ -56,49 +58,61 @@ The website features instantaneous, reload-free bilingual switching between Gree
 
 ---
 
-### B. How to Add, Edit, or Remove Case Studies (`index.html` & `js/portfolio.js`)
-All projects displayed in the **Case Studies & Portfolio** section are modular `<article>` elements inside `<section id="portfolio">` in `index.html`.
+### B. How to Add, Edit, or Remove Case Studies (`js/portfolio-data.js` & `js/portfolio.js`)
+All projects displayed in the **Case Studies & Portfolio** section (`#portfolio-grid`) are modular JavaScript objects managed cleanly inside the `PORTFOLIO_PROJECTS` array in `js/portfolio-data.js`.
 
-#### 1. Card Structure & Data Attributes
-To add a new project card, duplicate an existing `<article class="p-card reveal">` block and update its custom HTML5 data attributes:
-```html
-<article class="p-card reveal" 
-  data-cat="commercial bim" 
-  data-team="PANAGIOTIS M. PANTELEOS" 
-  data-area="12,500 m²" 
-  data-dur="18 Months" 
-  data-lod="LOD-400" 
-  data-desc="Complete structural engineering and BIM 5D cost coordination for an executive office complex."
-  data-photos="assets/project-photo-1.jpg, assets/project-photo-2.jpg, assets/project-photo-3.jpg">
-  
-  <div class="p-visual">
-    <div class="aesthetic"><!-- Custom SVG or Image --></div>
-    <div class="technical"><!-- Laser-scanned CAD wireframe SVG --></div>
-  </div>
-  <div class="p-info">
-    <div class="tagrow"><span>PN-2026-0891</span><span>COMMERCIAL / BIM</span></div>
-    <h4>Hellinikon Executive Tower</h4>
-    <p>Lead Engineer: Panagiotis M. Panteleos</p>
-  </div>
-</article>
+#### 1. Automatic Mock Removal (`isMock: true`)
+The website ships pre-populated with 6 showcase case studies (`PN-2024-1187`, `PN-2024-0932`, etc.) marked with `isMock: true`.
+- **How Auto-Removal Works**: The helper function `getActivePortfolioProjects()` checks if at least one real project exists (i.e. an object without `isMock: true`).
+- **Seamless Transition**: The moment you insert your first real project object into `PORTFOLIO_PROJECTS`, all 6 mock projects vanish automatically from both the visual project grid and the statistical counters (`completedProjects` & `totalAreaSqM`). If you ever remove all your real projects, the system gracefully reverts to displaying the 6 showcase projects so the page is never empty.
+
+#### 2. Adding a Real Project Object
+To add your real project, open `js/portfolio-data.js` and paste a new object at the top of `PORTFOLIO_PROJECTS`:
+```javascript
+const PORTFOLIO_PROJECTS = [
+  // 1. YOUR REAL PROJECT (No isMock tag needed):
+  {
+    id: "PN-2026-0891",
+    cat: "commercial bim",
+    tagEn: "COMMERCIAL / BIM",
+    tagEl: "ΕΜΠΟΡΙΚΟ / BIM",
+    titleEn: "Hellinikon Executive Tower",
+    titleEl: "Πύργος Γραφείων Ελληνικού",
+    team: "PANAGIOTIS M. PANTELEOS",
+    leadEn: "Lead Engineer: Panagiotis M. Panteleos",
+    leadEl: "Επικεφαλής Μηχανικός: Παναγιώτης Μιχ. Παντελαίος",
+    area: "12,500 m²",
+    dur: "18 Months",
+    durEl: "18 Μήνες",
+    lod: "LOD-400",
+    descEn: "Complete structural engineering and BIM 5D cost coordination for an executive office complex.",
+    descEl: "Πλήρης στατική και Η/Μ μελέτη με συντονισμό BIM 5D για συγκρότημα διοικητικών γραφείων.",
+    artworkType: 0,
+    photos: ["assets/portfolio/PN-2026-0891/1.jpg", "assets/portfolio/PN-2026-0891/2.jpg"]
+  },
+  // 2. Existing mock projects below (will now automatically hide!)
+  {
+    id: "PN-2024-1187",
+    isMock: true,
+    // ...
 ```
 
-#### 2. Attribute Reference Table:
-| Attribute | Description | Example Values |
+#### 3. Property Reference Table:
+| Property | Description | Example Values |
 | :--- | :--- | :--- |
-| `data-cat` | Space-separated filter categories. Controls filter buttons. | `commercial`, `industrial`, `residential`, `bim` |
-| `data-team` | Lead Engineer name (must match engineer card for cross-filtering). | `PANAGIOTIS M. PANTELEOS`, `ELENI STAVROU` |
-| `data-area` | Gross floor area displayed in specifications. | `6,400 m²`, `18,000 m²` |
-| `data-dur` | Execution or construction timeline. | `14 Months`, `24 Months` |
-| `data-lod` | Level of Development (BIM precision tier). | `LOD-350`, `LOD-400`, `LOD-500` |
-| `data-desc` | Detailed engineering description shown in modal dialog. | Text summary of works performed. |
-| `data-photos` | **(NEW)** Comma-separated paths to real photograph files. | `assets/photo1.jpg, assets/photo2.jpg` |
+| `id` | Unique project reference identifier. | `"PN-2026-0891"`, `"PN-2024-1187"` |
+| `isMock` | If `true`, this project is automatically removed when real projects are added. | `true`, or omit for real projects |
+| `cat` | Space-separated filter category tokens (exact word match). | `"commercial bim"`, `"industrial"`, `"residential"` |
+| `team` | Lead Engineer name (used for team member cross-filtering). | `"PANAGIOTIS M. PANTELEOS"`, `"ELENI STAVROU"` |
+| `area` | Gross floor area or engineered footprint (used in `totalAreaSqM` stats sum). | `"6,400 m²"`, `"18,000 m²"` |
+| `dur` / `durEl` | Execution timeline in English (`dur`) and Greek (`durEl`). | `"14 Months"` / `"14 Μήνες"` |
+| `lod` | Level of Development precision tier displayed on technical views. | `"LOD-350"`, `"LOD-400"`, `"LOD-500"` |
+| `descEn` / `descEl` | Bilingual engineering descriptions shown inside the modal dialog. | Text summaries of works performed. |
+| `photos` | Array of exact photo file paths or comma-separated string of images. | `["assets/photo1.jpg"]` |
 
-#### 3. Convention-over-Configuration Automatic Image & Gallery Discovery (`js/portfolio-data.js` & `js/team-data.js`)
-Instead of hardcoding image paths or arrays inside configuration objects, the system implements automatic folder probing:
-- **Card View Automatic Loading**: Placed photos are discovered automatically from `assets/portfolio/{id}/main.jpg` and `assets/portfolio/{id}/tech.jpg` (or `assets/team/{id}/portrait.jpg` for engineers).
-- **Automatic Modal Gallery Probing**: When opening any project modal, the engine automatically scans `assets/portfolio/{id}/1.jpg` through `8.jpg`. Any discovered photos are instantly appended to the interactive modal carousel alongside technical blueprints.
-- **Hybrid Default Mode (No Photos Required)**: If no image files exist, the system automatically synthesizes a **4-Slide Hybrid Architecture & Engineering Gallery** (Architectural exterior, LOD-400 technical wireframe, FEA seismic mesh, and On-site telemetry).
+#### 4. Technical View Badge & Convention-over-Configuration Gallery
+- **LOD-400 CAD Hint Badge**: Each rendered card features a `.tech-hint-badge` (`LOD-400 CAD`) in the top-right corner. When the `TECHNICAL LOD-400` view toggle (`#view-tech`) is activated, this badge shifts from dark charcoal to neon cyan (`.portfolio-grid.tech-view .tech-hint-badge`), signaling active CAD inspection.
+- **Automatic Photo & Blueprint Discovery**: When opening any project modal, the engine automatically scans `assets/portfolio/{id}/1.jpg` through `8.jpg`. Any discovered photos are appended to the interactive modal carousel alongside technical blueprints. If no images are found, the engine synthesizes a **4-Slide Hybrid Architecture & Engineering Gallery**.
 
 ---
 
@@ -134,24 +148,48 @@ The wizard will automatically recalculate preliminary budgets, monthly expenditu
 
 ---
 
-### D. How to Update Team Council Members (`index.html` & `js/i18n.js`)
-Leadership council profiles are defined in `index.html` under `<section id="team">`.
+### D. How to Update Team Council Members (`js/team-data.js` & `js/i18n.js`)
+Leadership council profiles are managed cleanly inside the `TEAM_MEMBERS` array in `js/team-data.js`.
 
-1. **Changing Personnel Information**: Locate the engineer's `<article class="team-card">`. You can modify their name, initials portrait, and technical specialties directly in the HTML.
-2. **Updating Translatable Roles**: Update keys `team.role1` through `team.role6` in `js/i18n.js` to change their official titles in Greek and English.
-3. **Cross-Filtering Behavior**: Notice the attribute `data-engineer="PANAGIOTIS M. PANTELEOS"` on each team card. When a user clicks **"FILTER PROJECTS BY ENGINEER"**, `initTeamCrossFilter()` in `js/portfolio.js` reads this attribute, smoothly scrolls the viewport to the Case Studies section, activates the category filter, and highlights every project directed by that specific engineer while hiding unrelated projects.
+1. **Automatic Mock Co-Engineer Removal (`isMock: true`)**: The founder profile (`id: "panteleos"`) is real (`isMock` not set). The 5 showcase co-engineers (`vamvakas`, `stavrou`, `kazantzis`, `papadopoulou`, `makris`) are tagged with `isMock: true`. When you add real co-engineers alongside the founder (or when more than one real engineer exists), `getActiveTeamMembers()` automatically removes the mock co-engineers from the `#team-grid`.
+2. **Editing or Adding Profiles**: Locate or insert member objects in `TEAM_MEMBERS`. You can specify bilingual names (`nameEn` / `nameEl`), roles (`roleEn` / `roleEl`), technical specialties (`specsEn` / `specsEl`), and registration IDs (`regEn` / `regEl`).
+3. **Cross-Filtering Behavior**: Notice the `key` property (`key: "PANAGIOTIS M. PANTELEOS"`). When a user clicks **"FILTER PROJECTS BY ENGINEER"** (`.cta`), `initTeamCrossFilter()` in `js/portfolio.js` reads this key, smoothly scrolls to the Case Studies section, activates the category filter, and highlights every project directed by that specific engineer.
 
 ---
 
-### E. How to Update the Dynamic Execution Stats Counter (`index.html` & `js/portfolio.js`)
-The glowing statistical metrics banner located immediately above the portfolio filter chips showcases verified engineering track records (e.g., **`334 ⅔`** Total Projects Delivered).
+### E. How to Update the Dynamic Execution Stats Counter (`js/portfolio-data.js` & `js/portfolio.js`)
+The glowing statistical metrics banner (`#portfolio-counter-banner`) located right above the portfolio filter chips draws its data dynamically from the centralized `PORTFOLIO_STATS` store in `js/portfolio-data.js`.
 
-1. **Changing Target Metrics**: Open `index.html` and locate `<div id="portfolio-counter-banner">`. Find the element with the `data-target` attribute:
-   ```html
-   <div class="stat-num" data-target="334">0</div>
-   ```
-   Change `"334"` to your newly achieved milestone (e.g., `"350"`).
-2. **Animation Mechanics**: When the user scrolls the banner into view, `initPortfolioStats()` in `js/portfolio.js` uses an `IntersectionObserver` to trigger a high-precision `requestAnimationFrame` counter powered by an `easeOutExpo` deceleration curve. Numbers count up smoothly over 2,400 milliseconds and format automatically with localized thousands separators (e.g., `1,250,000`).
+#### 1. Centralized Statistics Configuration (`PORTFOLIO_STATS`)
+Open `js/portfolio-data.js` and locate the `PORTFOLIO_STATS` object around line 135:
+```javascript
+const PORTFOLIO_STATS = {
+  baselineProjects: 328,       // Pre-featured historical baseline projects
+  baselineAreaSqM: 1202100,    // Pre-featured historical baseline area (m²)
+  complianceRate: 100,         // % ISO 19650 & Eurocode compliance
+  activeSites: 28,             // Active construction sites
+  fraction: [2, 3],            // Fractional execution indicator (2/3)
+
+  // Computed metrics drawing directly from active portfolio projects
+  get completedProjects() {
+    return this.baselineProjects + getActivePortfolioProjects().length;
+  },
+  get totalAreaSqM() {
+    const active = getActivePortfolioProjects();
+    const featuredArea = active.reduce((sum, p) => {
+      const num = parseInt((p.area || '0').replace(/[^0-9]/g, ''), 10) || 0;
+      return sum + num;
+    }, 0);
+    return this.baselineAreaSqM + featuredArea;
+  }
+};
+```
+- **How Metrics Update**: `completedProjects` and `totalAreaSqM` automatically combine your historical baseline (`328` projects, `1,202,100 m²`) with your active projects (`getActivePortfolioProjects()`). When you add real case studies to `PORTFOLIO_PROJECTS`, these numbers adjust instantly!
+- **Changing Baseline or Fixed Metrics**: If your baseline historical record expands, or if you want to update `activeSites` / `complianceRate`, simply change the numbers right inside `PORTFOLIO_STATS`.
+
+#### 2. Animation & Locale-Aware Number Formatting
+- **Intersection Animation**: When the banner scrolls into view, `initPortfolioStats()` in `js/portfolio.js` uses an `IntersectionObserver` to trigger a `requestAnimationFrame` counter powered by an `easeOutExpo` deceleration curve over 2,400ms.
+- **Dynamic Locale Synchronization**: Numbers format automatically using `el-GR` (`1.250.000 m²`) when in Greek and `en-US` (`1,250,000 m²`) when in English. If the user toggles languages via the desktop navigation or the `#mobile-dock-lang` switcher, `updatePortfolioStatsBanner(lang)` immediately updates all numbers to match the active locale without refreshing the page.
 
 ---
 

@@ -639,6 +639,7 @@
   // ═══════════════════════════════════════════════════════════════════════
 
   let autocompleteEl = null;
+  let autocompleteActiveIdx = -1;
 
   function initChatbot() {
     const windowEl = document.getElementById('chat-window');
@@ -677,6 +678,57 @@
 
     inputEl.addEventListener('blur', () => {
       setTimeout(hideAutocomplete, 200);
+    });
+
+    inputEl.addEventListener('keydown', (e) => {
+      if (!autocompleteEl || autocompleteEl.style.display === 'none') return;
+      const items = autocompleteEl.querySelectorAll('.chat-autocomplete-item');
+      if (!items || items.length === 0) return;
+
+      if (e.key === 'ArrowDown') {
+        e.preventDefault();
+        autocompleteActiveIdx = (autocompleteActiveIdx + 1) % items.length;
+        items.forEach((item, idx) => {
+          if (idx === autocompleteActiveIdx) {
+            item.classList.add('active');
+            item.style.background = 'rgba(0, 229, 255, 0.18)';
+            item.style.borderColor = 'var(--neon-cyan)';
+            item.scrollIntoView({ block: 'nearest' });
+          } else {
+            item.classList.remove('active');
+            item.style.background = '';
+            item.style.borderColor = '';
+          }
+        });
+      } else if (e.key === 'ArrowUp') {
+        e.preventDefault();
+        autocompleteActiveIdx = (autocompleteActiveIdx - 1 + items.length) % items.length;
+        items.forEach((item, idx) => {
+          if (idx === autocompleteActiveIdx) {
+            item.classList.add('active');
+            item.style.background = 'rgba(0, 229, 255, 0.18)';
+            item.style.borderColor = 'var(--neon-cyan)';
+            item.scrollIntoView({ block: 'nearest' });
+          } else {
+            item.classList.remove('active');
+            item.style.background = '';
+            item.style.borderColor = '';
+          }
+        });
+      } else if (e.key === 'Enter') {
+        if (autocompleteActiveIdx >= 0 && items[autocompleteActiveIdx]) {
+          e.preventDefault();
+          const topic = items[autocompleteActiveIdx]._topic;
+          if (topic) {
+            inputEl.value = '';
+            hideAutocomplete();
+            handleTopicClick(topic);
+          }
+        }
+      } else if (e.key === 'Escape') {
+        e.preventDefault();
+        hideAutocomplete();
+      }
     });
   }
 
@@ -1022,10 +1074,12 @@
     }
 
     autocompleteEl.innerHTML = '';
+    autocompleteActiveIdx = -1;
     matches.slice(0, 5).forEach(topic => {
       const item = document.createElement('button');
       item.className = 'chat-autocomplete-item';
       item.innerHTML = svgIcon(topic.chip);
+      item._topic = topic;
       item.addEventListener('mousedown', (e) => {
         e.preventDefault();
         inputEl.value = '';
@@ -1041,6 +1095,7 @@
   function hideAutocomplete() {
     if (autocompleteEl) {
       autocompleteEl.style.display = 'none';
+      autocompleteActiveIdx = -1;
     }
   }
 
