@@ -56,9 +56,9 @@ function initAccessibilityWidget() {
   const widgetHtml = `
     <div id="acc-widget" class="acc-widget">
       <button id="acc-toggle-btn" class="acc-toggle-btn" aria-label="Accessibility Options / Επιλογές Προσβασιμότητας" aria-expanded="false" aria-haspopup="true">
-        <svg viewBox="0 0 24 24" width="26" height="26" fill="currentColor" style="display:block; transition: transform 0.3s ease;">
-          <circle cx="12" cy="4.5" r="2.3"/>
-          <path d="M18.5 8.5c-2.3.6-4.4.8-6.5.8s-4.2-.2-6.5-.8l-.6 1.8c2.4.7 4.7.9 7.1.9v3.8l-3.2 5.5h2.2l2.1-3.6 2.1 3.6h2.2l-3.2-5.5V11.2c2.4 0 4.7-.2 7.1-.9l-.6-1.8z"/>
+        <svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor" style="display:block; transition: transform 0.3s ease;">
+          <circle cx="12" cy="4.2" r="2.4"/>
+          <path d="M20.5 7.5h-5.8v11.8c0 .6-.5 1.1-1.1 1.1-.6 0-1.1-.5-1.1-1.1v-5.8h-1v5.8c0 .6-.5 1.1-1.1 1.1-.6 0-1.1-.5-1.1-1.1V7.5H3.5c-.6 0-1.1-.5-1.1-1.1 0-.6.5-1.1 1.1-1.1h17c.6 0 1.1.5 1.1 1.1 0 .6-.5 1.1-1.1 1.1z"/>
         </svg>
       </button>
       <div id="acc-menu" class="acc-menu" aria-hidden="true">
