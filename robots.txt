@@ -4,5 +4,6 @@ Allow: /
 # Exclude source engine folders
 Disallow: /js/
 Disallow: /css/
+Disallow: /admin.html
 
 Sitemap: https://panteleos-nrg.vercel.app/sitemap.xml

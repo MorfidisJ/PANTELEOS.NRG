@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PANTELEOS .NRG — Admin Dashboard</title>
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#F4F7FA">
+
+  <!-- Fonts (same as main site) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Outfit:wght@400;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Admin Styles -->
+  <link rel="stylesheet" href="css/admin.css">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+</head>
+<body class="admin-body">
+
+  <!-- ══════════════════════════════════════════════════
+       PASSWORD GATE
+       ══════════════════════════════════════════════════ -->
+  <div class="admin-gate" id="admin-gate">
+    <div class="gate-card">
+      <div class="gate-logo">PANTELEOS <span>.NRG</span></div>
+      <div class="gate-sub">Admin Dashboard</div>
+      <form id="gate-form" autocomplete="off">
+        <div class="gate-input-group">
+          <input type="password" id="gate-password" placeholder="Enter access code" autocomplete="new-password">
+          <button type="button" class="toggle-pass" id="gate-toggle-pass">👁️</button>
+        </div>
+        <div class="gate-error" id="gate-error"></div>
+        <button type="submit" class="gate-btn">AUTHENTICATE →</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════════
+       GITHUB PAT SETUP
+       ══════════════════════════════════════════════════ -->
+  <div class="pat-setup hidden" id="pat-setup">
+    <div class="pat-card">
+      <h2>🔐 GitHub Access Token</h2>
+      <p class="pat-desc">
+        To publish changes to your live site, the dashboard needs a GitHub Personal Access Token (PAT) with <strong>repo</strong> scope.
+      </p>
+      <div class="pat-steps">
+        <strong>How to create one:</strong><br>
+        1. Go to <code>github.com/settings/tokens</code><br>
+        2. Click "Generate new token (classic)"<br>
+        3. Check the <code>repo</code> scope<br>
+        4. Copy and paste below
+      </div>
+      <div class="pat-input-wrap">
+        <input type="password" id="pat-input" placeholder="ghp_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx">
+      </div>
+      <div class="pat-actions">
+        <button class="btn-secondary" id="pat-skip">Skip (Read-only)</button>
+        <button class="btn-primary" id="pat-save">Save & Connect</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════════
+       MAIN APP
+       ══════════════════════════════════════════════════ -->
+  <div class="admin-app" id="admin-app">
+
+    <!-- TOP BAR -->
+    <header class="admin-topbar">
+      <div class="topbar-left">
+        <div class="topbar-logo">PANTELEOS <span>.NRG</span></div>
+        <span class="topbar-badge">Admin</span>
+      </div>
+      <div class="topbar-right">
+        <div class="topbar-status">
+          <span class="dot"></span>
+          <span>Connected</span>
+        </div>
+        <button class="topbar-btn" onclick="window._adminResetPat()">🔑 PAT</button>
+        <button class="topbar-btn" onclick="window._adminLogout()">🚪 Logout</button>
+      </div>
+    </header>
+
+    <!-- TABS -->
+    <nav class="admin-tabs">
+      <button class="admin-tab active" data-tab="projects">
+        📐 Projects <span class="tab-count" id="count-projects">0</span>
+      </button>
+      <button class="admin-tab" data-tab="team">
+        👔 Team <span class="tab-count" id="count-team">0</span>
+      </button>
+      <button class="admin-tab" data-tab="chat">
+        💬 Q&A <span class="tab-count" id="count-chat">0</span>
+      </button>
+    </nav>
+
+    <!-- CONTENT -->
+    <main class="admin-content">
+
+      <!-- PROJECTS PANEL -->
+      <section class="tab-panel active" id="panel-projects">
+        <div class="section-header">
+          <div>
+            <h2>Portfolio Projects</h2>
+            <div class="section-desc">Manage your architectural case studies and engineering showcases.</div>
+          </div>
+          <button class="btn-add" onclick="window._adminAdd('project')">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            Add Project
+          </button>
+        </div>
+        <div class="items-grid" id="projects-list"></div>
+      </section>
+
+      <!-- TEAM PANEL -->
+      <section class="tab-panel" id="panel-team">
+        <div class="section-header">
+          <div>
+            <h2>Team Members</h2>
+            <div class="section-desc">Manage your engineering council and leadership profiles.</div>
+          </div>
+          <button class="btn-add" onclick="window._adminAdd('team')">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            Add Member
+          </button>
+        </div>
+        <div class="items-grid" id="team-list"></div>
+      </section>
+
+      <!-- Q&A PANEL -->
+      <section class="tab-panel" id="panel-chat">
+        <div class="section-header">
+          <div>
+            <h2>Chatbot Q&A Topics</h2>
+            <div class="section-desc">Manage your virtual engineering assistant's knowledge base (Greek & English).</div>
+          </div>
+          <button class="btn-add" onclick="window._adminAdd('chatTopic')">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            Add Topic
+          </button>
+        </div>
+        <div class="items-grid" id="chat-list"></div>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- ══════════════════════════════════════════════════
+       EDITOR SLIDE PANEL
+       ══════════════════════════════════════════════════ -->
+  <div class="editor-overlay" id="editor-overlay"></div>
+  <div class="editor-panel" id="editor-panel">
+    <div class="editor-header">
+      <h3 id="editor-title">Edit Item</h3>
+      <button class="editor-close" onclick="window._adminClose()">&times;</button>
+    </div>
+    <div class="editor-body" id="editor-body"></div>
+    <div class="editor-footer">
+      <button class="btn-secondary" onclick="window._adminClose()">Cancel</button>
+      <button class="btn-primary" onclick="window._adminSave()">💾 Save Changes</button>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════════
+       PUBLISH BAR
+       ══════════════════════════════════════════════════ -->
+  <div class="publish-bar" id="publish-bar">
+    <div class="changes-count">📝 <span id="changes-count">0 files</span> modified — ready to publish</div>
+    <div class="publish-actions">
+      <button class="btn-discard" onclick="window._adminDiscard()">Discard</button>
+      <button class="btn-publish" id="btn-publish" onclick="window._adminPublish()">
+        <span class="spinner"></span>
+        🚀 Publish to Live Site
+      </button>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════════
+       LOADING OVERLAY
+       ══════════════════════════════════════════════════ -->
+  <div class="loading-overlay" id="loading-overlay">
+    <div class="loading-spinner"></div>
+    <div class="loading-text">Loading...</div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════════
+       CONFIRM DIALOG
+       ══════════════════════════════════════════════════ -->
+  <div class="confirm-overlay" id="confirm-overlay">
+    <div class="confirm-card">
+      <h3>Confirm</h3>
+      <p>Are you sure?</p>
+      <div class="confirm-actions">
+        <button class="btn-confirm-cancel">Cancel</button>
+        <button class="btn-confirm-ok">Delete</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════════
+       TOAST CONTAINER
+       ══════════════════════════════════════════════════ -->
+  <div class="toast-container" id="toast-container"></div>
+
+  <!-- Admin Engine -->
+  <script src="js/admin.js"></script>
+
+</body>
+</html>
