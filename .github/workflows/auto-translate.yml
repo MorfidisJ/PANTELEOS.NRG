@@ -1,0 +1,44 @@
+name: Auto-Translate Missing i18n Strings
+
+on:
+  push:
+    branches: [ main, master ]
+    paths:
+      - 'js/portfolio-data.js'
+      - 'js/team-data.js'
+      - 'js/i18n.js'
+  workflow_dispatch: # Allows running manually from GitHub Actions UI anytime
+
+jobs:
+  translate:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write # Required for pushing translated text back to the repository
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install Translation Dependency
+        run: npm install @vitalets/google-translate-api@^9.0.0 --no-save
+
+      - name: Run Auto-Translation Script
+        run: node scripts/auto-translate.js
+
+      - name: Check for Changes & Commit Back to Repository
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add js/portfolio-data.js js/team-data.js js/i18n.js
+          if ! git diff-index --quiet HEAD --; then
+            git commit -m "chore(i18n): auto-translate missing English entries [skip ci]"
+            git push
+            echo "Successfully translated and pushed new entries!"
+          else
+            echo "No missing translations found. Everything is up to date."
+          fi

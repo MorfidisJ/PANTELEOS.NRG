@@ -220,7 +220,7 @@ const TRANSLATIONS = {
     "footer.l3_3": "Κανονισμοί ΤΕΕ & Πολεοδομίας",
     "footer.l3_4": "Πολιτική Απορρήτου & Δεδομένων",
     "footer.rights": "&copy; 2026 ΠΑΝΤΕΛΕΟΣ .NRG ΤΕΧΝΙΚΟ ΓΡΑΦΕΙΟ. ΜΕ ΕΠΙΦΥΛΑΞΗ ΠΑΝΤΟΣ ΔΙΚΑΙΩΜΑΤΟΣ.",
-    "footer.tag": "ΣΧΕΔΙΑΣΜΕΝΟ ΜΕ ΥΨΗΛΕΣ ΑΡΧΙΤΕΚΤΟΝΙΚΕΣ ΠΡΟΔΙΑΓΡΑΦΕΣ"
+    "footer.tag": "ΣΧΕΔΙΑΣΤΗΚΕ ΑΠΟ ΙΩΑΝΝΗ ΜΟΡΦΙΔΗ & ΖΩΗ ΜΠΕΛΛΟΥ"
   },
 
   en: {
@@ -438,7 +438,7 @@ const TRANSLATIONS = {
     "footer.l3_3": "TEE Greek Engineering Reg",
     "footer.l3_4": "Privacy & Data Policy",
     "footer.rights": "&copy; 2026 PANTELEOS .NRG TECHNICAL OFFICE. ALL RIGHTS RESERVED.",
-    "footer.tag": "DESIGNED WITH HIGH-PERFORMANCE ARCHITECTURAL STANDARDS"
+    "footer.tag": ""
   }
 };
 
