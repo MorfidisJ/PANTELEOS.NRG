@@ -129,6 +129,7 @@ function initTeamModal() {
 
   const closeModal = () => {
     modal.classList.remove('open');
+    document.body.classList.remove('modal-open');
     document.body.style.overflow = '';
     if (cleanupFocus) { cleanupFocus(); cleanupFocus = null; }
     if (lastFocusedElement) { lastFocusedElement.focus(); lastFocusedElement = null; }
@@ -184,6 +185,7 @@ function initTeamModal() {
     renderModalContent(engKey, activeLang);
 
     modal.classList.add('open');
+    document.body.classList.add('modal-open');
     document.body.style.overflow = 'hidden';
     if (window.trapFocus) cleanupFocus = window.trapFocus(modal.querySelector('.modal-box') || modal);
   };
@@ -613,6 +615,7 @@ function initPortfolioModal() {
     probeProjectGalleryPhotos(projId, lang === 'el');
 
     modal.classList.add('open');
+    document.body.classList.add('modal-open');
     document.body.style.overflow = 'hidden';
     if (window.trapFocus) cleanupFocus = window.trapFocus(modal.querySelector('.modal-box') || modal);
   };
@@ -631,6 +634,7 @@ function initPortfolioModal() {
 
   function closeModal() {
     modal.classList.remove('open');
+    document.body.classList.remove('modal-open');
     document.body.style.overflow = '';
     const stage = document.getElementById('gallery-stage');
     if (stage && stage._zoomCleanup) { stage._zoomCleanup(); stage._zoomCleanup = null; }

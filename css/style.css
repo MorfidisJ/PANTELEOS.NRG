@@ -2784,6 +2784,7 @@ footer#site-footer {
     box-shadow: 0 12px 36px rgba(0, 0, 0, 0.35), 0 0 0 1px rgba(0, 229, 255, 0.2);
     width: max-content;
     max-width: 94vw;
+    transition: opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1), transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
   .mobile-app-dock .dock-item {
@@ -3145,6 +3146,7 @@ html, body {
   left: 24px;
   z-index: 99999;
   font-family: system-ui, -apple-system, sans-serif;
+  transition: opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1), transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 @media (max-width: 768px) {
@@ -3152,6 +3154,19 @@ html, body {
     bottom: 95px; /* Sits above the mobile app dock */
     left: 16px;
   }
+}
+
+/* Automatically slide out and hide Mobile App Dock & Accessibility Button whenever a project/team pop-up modal is active! */
+body.modal-open .mobile-app-dock,
+body.modal-open .acc-widget,
+body:has(#modal-overlay.open) .mobile-app-dock,
+body:has(#modal-overlay.open) .acc-widget,
+body:has(#team-modal-overlay.open) .mobile-app-dock,
+body:has(#team-modal-overlay.open) .acc-widget {
+  opacity: 0 !important;
+  pointer-events: none !important;
+  transform: translateY(130px) !important;
+  transition: opacity 0.25s ease, transform 0.25s ease !important;
 }
 
 .acc-toggle-btn {
