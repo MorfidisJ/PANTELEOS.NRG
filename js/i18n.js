@@ -438,7 +438,7 @@ const TRANSLATIONS = {
     "footer.l3_3": "TEE Greek Engineering Reg",
     "footer.l3_4": "Privacy & Data Policy",
     "footer.rights": "&copy; 2026 PANTELEOS .NRG TECHNICAL OFFICE. ALL RIGHTS RESERVED.",
-    "footer.tag": ""
+    "footer.tag": "DESIGNED BY IOANNIS MORFIDIS & ZOE BELLOU"
   }
 };
 
