@@ -56,10 +56,7 @@ function initAccessibilityWidget() {
   const widgetHtml = `
     <div id="acc-widget" class="acc-widget">
       <button id="acc-toggle-btn" class="acc-toggle-btn" aria-label="Accessibility Options / Επιλογές Προσβασιμότητας" aria-expanded="false" aria-haspopup="true">
-        <svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor" style="display:block; transition: transform 0.3s ease;">
-          <circle cx="12" cy="4.2" r="2.4"/>
-          <path d="M20.5 7.5h-5.8v11.8c0 .6-.5 1.1-1.1 1.1-.6 0-1.1-.5-1.1-1.1v-5.8h-1v5.8c0 .6-.5 1.1-1.1 1.1-.6 0-1.1-.5-1.1-1.1V7.5H3.5c-.6 0-1.1-.5-1.1-1.1 0-.6.5-1.1 1.1-1.1h17c.6 0 1.1.5 1.1 1.1 0 .6-.5 1.1-1.1 1.1z"/>
-        </svg>
+        <svg xmlns="http://www.w3.org/2000/svg" height="28px" viewBox="0 -960 960 960" width="28px" fill="currentColor" style="display:block; transition: transform 0.3s ease;"><path d="M423.5-743.5Q400-767 400-800t23.5-56.5Q447-880 480-880t56.5 23.5Q560-833 560-800t-23.5 56.5Q513-720 480-720t-56.5-23.5ZM360-80v-520q-60-5-122-15t-118-25l20-80q78 21 166 30.5t174 9.5q86 0 174-9.5T820-720l20 80q-56 15-118 25t-122 15v520h-80v-240h-80v240h-80Z"/></svg>
       </button>
       <div id="acc-menu" class="acc-menu" aria-hidden="true">
         <div class="acc-menu-header">
