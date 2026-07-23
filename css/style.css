@@ -1306,7 +1306,6 @@ header#site-nav.scrolled {
   border-radius: 36px;
   transform: translateY(30px) scale(0.95);
   transition: transform 0.45s var(--spring);
-  border: 1px solid rgba(255, 255, 255, 0.9);
   box-shadow: 0 35px 80px rgba(0,0,0,0.25);
 }
 
@@ -1341,13 +1340,12 @@ header#site-nav.scrolled {
   border-radius: 36px;
   transform: translateY(30px) scale(0.95);
   transition: transform 0.45s var(--spring);
-  border: 1px solid rgba(255, 255, 255, 0.9);
   box-shadow: 0 35px 80px rgba(0,0,0,0.25);
   position: relative;
 }
 
 .team-modal-visual {
-  background: linear-gradient(135deg, #0a1324 0%, #050b14 100%);
+  background: linear-gradient(135deg, var(--sec-blue) 0%, var(--main-blue) 100%);
   padding: 32px 36px;
   border-radius: 36px 36px 0 0;
   display: flex;
@@ -1355,7 +1353,6 @@ header#site-nav.scrolled {
   gap: 24px;
   position: relative;
   overflow: hidden;
-  border-bottom: 1px solid rgba(0, 229, 255, 0.2);
 }
 
 .team-modal-visual::before {
@@ -1373,9 +1370,8 @@ header#site-nav.scrolled {
   width: 84px;
   height: 84px;
   border-radius: 24px;
-  background: linear-gradient(135deg, rgba(0, 229, 255, 0.15) 0%, rgba(37, 99, 235, 0.25) 100%);
-  border: 2px solid #49C7EE;
-  box-shadow: 0 0 25px rgba(0, 229, 255, 0.35);
+  background: linear-gradient(135deg, rgba(122, 242, 255, 0.15) 0%, rgba(37, 99, 235, 0.25) 100%);
+  box-shadow: 0 0 25px rgba(216, 251, 255, 0.35);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1403,7 +1399,7 @@ header#site-nav.scrolled {
 }
 
 .team-modal-titles .meta-line {
-  color: var(--main-blue);
+  color: var(--white);
   font-family: var(--font-mono);
   font-size: 14px;
   font-weight: 60;
@@ -1680,7 +1676,6 @@ header#site-nav.scrolled {
 .team-card:hover {
   transform: translateY(-4px);
   box-shadow: var(--shadow-hover);
-  border-color: rgba(0, 229, 255, 0.4);
 }
 
 .team-portrait {
@@ -1731,7 +1726,7 @@ header#site-nav.scrolled {
 .team-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(22, 26, 34, 0.94);
+  background: var(--charcoal-25);
   backdrop-filter: blur(10px);
   padding: 32px 28px;
   display: flex;
@@ -1743,28 +1738,29 @@ header#site-nav.scrolled {
   z-index: 2;
 }
 
+
 .team-card:hover .team-overlay, .team-card:focus-visible .team-overlay {
   opacity: 1;
   transform: translateY(0);
 }
 
-.team-overlay .grid-lines {
-  position: absolute;
+/*.team-overlay .grid-lines {
+  position: ;
   inset: 0;
-  background-image: radial-gradient(rgba(0, 229, 255, 0.15) 1.5px, transparent 1.5px);
+  background-image: radial-gradient( var(--gray-tech) 1.5px, transparent 1.5px);
   background-size: 24px 24px;
   pointer-events: none;
   opacity: 0.6;
-}
+}*/
 
 .team-overlay .reg {
   font-family: var(--font-mono);
   font-size: 11px;
-  color: #49C7EE;
+  color:var(--charcoal);
   letter-spacing: 0.1em;
-  background: rgba(0, 229, 255, 0.12);
+  background: var(--charcoal-12);
   padding: 6px 14px;
-  border-radius: 6px;
+  border-radius: var(--radius-md);
   width: fit-content;
 }
 
@@ -1772,7 +1768,7 @@ header#site-nav.scrolled {
   font-family: var(--font-display);
   font-weight: 800;
   font-size: 26px;
-  color: var(--white);
+  color: var(--charcoal);
   margin-top: 14px;
 }
 
@@ -1787,11 +1783,10 @@ header#site-nav.scrolled {
   font-family: var(--font-body);
   font-size: 12px;
   font-weight: 600;
-  border: 1px solid #49C7EE;
-  color: #49C7EE;
+  color: var(--charcoal);
   padding: 6px 12px;
-  border-radius: var(--radius-pill);
-  background: rgba(0,0,0,0.3);
+  border-radius: var(--radius-md);
+  background: var(--gray-subtle);
 }
 
 .team-overlay .cta {
@@ -1806,7 +1801,7 @@ header#site-nav.scrolled {
   transition: transform 0.3s var(--spring);
 }
 
-.team-overlay .cta:hover { transform: translateX(6px); color: #00E5FF; }
+.team-overlay .cta:hover { transform: translateX(6px); color: var(--main-blue); }
 
 /* ==========================================================================
    PORTAL / FAQ (ROUNDED & FLOATY)
