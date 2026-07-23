@@ -38,9 +38,9 @@
   --admin-radius-xl: 20px;
   --admin-radius-pill: 100px;
 
-  --admin-font-display: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
-  --admin-font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
-  --admin-font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+  --admin-font-display: 'Outfit', 'Sansation', -apple-system, BlinkMacSystemFont, sans-serif;
+  --admin-font-body: 'Outfit', 'Sansation', -apple-system, BlinkMacSystemFont, sans-serif;
+  --admin-font-mono: 'Outfit', 'Sansation', monospace;
 
   --admin-ease: cubic-bezier(0.2, 0.8, 0.2, 1);
   --admin-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
@@ -61,10 +61,17 @@ body.admin-body {
   margin: 0;
   padding: 0;
   font-family: var(--admin-font-body);
+  font-optical-sizing: auto;
+  font-style: normal;
   background: var(--admin-bg);
   color: var(--admin-text);
   min-height: 100vh;
   overflow-x: hidden;
+}
+
+/* Thicken Greek text to match Outfit's weight */
+html[lang="el"] body.admin-body {
+  -webkit-text-stroke: 0.4px currentColor;
 }
 
 /* === SCROLLBAR === */
