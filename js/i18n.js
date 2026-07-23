@@ -457,11 +457,7 @@ const DOM_MAPPINGS = [
   { selector: '.mobile-app-dock a:nth-child(5) span', key: 'dock.contact' },
 
   // Stream Indicator buttons
-  { selector: '#stream-indicator button[data-target="home"]', labelKey: 'stream.home' },
-  { selector: '#stream-indicator button[data-target="portfolio"]', labelKey: 'stream.portfolio' },
-  { selector: '#stream-indicator button[data-target="team"]', labelKey: 'stream.team' },
-  { selector: '#stream-indicator button[data-target="portal"]', labelKey: 'stream.portal' },
-  { selector: '#stream-indicator button[data-target="contact"]', labelKey: 'stream.contact' },
+
 
   // Hero Section
   { selector: '#home .tag span:nth-child(2)', key: 'hero.status' },

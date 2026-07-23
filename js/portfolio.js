@@ -36,7 +36,6 @@ function initPortfolioToggle() {
 /* --- Portfolio Filtering --- */
 function initPortfolioFilters() {
   const chips = document.querySelectorAll('.filter-chip');
-  const cards = document.querySelectorAll('.p-card');
 
   chips.forEach(chip => {
     chip.addEventListener('click', () => {
@@ -44,6 +43,7 @@ function initPortfolioFilters() {
       chip.classList.add('active');
 
       const filter = chip.getAttribute('data-filter');
+      const cards = document.querySelectorAll('.p-card');
       cards.forEach(card => {
         const catTokens = (card.getAttribute('data-cat') || '').split(/\s+/);
         const team = card.getAttribute('data-team') || '';

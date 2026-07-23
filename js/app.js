@@ -139,8 +139,6 @@ function updateScrollProgress() {
 function initScrollSpy() {
   const sections = document.querySelectorAll('section[id]');
   const navLinks = document.querySelectorAll('.nav-links a');
-  const streamBtns = document.querySelectorAll('#stream-indicator button');
-
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
@@ -148,10 +146,6 @@ function initScrollSpy() {
         
         navLinks.forEach(link => {
           link.classList.toggle('active', link.getAttribute('href') === `#${id}`);
-        });
-
-        streamBtns.forEach(btn => {
-          btn.classList.toggle('active', btn.getAttribute('data-target') === id);
         });
 
         const dockItems = document.querySelectorAll('.mobile-app-dock .dock-item');
@@ -163,18 +157,6 @@ function initScrollSpy() {
   }, { threshold: 0.35 });
 
   sections.forEach(sec => observer.observe(sec));
-
-  streamBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      const targetId = btn.getAttribute('data-target');
-      const targetSec = document.getElementById(targetId);
-      if (targetSec) {
-        const navH = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--nav-h')) || 76;
-        const top = targetSec.getBoundingClientRect().top + window.scrollY - navH;
-        window.scrollTo({ top, behavior: 'smooth' });
-      }
-    });
-  });
 }
 
 /* --- Reveal on Scroll --- */

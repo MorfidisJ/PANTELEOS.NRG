@@ -12,6 +12,12 @@ document.addEventListener('DOMContentLoaded', () => {
   let animId;
   let time = 0;
 
+  let mainBlue = '#3330c9';
+  try {
+    const computed = getComputedStyle(document.documentElement).getPropertyValue('--main-blue').trim();
+    if (computed) mainBlue = computed;
+  } catch(e) {}
+
   // Configuration for fluid, floaty, rounded architectural aesthetic with neon power
   const GRID_SIZE = 55;
   const WARP_RADIUS = 160;
@@ -161,14 +167,16 @@ document.addEventListener('DOMContentLoaded', () => {
         // Clean architectural cyan dot without blurry AI-style glowing halos
         ctx.beginPath();
         ctx.arc(node.x, node.y, 1.4 + (1.2 * intensity), 0, Math.PI * 2);
-        ctx.fillStyle = '#00CED1';
+        ctx.fillStyle = mainBlue;
         ctx.fill();
       } else {
         // Normal subtle architectural dot
         ctx.beginPath();
         ctx.arc(node.x, node.y, 1.4, 0, Math.PI * 2);
-        ctx.fillStyle = 'rgba(22, 26, 34, 0.08)';
+        ctx.globalAlpha = 0.15;
+        ctx.fillStyle = mainBlue;
         ctx.fill();
+        ctx.globalAlpha = 1.0;
       }
     });
   }
