@@ -224,7 +224,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (spec === 3) specLabel = lang === 'el' ? 'Υπερ-Υψηλές Προδιαγραφές / Αρχιτεκτονικό Ορόσημο' : 'Ultra-High-Spec Mission Critical / Landmark';
 
     const container = document.createElement('div');
-    container.style.cssText = 'width: 700px; max-width: 100%; margin: 0 auto; background: #ffffff; color: #1e293b; font-family: "Outfit", "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; padding: 32px; box-sizing: border-box; line-height: 1.5; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility;';
+    container.style.cssText = 'width: 700px; max-width: 100%; margin: 0 auto; background: #ffffff; color: #1e293b; font-family: "Outfit", "Sansation", "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; padding: 32px; box-sizing: border-box; line-height: 1.5; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility;';
 
     if (lang === 'el') {
       container.innerHTML = `
